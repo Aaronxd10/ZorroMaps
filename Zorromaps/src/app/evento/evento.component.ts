@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-evento',
@@ -8,5 +9,12 @@ import { Component } from '@angular/core';
   styleUrl: './evento.component.css'
 })
 export class EventoComponent {
+
+  constructor(private router: Router) { }
+
+  iniciarSesion(): void {
+    // Redirige a la pantalla del mapa
+    this.router.navigate(['/mapa']);
+  }
 
 }

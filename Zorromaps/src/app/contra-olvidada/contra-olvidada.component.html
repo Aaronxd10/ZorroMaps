@@ -1,1 +1,22 @@
-<p>contra-olvidada works!</p>
+<div class="container">
+  <h2>Recuperar Contraseña</h2>
+  <form>
+    <div class="form-group">
+      <label for="numeroControl">Número de Control</label>
+      <input type="text" class="form-control" id="numeroControl" placeholder="Ingrese su número de control">
+    </div>
+    <button type="button" class="btn btn-primary" (click)="mostrarCuadro()">Encuentre Contraseña</button>
+  </form>
+
+  <!-- Cuadro de texto para mostrar el mensaje
+  <div class="cuadro-mensaje" *ngIf="mostrarMensaje">
+    <span class="cerrar" (click)="ocultarCuadro()">&times;</span>
+    <p>Se le ha enviado un correo electrónico para recuperar su contraseña.</p>
+  </div>-->
+  <div id="cuadroTerminos" class="cuadro-terminos" [ngClass]="{ 'mostrar': mostrarMensaje }">
+    <div class="contenido">
+      <span class="cerrar" (click)="ocultarCuadro()">&times;</span>
+      <p>Se le ha enviado un correo electrónico para recuperar su contraseña.</p>
+    </div>
+  </div>
+</div>
