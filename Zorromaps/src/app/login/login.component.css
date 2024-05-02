@@ -36,7 +36,7 @@ body {
   }
 }
 .left {
-  background: white;
+  background: rgb(255, 98, 0);
   height: calc(100% - 40px);
   top: 20px;
   position: relative;
@@ -56,7 +56,7 @@ body {
   margin: 50px 40px 40px;
 }
 .eula {
-  color: #999;
+  color: #fefefe;
   font-size: 14px;
   line-height: 1.5;
   margin: 40px;
@@ -89,7 +89,30 @@ path {
 .form {
   margin: 40px;
   position: absolute;
+  text-align: center; /* Centra el contenido horizontalmente */
 }
+
+.button-group {
+  display: flex;
+  justify-content: space-between; /* Distribuye los botones de manera uniforme horizontalmente */
+  margin-top: 20px; /* Espacio entre los botones y el contenido superior */
+}
+
+.btn {
+  flex: 1; /* Los botones ocupan todo el espacio disponible horizontalmente */
+  margin: 0 5px; /* Espacio entre los botones */
+}
+
+
+.btn:hover {
+  background-color: #0056b3;
+}
+
+.btn:active {
+  background-color: #0056b3;
+  color: #f8f9fa; /* Color del texto activo */
+}
+
 label {
   color:  #c2c2c5;
   display: block;
