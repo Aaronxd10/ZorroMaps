@@ -156,13 +156,6 @@ input {
 input::-moz-focus-inner { 
   border: 0; 
 }
-
-#submit:focus {
-  color: #f97a02;
-}
-#submit:active {
-  color: #d0d0d2;
-}
 .gradient-line {
   border: 0;
   height: 3px; /* Ajusta la altura de la línea según sea necesario */

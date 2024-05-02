@@ -2,20 +2,28 @@
   max-width: 500px;
   margin: 50px auto;
   padding: 30px;
-  background-color: #f0f0f0; /* Color de fondo gris claro */
+  background-color: #474A59; /* Color de fondo gris claro */
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
   margin-top: 150px;
 }
 
 h2 {
-  color: #333; /* Color de texto negro */
+  color: #ffffff; /* Color blanco */
   text-align: center;
+  font-weight: bold; /* Hace que el texto sea más grueso */
+  font-size: 2em; /* Tamaño de la fuente */
+  text-transform: uppercase; /* Convierte el texto en mayúsculas */
+  letter-spacing: 2px; /* Aumenta el espaciado entre letras */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Agrega una sombra al texto */
 }
+
 
 .form-group {
   margin-bottom: 20px;
+  color: white;
 }
+
 
 label {
   font-weight: bold;
@@ -26,6 +34,12 @@ label {
   padding: 10px;
   border: 1px solid #ccc; /* Borde del input */
   border-radius: 5px;
+}
+.form-control:hover {
+  box-shadow: 0 0 5px 2px #ff4c1b; /* Cambia el color del borde al hacer clic */
+}
+.form-control:active {
+  box-shadow: 0 0 5px 2px #0404ff; /* Cambia el color del borde al hacer clic */
 }
 
 .form-check-label a {
@@ -56,7 +70,7 @@ label {
 }
 
 h4 {
-  color: #333; /* Color de texto negro */
+  color: #333333; /* Color de texto negro */
 }
 
 p {
@@ -101,4 +115,18 @@ p {
 
 .mostrar {
   display: block;
+}
+
+.gradient-line {
+  border: 0;
+  height: 3px; /* Ajusta la altura de la línea según sea necesario */
+  background: linear-gradient(to right, #FF0000, #0000FF); /* Cambia los colores de gradiente según tu preferencia */
+  margin: 10px 0; /* Ajusta el margen según sea necesario */
+}
+
+input::placeholder {
+  color: #000000; /* Cambiar el color del placeholder a blanco */
+}
+.form-control::placeholder {
+  font-size: 12px; /* Tamaño de fuente más pequeño para el placeholder */
 }
