@@ -9,7 +9,10 @@ import { Router } from '@angular/router';
   styleUrl: './login.component.css'
 })
 export class LoginComponent {
-  constructor(private router: Router) { }
+  constructor(private router: Router) {
+    sessionStorage.clear();
+  }
+  result: any;
 
   olvideContrasena(): void {
     // Redirecciona a la página de restablecimiento de contraseña
