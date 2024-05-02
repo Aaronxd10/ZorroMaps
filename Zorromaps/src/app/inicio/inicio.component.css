@@ -44,9 +44,9 @@
   margin-top: 100px; /* Ajusta este valor según sea necesario */
 }
 
-
 .container {
-  margin-top: 150px; /* Ajusta este valor según sea necesario */
+  margin-top: 100px; /* Ajusta este valor según sea necesario */
+  margin-bottom: 0; /* Nuevo: Elimina el margen inferior */
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -69,4 +69,3 @@
 .box p {
   color: #666;
 }
-
