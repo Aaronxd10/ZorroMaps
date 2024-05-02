@@ -8,11 +8,21 @@ import { LoginComponent } from './login/login.component';
 import { MapaComponent } from './mapa/mapa.component';
 import { CommonModule } from '@angular/common';
 
+
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, ContraOlvidadaComponent, CrearCuentaComponent,EventoComponent,InicioComponent,
-    LoginComponent,MapaComponent,CommonModule],
+
+  imports: [
+    RouterOutlet, 
+    ContraOlvidadaComponent, 
+    CrearCuentaComponent,
+    EventoComponent,
+    InicioComponent,
+    LoginComponent,
+    MapaComponent,
+    CommonModule,],
+
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
