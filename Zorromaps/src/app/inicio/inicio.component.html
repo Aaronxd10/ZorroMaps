@@ -1,33 +1,34 @@
-
-<div class="header" id="header">
-  <p style="font-size: 24px; color: white; text-align: center;">¡Bienvenido a ZORROMAPS!</p>
-  <div class="button-group">
-    <button (click)="navegarLogin()" class="btn btn-primary mt-3">Iniciar Sesión</button>
-    <button (click)="navegarRegistrarse()" class="btn btn-primary mt-3">Registrarse</button>
-    <button (click)="navegarEvento()" class="btn btn-primary mt-3">Ver Evento</button>
-  </div>
-</div>
-
-<div class="container" style="background-color: #FF4F02; height: 100vh;">
-  <div class="container">
-    <div class="row d-flex justify-content-between">
-      <div class="col">
-        <button (click)="navegarLogin()" class="btn btn-primary mt-3 text-white" style="background-color: #043A6B;">Login</button>
-      </div>
-      <div class="col">
-        <button (click)="navegarRegistrarse()" class="btn btn-primary mt-3 text-white" style="background-color: #043A6B;">Registrase</button>
-      </div>
-      <div class="col">
-        <button (click)="navegarEvento()" class="btn btn-primary mt-3 text-white" style="background-color: #043A6B;">Evento</button>
-      </div>
-    </div>
-    <div class="row mt-3">
-      <div class="col">
-        <img class="foto" src="/Zorromaps/src/assets/img/LogoZorro_inicio.png" height="450 px." width="300 px">
-      </div>
+<body style="background-color: #FF4F02;">
+  <div class="header" id="header" style="background-color: #FF7B40;">
+    <p style="font-size: 24px; color: white; text-align: center;">¡Bienvenido a ZORROMAPS!</p>
+    <div class="button-group">
+      <button (click)="navegarLogin()" class="btn btn-primary mt-3">Iniciar Sesión</button>
+      <button (click)="navegarRegistrarse()" class="btn btn-primary mt-3">Registrarse</button>
+      <button (click)="navegarEvento()" class="btn btn-primary mt-3">Ver Evento</button>
     </div>
   </div>
-</div>
+  
+  <div class="container" style="background-color: #FF4F02; height: 100vh;">
+    <div class="container">
+      <div class="row d-flex justify-content-center">
+        <div class="col">
+          <button (click)="navegarLogin()" class="btn btn-primary mt-3 text-white" style="background-color: #043A6B;">Login</button>
+        </div>
+        <div class="col">
+          <button (click)="navegarRegistrarse()" class="btn btn-primary mt-3 text-white" style="background-color: #043A6B;">Registrase</button>
+        </div>
+        <div class="col">
+          <button (click)="navegarEvento()" class="btn btn-primary mt-3 text-white" style="background-color: #043A6B;">Evento</button>
+        </div>
+      </div>
+      <div class="row mt-3">
+        <div class="col">
+          <img class="foto" src="/assets/img/LogoZorro_inicio.png" height="650 px." width="600 px">
+        </div>
+      </div>
+    </div>
+  </div>  
+</body>
 
 
 
