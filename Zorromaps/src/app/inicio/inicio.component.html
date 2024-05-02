@@ -1,17 +1,63 @@
-<div class="container" style="background-color: #FF4F02; height: 100vh;">
-  
-  <p>Página de inicio</p>
+<div class="header" id="header">
+  <p style="font-size: 24px; color: white; text-align: center;">¡Bienvenido a ZORROMAPS!</p>
+  <div class="button-group">
+    <button (click)="navegarLogin()" class="btn btn-primary mt-3">Iniciar Sesión</button>
+    <button (click)="navegarRegistrarse()" class="btn btn-primary mt-3">Registrarse</button>
+    <button (click)="navegarEvento()" class="btn btn-primary mt-3">Ver Evento</button>
+  </div>
+</div>
+<div>
   <div class="container">
-    <div class="row d-flex justify-content-between">
-      <div class="col">
-        <button (click)="navegarLogin()" class="btn btn-primary mt-3">Login</button>
-      </div>
-      <div class="col">
-        <button (click)="navegarRegistrarse()" class="btn btn-primary mt-3">Registrase</button>
-      </div>
-      <div class="col">
-        <button (click)="navegarEvento()" class="btn btn-primary mt-3">Evento</button>
-      </div>
+    <div class="box">
+      <h2>Objetivos</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut libero auctor, commodo quam eget, commodo odio.</p>
+    </div>
+    <div class="box">
+      <h2>Quiénes Somos</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut libero auctor, commodo quam eget, commodo odio.</p>
+    </div>
+    <div class="box">
+      <h2>Equipo de Trabajo</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut libero auctor, commodo quam eget, commodo odio.</p>
     </div>
   </div>
   
+</div>
+
+<script>
+  window.addEventListener('scroll', function() {
+  var header = document.getElementById('header');
+  if (window.scrollY > 0) {
+    header.classList.add('scrolled');
+  } else {
+    header.classList.remove('scrolled');
+  }
+});
+
+</script>
+<script>
+  window.addEventListener('scroll', function() {
+  var header = document.getElementById('header');
+  if (window.scrollY > 0) {
+    header.classList.add('scrolled');
+  } else {
+    header.classList.remove('scrolled');
+  }
+});
+
+document.getElementById('loginBtn').addEventListener('click', function() {
+  this.style.backgroundColor = '#FFFFFF';
+  this.style.color = '#007bff';
+});
+
+document.getElementById('registroBtn').addEventListener('click', function() {
+  this.style.backgroundColor = '#FFFFFF';
+  this.style.color = '#007bff';
+});
+
+document.getElementById('eventoBtn').addEventListener('click', function() {
+  this.style.backgroundColor = '#FFFFFF';
+  this.style.color = '#007bff';
+});
+
+</script>

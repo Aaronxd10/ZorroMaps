@@ -1,49 +1,72 @@
-.container {
-  text-align: center;
-}
-
-p {
-  font-size: 24px;
-  color: #333; /* Color de texto negro */
-}
-
-.navbar-nav {
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #FF4F02;
+  padding: 20px 0;
+  transition: background-color 0.3s ease, padding 0.3s ease;
+  z-index: 1000;
   display: flex;
-  flex-direction: column; /* Los elementos se colocarán en columnas */
-  align-items: center; /* Centra los elementos horizontalmente */
-  list-style: none;
-  padding: 0;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.nav-item {
-  margin: 10px 0; /* Ajusta el margen para separar los elementos */
+.header.scrolled {
+  background-color: #FF7A59;
+  padding: 10px 0;
+}
+
+.button-group {
+  display: flex;
 }
 
 .btn {
-  color: #333; /* Color de texto negro */
-  background-color: #ffa500; /* Color naranja */
+  background-color: inherit;
+  color: white;
   border: none;
   padding: 10px 20px;
   border-radius: 5px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
-  margin-top: 10px; /* Añade un margen superior a los botones */
-}
-
-.nav-link {
-  color: #333; /* Color de texto negro */
-  text-decoration: none; /* Quita el subrayado de los enlaces */
-}
-
-.nav-link:hover {
-  color: #fff; /* Color de texto blanco */
-}
-
-.navbar-nav > *:not(:last-child) {
-  margin-bottom: 10px; /* Añade un margen inferior a todos los elementos excepto al último */
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .btn:hover {
-  background-color: #666; /* Color gris */
-  color: #fff; /* Color de texto blanco */
+  background-color: #007bff;
 }
+
+.btn:active {
+  background-color: #FFFFFF;
+  color: #007bff;
+}
+
+.content {
+  margin-top: 100px; /* Ajusta este valor según sea necesario */
+}
+
+
+.container {
+  margin-top: 150px; /* Ajusta este valor según sea necesario */
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 20px;
+}
+
+.box {
+  background-color: #f0f0f0;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  width: 30%;
+}
+
+.box h2 {
+  color: #333;
+}
+
+.box p {
+  color: #666;
+}
+
