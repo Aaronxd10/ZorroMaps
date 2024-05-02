@@ -1,0 +1,49 @@
+.container {
+  text-align: center;
+}
+
+p {
+  font-size: 24px;
+  color: #333; /* Color de texto negro */
+}
+
+.navbar-nav {
+  display: flex;
+  flex-direction: column; /* Los elementos se colocarán en columnas */
+  align-items: center; /* Centra los elementos horizontalmente */
+  list-style: none;
+  padding: 0;
+}
+
+.nav-item {
+  margin: 10px 0; /* Ajusta el margen para separar los elementos */
+}
+
+.btn {
+  color: #333; /* Color de texto negro */
+  background-color: #ffa500; /* Color naranja */
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 10px; /* Añade un margen superior a los botones */
+}
+
+.nav-link {
+  color: #333; /* Color de texto negro */
+  text-decoration: none; /* Quita el subrayado de los enlaces */
+}
+
+.nav-link:hover {
+  color: #fff; /* Color de texto blanco */
+}
+
+.navbar-nav > *:not(:last-child) {
+  margin-bottom: 10px; /* Añade un margen inferior a todos los elementos excepto al último */
+}
+
+.btn:hover {
+  background-color: #666; /* Color gris */
+  color: #fff; /* Color de texto blanco */
+}
