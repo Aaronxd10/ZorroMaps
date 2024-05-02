@@ -1,31 +1,62 @@
-<div class="container" style="background-color: #FF4F02; height: 100vh;">
-  
-  <p>Página de inicio</p>
+<div class="header" id="header">
+  <p style="font-size: 24px; color: white; text-align: center;">¡Bienvenido a ZORROMAPS!</p>
+  <div class="button-group">
+    <button (click)="navegarLogin()" class="btn btn-primary mt-3">Iniciar Sesión</button>
+    <button (click)="navegarRegistrarse()" class="btn btn-primary mt-3">Registrarse</button>
+    <button (click)="navegarEvento()" class="btn btn-primary mt-3">Ver Evento</button>
+  </div>
+</div>
+<div>
   <div class="container">
     <div class="row d-flex justify-content-between">
       <div class="col">
-        <button (click)="navegarLogin()" class="btn btn-primary mt-3 text-white" style="background-color: #043A6B;">Login</button>
+        <button (click)="navegarLogin()" class="btn btn-primary mt-3">Login</button>
       </div>
       <div class="col">
-        <button (click)="navegarRegistrarse()" class="btn btn-primary mt-3 text-white" style="background-color: #043A6B;">Registrase</button>
+        <button (click)="navegarRegistrarse()" class="btn btn-primary mt-3">Registrase</button>
       </div>
       <div class="col">
-        <button (click)="navegarEvento()" class="btn btn-primary mt-3 text-white" style="background-color: #043A6B;">Evento</button>
+        <button (click)="navegarEvento()" class="btn btn-primary mt-3">Evento</button>
       </div>
-      <div class="row mt-3"> 
-        <div class="col">
-          <img class="foto" src="./assets/img/LogoZorro_inicio.png" height="450 px" width="400 px">
-        </div>
-      <div class="row mt-3">
-        <div class="col">
-          <p class="just-me-again-down-here-regular">
-            Descubre, Conecta, Avanza: <br>
-            Nuestra App Universitaria, <br>
-            Tu Brujula en el Campus para un Viaje Académico Inolvidable.
-          </p>
-        </div>
-      </div>
-      </div>
-      
+    </div>
   </div>
   
+</div>
+
+<script>
+  window.addEventListener('scroll', function() {
+  var header = document.getElementById('header');
+  if (window.scrollY > 0) {
+    header.classList.add('scrolled');
+  } else {
+    header.classList.remove('scrolled');
+  }
+});
+
+</script>
+<script>
+  window.addEventListener('scroll', function() {
+  var header = document.getElementById('header');
+  if (window.scrollY > 0) {
+    header.classList.add('scrolled');
+  } else {
+    header.classList.remove('scrolled');
+  }
+});
+
+document.getElementById('loginBtn').addEventListener('click', function() {
+  this.style.backgroundColor = '#FFFFFF';
+  this.style.color = '#007bff';
+});
+
+document.getElementById('registroBtn').addEventListener('click', function() {
+  this.style.backgroundColor = '#FFFFFF';
+  this.style.color = '#007bff';
+});
+
+document.getElementById('eventoBtn').addEventListener('click', function() {
+  this.style.backgroundColor = '#FFFFFF';
+  this.style.color = '#007bff';
+});
+
+</script>
