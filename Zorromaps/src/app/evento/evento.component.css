@@ -125,6 +125,7 @@ path {
 .form {
   margin: 40px;
   position: absolute;
+  text-align: center; /* Centra el contenido horizontalmente */
 }
 label {
   color:  #c2c2c5;
