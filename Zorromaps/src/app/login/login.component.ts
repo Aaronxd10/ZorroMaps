@@ -10,12 +10,11 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent {
   constructor(private router: Router) {
-    sessionStorage.clear();
   }
-  result: any;
 
-  olvideContrasena(): void {
+  olvideContrasena(event:Event): void {
     // Redirecciona a la página de restablecimiento de contraseña
+    event.preventDefault(); // Detener la acción por defecto del enlace
     this.router.navigate(['/contra-olvidada']);
   }
   iniciarSesion(): void {

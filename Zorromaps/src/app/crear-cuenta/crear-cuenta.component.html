@@ -31,16 +31,19 @@
     </div>
     <div class="form-check">
       <input type="checkbox" class="form-check-input" id="terminosCondiciones">
-      <label class="form-check-label" for="terminosCondiciones"><a href="#" (click)="mostrarTerminos()">Acepto términos y condiciones</a></label>
+      <label class="form-check-label" for="terminosCondiciones">
+        <a href="#" (click)="mostrarTerminos($event)">Acepto términos y condiciones</a>
+      </label>
     </div>
     <button type="submit" class="btn btn-success mt-3">Registrar</button>
     <button type="button" class="btn btn-secondary mt-3" (click)="irALogin()">Ya tengo una cuenta</button>
-  </form>
-  <div id="cuadroTerminos" class="cuadro-terminos" [ngClass]="{ 'mostrar': mostrarTerminosCondiciones }">
-    <div class="contenido">
-      <span class="cerrar" (click)="toggleTerminos()">&times;</span>
-      <h4>Términos y Condiciones</h4>
-      <p>Aquí van los términos y condiciones...</p>
+    </form>
+
+    <div id="cuadroTerminos" class="cuadro-terminos" [ngClass]="{ 'mostrar': mostrarTerminosCondiciones }">
+      <div class="contenido">
+        <span class="cerrar" (click)="ocultarTerminos()">&times;</span>
+        <h4>Términos y Condiciones</h4>
+        <p>Aquí van los términos y condiciones...</p>
+      </div>
     </div>
-  </div>
 </div>

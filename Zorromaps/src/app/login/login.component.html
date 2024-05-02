@@ -34,7 +34,7 @@
         <input type="password" id="password" placeholder="Ingrese su contraseña">
         <input type="submit" id="submit" value="Submit">
         <div class="form-group form-check">
-          <a href="#" (click)="olvideContrasena()">¿Olvidaste tu contraseña?</a>
+            <a href="#" (click)="olvideContrasena($event)">¿Olvidaste tu contraseña?</a>
         </div>
         <button type="button" class="btn btn-primary mt-3" (click)="iniciarSesion()">Iniciar Sesión</button>
         <button type="button" class="btn btn-secondary mt-3" (click)="registrarse()">Registrarse</button>

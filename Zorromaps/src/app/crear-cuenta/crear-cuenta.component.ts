@@ -12,13 +12,14 @@ export class CrearCuentaComponent {
   mostrarTerminosCondiciones: boolean = false;
   constructor() { }
 
+  mostrarTerminos(event: MouseEvent): void {
+    event.preventDefault(); // Detener la navegación por defecto
+    this.mostrarTerminosCondiciones = true;
+  }
+  ocultarTerminos(): void {
+    this.mostrarTerminosCondiciones = false;
+  }
 
-  mostrarTerminos(): void {
-    this.mostrarTerminosCondiciones = !this.mostrarTerminosCondiciones;
-  }
-  toggleTerminos(): void {
-    this.mostrarTerminosCondiciones = !this.mostrarTerminosCondiciones;
-  }
 
   irALogin(): void {
     // Aquí puedes navegar al componente de inicio de sesión o a la ruta correspondiente

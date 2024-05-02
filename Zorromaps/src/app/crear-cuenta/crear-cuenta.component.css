@@ -88,10 +88,11 @@ p {
   float: right;
   font-size: 28px;
   font-weight: bold;
+  cursor: pointer;
 }
 
-.cerrar:hover,
-.cerrar:focus {
+/* Estilos para el botón de cerrar cuando se hoverea */
+.cerrar:hover {
   color: black;
   text-decoration: none;
   cursor: pointer;
