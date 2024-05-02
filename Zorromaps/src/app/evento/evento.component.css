@@ -20,6 +20,8 @@ body {
     height: auto;
     margin-bottom: 20px;
     padding-bottom: 20px;
+    margin-top: 500px;
+
   }
 }
 .container {
@@ -27,6 +29,8 @@ body {
   height: 320px;
   margin: 0 auto;
   width: 640px;
+  margin-top: 150px;
+
 }
 @media (max-width: 767px) {
   .container {
@@ -36,12 +40,14 @@ body {
   }
 }
 .left {
-  background: white;
+  background: rgb(255, 98, 0);
   height: calc(100% - 40px);
   top: 20px;
   position: relative;
   width: 50%;
+  text-align: center; /* Centra el contenido horizontalmente */
 }
+
 @media (max-width: 767px) {
   .left {
     height: 100%;
@@ -53,13 +59,20 @@ body {
 .login {
   font-size: 50px;
   font-weight: 900;
-  margin: 50px 40px 40px;
+  margin-top: 80px; /* Margen superior de 80px */
+  margin-right: auto; /* Margen derecho automático */
+  margin-bottom: 0; /* Sin margen inferior */
+  margin-left: auto; /* Margen izquierdo automático */
 }
+
 .eula {
-  color: #999;
+  color: #fefefe;
   font-size: 14px;
   line-height: 1.5;
-  margin: 40px;
+  margin-top: 40px; /* Margen superior de 40px */
+  margin-right: auto; /* Margen derecho automático */
+  margin-bottom: 0; /* Sin margen inferior */
+  margin-left: auto; /* Margen izquierdo automático */
 }
 .right {
   background: #474A59;
@@ -67,6 +80,7 @@ body {
   color: #F1F1F2;
   position: relative;
   width: 50%;
+  height: 400px;
 }
 @media (max-width: 767px) {
   .right {
@@ -86,6 +100,28 @@ path {
   stroke-width: 4;
   stroke-dasharray: 240 1386;
 }
+/* Estilos para los botones */
+.btn {
+  flex: 1;
+  display: inline-block; /* Cambiado a bloque para que estén uno encima del otro */
+  margin: 3px auto; /* Margen vertical reducido a 3px y centrado horizontalmente */
+  font-size: 14px;
+  padding: 5px 10px;
+  height: 50px;
+  color: white;
+  background-color: transparent;
+  border: none;
+}
+
+.btn:hover {
+  background-color: #fd7e14; /* Color de fondo naranja al pasar el cursor */
+  
+}
+.btn:active {
+  background-color: transparent;
+  color: white;
+}
+
 .form {
   margin: 40px;
   position: absolute;
@@ -111,14 +147,28 @@ input {
 input::-moz-focus-inner { 
   border: 0; 
 }
-#submit {
-  color: #707075;
-  margin-top: 40px;
-  transition: color 300ms;
-}
+
 #submit:focus {
   color: #f97a02;
 }
 #submit:active {
   color: #d0d0d2;
+}
+.gradient-line {
+  border: 0;
+  height: 1px;
+  background: linear-gradient(to right, #FF0000, #0000FF); /* Cambia los colores de gradiente según tu preferencia */
+  margin: 10px 0; /* Ajusta el margen según sea necesario */
+}
+.form-control::placeholder {
+  font-size: 12px; /* Tamaño de fuente más pequeño para el placeholder */
+}
+input::placeholder {
+  color: #ffffff; /* Cambiar el color del placeholder a blanco */
+}
+.gradient-line {
+  border: 0;
+  height: 3px; /* Ajusta la altura de la línea según sea necesario */
+  background: linear-gradient(to right, #FF0000, #0000FF); /* Cambia los colores de gradiente según tu preferencia */
+  margin: 10px 0; /* Ajusta el margen según sea necesario */
 }

@@ -20,14 +20,18 @@ body {
     height: auto;
     margin-bottom: 20px;
     padding-bottom: 20px;
+    margin-top: 500px;
   }
 }
 .container {
   display: flex;
   height: 320px;
-  margin: 0 auto;
+  margin: 80px auto 0; /* Agregar un margen superior de 80px y eliminar el margen superior automático */
   width: 640px;
+  margin-top: 150px;
+  text-align: center;
 }
+
 @media (max-width: 767px) {
   .container {
     flex-direction: column;
@@ -53,20 +57,29 @@ body {
 .login {
   font-size: 50px;
   font-weight: 900;
-  margin: 50px 40px 40px;
+  margin-top: 80px; /* Margen superior de 80px */
+  margin-right: auto; /* Margen derecho automático */
+  margin-bottom: 0; /* Sin margen inferior */
+  margin-left: auto; /* Margen izquierdo automático */
 }
+
 .eula {
   color: #fefefe;
   font-size: 14px;
   line-height: 1.5;
-  margin: 40px;
+  margin-top: 40px; /* Margen superior de 40px */
+  margin-right: auto; /* Margen derecho automático */
+  margin-bottom: 0; /* Sin margen inferior */
+  margin-left: auto; /* Margen izquierdo automático */
 }
+
 .right {
   background: #474A59;
   box-shadow: 0px 0px 40px 16px rgba(0,0,0,0.22);
   color: #F1F1F2;
   position: relative;
   width: 50%;
+  height: 400px;
 }
 @media (max-width: 767px) {
   .right {
@@ -92,34 +105,43 @@ path {
   text-align: center; /* Centra el contenido horizontalmente */
 }
 
-.button-group {
-  display: flex;
-  justify-content: space-between; /* Distribuye los botones de manera uniforme horizontalmente */
-  margin-top: 20px; /* Espacio entre los botones y el contenido superior */
+.button-container {
+  text-align: center; /* Centra los elementos horizontalmente */
 }
 
+/* Estilos para los botones */
 .btn {
-  flex: 1; /* Los botones ocupan todo el espacio disponible horizontalmente */
-  margin: 0 5px; /* Espacio entre los botones */
+  flex: 1;
+  display: inherit; /* Cambiado a bloque para que estén uno encima del otro */
+  margin: 3px auto; /* Margen vertical reducido a 3px y centrado horizontalmente */
+  font-size: 14px;
+  padding: 5px 10px;
+  height: 50px;
+  color: white;
+  background-color: transparent;
+  border: none;
 }
-
 
 .btn:hover {
-  background-color: #0056b3;
+  background-color: #fd7e14; /* Color de fondo naranja al pasar el cursor */
+  
 }
 
 .btn:active {
-  background-color: #0056b3;
-  color: #f8f9fa; /* Color del texto activo */
+  background-color: transparent;
+  color: white;
 }
 
 label {
   color:  #c2c2c5;
   display: block;
-  font-size: 14px;
+  font-size: 16px;
   height: 16px;
   margin-top: 20px;
   margin-bottom: 5px;
+}
+.form-control::placeholder {
+  font-size: 12px; /* Tamaño de fuente más pequeño para el placeholder */
 }
 input {
   background: transparent;
@@ -134,14 +156,20 @@ input {
 input::-moz-focus-inner { 
   border: 0; 
 }
-#submit {
-  color: #707075;
-  margin-top: 40px;
-  transition: color 300ms;
-}
+
 #submit:focus {
   color: #f97a02;
 }
 #submit:active {
   color: #d0d0d2;
+}
+.gradient-line {
+  border: 0;
+  height: 3px; /* Ajusta la altura de la línea según sea necesario */
+  background: linear-gradient(to right, #FF0000, #0000FF); /* Cambia los colores de gradiente según tu preferencia */
+  margin: 10px 0; /* Ajusta el margen según sea necesario */
+}
+
+input::placeholder {
+  color: #ffffff; /* Cambiar el color del placeholder a blanco */
 }
