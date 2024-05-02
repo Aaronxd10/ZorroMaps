@@ -1,0 +1,72 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #FF4F02;
+  padding: 20px 0;
+  transition: background-color 0.3s ease, padding 0.3s ease;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 100px;
+}
+
+.header.scrolled {
+  background-color: #FF7A59;
+  padding: 10px 0;
+}
+
+.button-group {
+  display: flex;
+}
+
+.btn {
+  background-color: inherit;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #007bff;
+}
+
+.btn:active {
+  background-color: #FFFFFF;
+  color: #007bff;
+}
+
+.content {
+  margin-top: 100px; /* Ajusta este valor según sea necesario */
+}
+
+.container {
+  margin-top: 100px; /* Ajusta este valor según sea necesario */
+  margin-bottom: 0; /* Nuevo: Elimina el margen inferior */
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 20px;
+}
+
+.box {
+  background-color: #f0f0f0;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  width: 30%;
+}
+
+.box h2 {
+  color: #333;
+}
+
+.box p {
+  color: #666;
+}

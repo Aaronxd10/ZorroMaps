@@ -14,4 +14,4 @@ export const routes: Routes = [
   {path: 'evento', component: EventoComponent},
   {path: 'contra-olvidada', component: ContraOlvidadaComponent},
   {path: 'mapa', component: MapaComponent},
-];
+  {path: '', redirectTo: '/inicio', pathMatch: 'full'}];

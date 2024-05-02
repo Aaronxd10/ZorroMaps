@@ -7,6 +7,7 @@ import { InicioComponent } from './inicio/inicio.component';
 import { LoginComponent } from './login/login.component';
 import { MapaComponent } from './mapa/mapa.component';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -14,8 +15,8 @@ import { CommonModule } from '@angular/common';
   standalone: true,
 
   imports: [
-    RouterOutlet, 
-    ContraOlvidadaComponent, 
+    RouterOutlet,
+    ContraOlvidadaComponent,
     CrearCuentaComponent,
     EventoComponent,
     InicioComponent,
@@ -27,5 +28,23 @@ import { CommonModule } from '@angular/common';
   styleUrl: './app.component.css',
 })
 export class AppComponent {
+  constructor(private router: Router) { }
+
   title = 'Zorromaps';
+  navegarInicio(){
+    this.router.navigate(['/inicio']);
+
+  }
+  navegarLogin(){
+    this.router.navigate(['/login']);
+  }
+  navegarRegistrarse(){
+    this.router.navigate(['/crear-cuenta']);
+  }
+  navegarEvento(){
+    this.router.navigate(['/evento']);
+  }
+  navegarMapa(){
+    this.router.navigate(['/mapa']);
+  }
 }
