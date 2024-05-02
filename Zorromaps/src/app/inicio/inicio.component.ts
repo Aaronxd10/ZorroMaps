@@ -19,4 +19,7 @@ export class InicioComponent {
   navegarEvento(){
     this.router.navigate(['/evento']);
   }
+  navegarMapa(){
+    this.router.navigate(['/mapa']);
+  }
   }

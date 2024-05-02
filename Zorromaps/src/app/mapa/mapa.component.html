@@ -1,1 +1,75 @@
-<p>mapa works!</p>
+<div class="container">
+  <!-- Título "Mapa" -->
+  <h1 class="display-4">MAPA</h1>
+
+  <!-- Barra de búsqueda -->
+  <div class="input-group mb-3">
+    <input type="text" class="form-control" placeholder="Buscar lugar">
+    <div class="input-group-append">
+      <button class="btn btn-primary" type="button">Buscar</button>
+    </div>
+  </div>
+
+  <!-- Menú de locaciones -->
+  <div class="btn-group btn-group-toggle" data-toggle="buttons">
+    <div class="locaciones-label">
+      <strong>Locaciones:</strong>
+    </div>
+    <label class="btn btn-secondary">
+      <input type="radio" name="options" id="salones"> Salones
+    </label>
+    <label class="btn btn-secondary">
+      <input type="radio" name="options" id="oficinas"> Oficinas
+    </label>
+    <label class="btn btn-secondary">
+      <input type="radio" name="options" id="salas"> Salas Audiovisuales
+    </label>
+    <label class="btn btn-secondary">
+      <input type="radio" name="options" id="auditorios"> Auditorios
+    </label>
+    <label class="btn btn-secondary">
+      <input type="radio" name="options" id="cafeterias"> Cafeterías
+    </label>
+    <label class="btn btn-secondary">
+      <input type="radio" name="options" id="baños"> Baños
+    </label>
+    <label class="btn btn-secondary">
+      <input type="radio" name="options" id="estacionamientos"> Estacionamientos
+    </label>
+    <!-- Agrega más opciones según sea necesario -->
+  </div>
+
+  <p>Yendo a :</p>
+
+
+  <!-- Mini mapa con Google Maps -->
+  <div class="container">
+    <div class="map-container">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1867.4244693581907!2d-100.40617250207772!3d20.594225744316923
+      !2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d35ad21d8e2209%3A0xbb8194bb8a5d8465!2sTecnol%C3%B3gico%20Nacional%20de%20
+      M%C3%A9xico%20Campus%20Quer%C3%A9taro!5e0!3m2!1ses-419!2smx!4v1714669736752!5m2!1ses-419!2smx"
+      width="800" height="600" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+  </div>
+
+
+  <!-- Cuadro de direcciones -->
+  <div class="card mt-3">
+    <div class="card-body">
+      <h4 class="card-title">Direcciones:</h4>
+      <div style="height: 200px; overflow-y: auto;">
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">Paso a seguir 1</li>
+          <li class="list-group-item">Paso a seguir 2</li>
+          <li class="list-group-item">Paso a seguir 3</li>
+          <li class="list-group-item">Paso a seguir 4</li>
+          <li class="list-group-item">Paso a seguir 5</li>
+          <li class="list-group-item">Paso a seguir 6</li>
+          <li class="list-group-item">Paso a seguir 7</li>
+          <!-- Agrega más pasos según sea necesario -->
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+

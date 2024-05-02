@@ -1,0 +1,96 @@
+/* Estilos para el título "Mapa" */
+.display-4 {
+  color: #000000; /* Naranja */
+  text-align: center;
+  margin-top: 50px; /* Mover el título un poco más abajo */
+  font-size: 36px; /* Aumentar el tamaño del texto */
+}
+
+/* Estilos para la barra de búsqueda */
+.input-group {
+  margin-top: 20px;
+  background-color: #ffa500; /* Naranja */
+  padding: 10px; /* Espaciado interno */
+  border-radius: 10px; /* Borde redondeado */
+}
+
+.input-group-text {
+  background-color: #333; /* Negro */
+  color: #fff; /* Blanco */
+  border: none;
+}
+
+.form-control {
+  border-color: #333; /* Negro */
+}
+.locaciones-label {
+  margin-right: 10px; /* Espacio entre la palabra "Locaciones" y los botones */
+  margin-top: 8px; /* Ajuste vertical */
+}
+
+/* Estilos para el menú de locaciones */
+.btn-group-toggle {
+  display: flex;
+  justify-content: center; /* Centrar los botones horizontalmente */
+  margin-top: 20px;
+}
+
+.btn-secondary {
+  background-color: #ffa500 !important; /* Naranja */
+  border-color: #ffa500 !important; /* Naranja */
+}
+
+.btn-secondary.active {
+  background-color: #ff8c00 !important; /* Naranja más oscuro */
+  border-color: #ff8c00 !important; /* Naranja más oscuro */
+}
+
+/* Estilos para el mapa */
+.map-container {
+  display: flex;
+  justify-content: center; /* Centrar horizontalmente */
+}
+
+.map-container iframe {
+  justify-content: center;
+  width: 800px;
+  height: 600px;
+  border: 0;
+}
+
+
+
+/* Estilos para el texto "Yendo a :" */
+p {
+  text-align: center;
+  margin-top: 20px;
+  color: #333; /* Negro */
+}
+/* Estilos para el cuadro de direcciones */
+.card {
+  background-color: #f49521;
+  margin-top: 20px;
+  border: 1px solid #333; /* Negro */
+  border-radius: 10px;
+  display: flex; /* Hacer que el contenedor sea un flexbox */
+  overflow-y: auto; /* Agregar desplazamiento vertical */
+  margin-left: 50px; /* Desplazamiento automático a la derecha */
+}
+
+.card-title {
+  display: flex; /* Hacer que el título sea un flexbox */
+  justify-content: center; /* Centrar elementos verticalmente */
+  align-items: center; /* Centrar verticalmente el texto */
+  color: #000000; /* Naranja */
+}
+
+.list-group-item {
+  background-color: #f5a747;
+  color: #333; /* Negro */
+  text-align: center; /* Centrar texto horizontalmente */
+}
+
+.list-group-item:hover {
+  background-color: #3684d1; /* Gris claro */
+}
+
