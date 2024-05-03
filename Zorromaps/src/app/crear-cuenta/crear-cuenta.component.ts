@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-crear-cuenta',
   standalone: true,
@@ -10,7 +10,7 @@ import { CommonModule } from '@angular/common';
 })
 export class CrearCuentaComponent {
   mostrarTerminosCondiciones: boolean = false;
-  constructor() { }
+  constructor(private router: Router) { }
 
   mostrarTerminos(event: MouseEvent): void {
     event.preventDefault(); // Detener la navegación por defecto
@@ -19,10 +19,13 @@ export class CrearCuentaComponent {
   ocultarTerminos(): void {
     this.mostrarTerminosCondiciones = false;
   }
-
-
+  registrarse(): void {
+    // Aquí puedes registrar al usuario
+    // Luego de registrar al usuario, puedes redirigirlo a la página de inicio
+    this.router.navigate(['/mapa']);
+  }
   irALogin(): void {
     // Aquí puedes navegar al componente de inicio de sesión o a la ruta correspondiente
-    console.log('Ir a la página de inicio de sesión');
+    this.router.navigate(['/login']);
   }
 }
