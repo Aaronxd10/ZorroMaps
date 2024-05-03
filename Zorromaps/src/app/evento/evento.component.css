@@ -40,7 +40,7 @@ body {
   }
 }
 .left {
-  background: rgb(255, 98, 0);
+  background: #474A59;
   height: calc(100% - 40px);
   top: 20px;
   position: relative;
@@ -63,6 +63,7 @@ body {
   margin-right: auto; /* Margen derecho automático */
   margin-bottom: 0; /* Sin margen inferior */
   margin-left: auto; /* Margen izquierdo automático */
+  color: white;
 }
 
 .eula {
@@ -75,7 +76,7 @@ body {
   margin-left: auto; /* Margen izquierdo automático */
 }
 .right {
-  background: #474A59;
+  background: rgb(255, 98, 0);
   box-shadow: 0px 0px 40px 16px rgba(0,0,0,0.22);
   color: #F1F1F2;
   position: relative;
@@ -103,25 +104,43 @@ path {
 /* Estilos para los botones */
 .btn {
   flex: 1;
-  display: inline-block; /* Cambiado a bloque para que estén uno encima del otro */
+  display: inherit; /* Cambiado a bloque para que estén uno encima del otro */
   margin: 3px auto; /* Margen vertical reducido a 3px y centrado horizontalmente */
   font-size: 14px;
   padding: 5px 10px;
   height: 50px;
   color: white;
   background-color: transparent;
-  border: none;
+  border: 2px solid transparent; /* Añade un borde transparente */
+  width: 100%; /* Ancho del espacio disponible */
+}
+
+.btn-primary {
+  border-color: #007bff; /* Color del borde naranja */
+  background-color: #fd7e14;
 }
 
 .btn:hover {
   background-color: #fd7e14; /* Color de fondo naranja al pasar el cursor */
-  
 }
+
+.btn-primary:hover {
+  background-color: #5fa8f7; /* Color de fondo naranja al pasar el cursor */
+}
+
 .btn:active {
   background-color: transparent;
   color: white;
 }
 
+.btn-primary:active {
+  background-color: #fd7e14; /* Color de fondo naranja al hacer clic */
+}
+
+.btn:active {
+  background-color: transparent;
+  color: white;
+}
 .form {
   margin: 40px;
   position: absolute;
@@ -158,7 +177,7 @@ input::-moz-focus-inner {
 .gradient-line {
   border: 0;
   height: 1px;
-  background: linear-gradient(to right, #FF0000, #0000FF); /* Cambia los colores de gradiente según tu preferencia */
+  background: linear-gradient(to right, #ff0000, #09ff00); /* Cambia los colores de gradiente según tu preferencia */
   margin: 10px 0; /* Ajusta el margen según sea necesario */
 }
 .form-control::placeholder {

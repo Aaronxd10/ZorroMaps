@@ -8,6 +8,16 @@
   border-radius: 5px;
   cursor: pointer;
   transition: all 0.3s ease;
+  flex: 1;
+  display: inherit; 
+  margin: 3px auto; /* Margen vertical reducido a 3px y centrado horizontalmente */
+  font-size: 14px;
+  padding: 5px 10px;
+  height: 50px;
+  color: white;
+  background-color: transparent;
+  border: 2px solid transparent; /* Añade un borde transparente */
+  width: 100%; /* Ancho del espacio disponible */
 }
 
 .btn-primary {
@@ -16,7 +26,7 @@
 }
 
 .btn-primary:hover {
-  background-color: #032f57;
+  background-color: #5fa8f7;
 }
 
 .btn-secondary {
@@ -25,7 +35,7 @@
 }
 
 .btn-secondary:hover {
-  background-color: #138496;
+  background-color: #5fa8f7;
 }
 .text-imagen {
   font-family: cursive; /* Tipografía cursiva */

@@ -1,9 +1,14 @@
 /* Estilos para el título "Mapa" */
 .display-4 {
-  color: #000000; /* Naranja */
-  text-align: center;
-  margin-top: 50px; /* Mover el título un poco más abajo */
-  font-size: 36px; /* Aumentar el tamaño del texto */
+  font-size: 3.5rem; /* Tamaño de fuente grande */
+  font-weight: bold; /* Negrita */
+  color: #007bff; /* Color azul */
+  text-align: center; /* Centrado horizontal */
+  text-transform: uppercase; /* Convertir texto a mayúsculas */
+  letter-spacing: 2px; /* Espaciado entre letras */
+  margin-bottom: 20px; /* Margen inferior */
+  margin-top: 150px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Agrega una sombra al texto */
 }
 
 /* Estilos para la barra de búsqueda */

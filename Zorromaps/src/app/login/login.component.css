@@ -21,17 +21,17 @@ body {
     margin-bottom: 20px;
     padding-bottom: 20px;
     margin-top: 500px;
+
   }
 }
 .container {
   display: flex;
   height: 320px;
-  margin: 80px auto 0; /* Agregar un margen superior de 80px y eliminar el margen superior automático */
+  margin: 0 auto;
   width: 640px;
   margin-top: 150px;
-  text-align: center;
-}
 
+}
 @media (max-width: 767px) {
   .container {
     flex-direction: column;
@@ -40,12 +40,14 @@ body {
   }
 }
 .left {
-  background: rgb(255, 98, 0);
+  background: #474A59;
   height: calc(100% - 40px);
   top: 20px;
   position: relative;
   width: 50%;
+  text-align: center; /* Centra el contenido horizontalmente */
 }
+
 @media (max-width: 767px) {
   .left {
     height: 100%;
@@ -61,6 +63,7 @@ body {
   margin-right: auto; /* Margen derecho automático */
   margin-bottom: 0; /* Sin margen inferior */
   margin-left: auto; /* Margen izquierdo automático */
+  color: white;
 }
 
 .eula {
@@ -72,9 +75,8 @@ body {
   margin-bottom: 0; /* Sin margen inferior */
   margin-left: auto; /* Margen izquierdo automático */
 }
-
 .right {
-  background: #474A59;
+  background: rgb(255, 98, 0);
   box-shadow: 0px 0px 40px 16px rgba(0,0,0,0.22);
   color: #F1F1F2;
   position: relative;
@@ -119,13 +121,45 @@ path {
   height: 50px;
   color: white;
   background-color: transparent;
-  border: none;
+  border: 2px solid transparent; /* Añade un borde transparente */
+  width: 100%; /* Ancho del espacio disponible */
+}
+
+.btn-primary {
+  border-color: #007bff; /* Color del borde naranja */
+  background-color: #fd7e14;
+}
+
+.btn-secondary {
+  border-color: #fd7e14; /* Color del borde azul */
+  background-color: #007bff;
 }
 
 .btn:hover {
   background-color: #fd7e14; /* Color de fondo naranja al pasar el cursor */
-  
 }
+
+.btn-primary:hover {
+  background-color: #5fa8f7; /* Color de fondo naranja al pasar el cursor */
+}
+
+.btn-secondary:hover {
+  background-color: #5fa8f7; /* Color de fondo azul al pasar el cursor */
+}
+
+.btn:active {
+  background-color: transparent;
+  color: white;
+}
+
+.btn-primary:active {
+  background-color: #fd7e14; /* Color de fondo naranja al hacer clic */
+}
+
+.btn-secondary:active {
+  background-color: #007bff; /* Color de fondo azul al hacer clic */
+}
+
 
 .btn:active {
   background-color: transparent;

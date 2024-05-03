@@ -46,22 +46,59 @@ label {
   color: #007bff; /* Enlace azul */
 }
 
+/* Estilos para los botones */
 .btn {
-  width: 100%;
-  padding: 10px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
+  flex: 1;
+  display: inherit; /* Cambiado a bloque para que estén uno encima del otro */
+  margin: 3px auto; /* Margen vertical reducido a 3px y centrado horizontalmente */
+  font-size: 14px;
+  padding: 5px 10px;
+  height: 50px;
+  color: white;
+  background-color: transparent;
+  border: 2px solid transparent; /* Añade un borde transparente */
+  width: 100%; /* Ancho del espacio disponible */
 }
 
 .btn-success {
-  background-color: #fd7e14; /* Naranja */
-  color: #fff; /* Texto blanco */
+  border-color: #007bff; /* Color del borde naranja */
+  background-color: #fd7e14;
 }
 
 .btn-secondary {
-  background-color: #007bff; /* Azul */
-  color: #fff; /* Texto blanco */
+  border-color: #fd7e14; /* Color del borde azul */
+  background-color: #007bff;
+}
+
+.btn:hover {
+  background-color: #fd7e14; /* Color de fondo naranja al pasar el cursor */
+}
+
+.btn-success:hover {
+  background-color: #5fa8f7; /* Color de fondo naranja al pasar el cursor */
+}
+
+.btn-secondary:hover {
+  background-color: #5fa8f7; /* Color de fondo azul al pasar el cursor */
+}
+
+.btn:active {
+  background-color: transparent;
+  color: white;
+}
+
+.btn-success:active {
+  background-color: #fd7e14; /* Color de fondo naranja al hacer clic */
+}
+
+.btn-secondary:active {
+  background-color: #007bff; /* Color de fondo azul al hacer clic */
+}
+
+
+.btn:active {
+  background-color: transparent;
+  color: white;
 }
 
 /* Estilos para los términos y condiciones */
