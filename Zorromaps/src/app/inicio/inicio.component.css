@@ -29,6 +29,7 @@
   background-color: #5fa8f7;
 }
 
+
 .btn-secondary {
   background-color: #17a2b8;
   color: #fff;
@@ -38,7 +39,7 @@
   background-color: #5fa8f7;
 }
 .text-imagen {
-  font-family: cursive; /* Tipografía cursiva */
-  font-size: 24px; /* Tamaño de fuente más grande */
+  font-family: 'MyFont' , sans-serif; /* Tipografía cursiva */
+  font-size: 65px; /* Tamaño de fuente más grande */
   color: rgb(8, 8, 8); /* Color de texto blanco */
 }
