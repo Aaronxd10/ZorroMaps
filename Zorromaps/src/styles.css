@@ -1,8 +1,23 @@
 /* You can add global styles to this file, and also import other style files */
 
 @font-face {
-    font-family: MyFont;
+    font-family: 'MyFontJust';
     src: url("./assets/fonts/JustMeAgainDownHere-Regular.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: 'MyFontRoboto';
+    src: url("./assets/fonts/RobotoSerif-VariableFont_GRAD\,opsz\,wdth\,wght.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: 'MyFontNunito';
+    src: url("./assets/fonts/NunitoSans-VariableFont_YTLC\,opsz\,wdth\,wght.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: 'MyFontMontagu';
+    src: url("./assets/fonts/MontaguSlab-VariableFont_opsz\,wght.ttf") format("truetype");
 }
 
 html, body { height: 100%; }

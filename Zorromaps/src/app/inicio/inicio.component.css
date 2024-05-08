@@ -1,5 +1,5 @@
 .btn {
-  font-family: Arial, sans-serif;
+  font-family: 'MyFontRoboto', sans-serif;
   font-size: 12px;
   font-weight: bold;
   text-transform: uppercase;
@@ -21,25 +21,29 @@
 }
 
 .btn-primary {
+  font-family: 'MyFontRoboto';
   background-color: #043a6b;
   color: #fff;
 }
 
 .btn-primary:hover {
+  font-family: 'MyFontRoboto';
   background-color: #5fa8f7;
 }
 
 
 .btn-secondary {
+  font-family: 'MyFontRoboto';
   background-color: #17a2b8;
   color: #fff;
 }
 
 .btn-secondary:hover {
+  font-family: 'MyFontRoboto';
   background-color: #5fa8f7;
 }
 .text-imagen {
-  font-family: 'MyFont' , sans-serif; /* Tipografía cursiva */
+  font-family: 'MyFontJust' , sans-serif; /* Tipografía cursiva */
   font-size: 65px; /* Tamaño de fuente más grande */
   color: rgb(8, 8, 8); /* Color de texto blanco */
 }
