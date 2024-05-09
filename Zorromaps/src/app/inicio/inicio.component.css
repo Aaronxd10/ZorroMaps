@@ -1,3 +1,6 @@
+html, body{
+  background-color: #ff4f02;
+}
 .btn {
   font-family: 'MyFontRoboto', sans-serif;
   font-size: 12px;
@@ -9,7 +12,7 @@
   cursor: pointer;
   transition: all 0.3s ease;
   flex: 1;
-  display: inherit; 
+  display: inherit;
   margin: 3px auto; /* Margen vertical reducido a 3px y centrado horizontalmente */
   font-size: 14px;
   padding: 5px 10px;

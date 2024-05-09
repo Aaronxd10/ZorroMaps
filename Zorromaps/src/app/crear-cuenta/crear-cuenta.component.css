@@ -1,49 +1,121 @@
+@import url('https://rsms.me/inter/inter-ui.css');
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap');
+
+::selection {
+  background: #2D2F36;
+}
+::-webkit-selection {
+  background: #2D2F36;
+}
+::-moz-selection {
+  background: #2D2F36;
+}
+body {
+  background: white;
+  font-family: 'Inter UI', sans-serif;
+  margin: 0;
+  padding: 20px;
+}
+
+@media (max-width: 767px) {
+  .page {
+    height: auto;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    margin-top: 500px;
+
+  }
+}
+.campo {
+color: black;
+}
 .container {
-  max-width: 500px;
-  margin: 50px auto;
-  padding: 30px;
-  background-color: #474A59; /* Color de fondo gris claro */
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  display: flex;
+  height: 320px;
+  margin: 0 auto;
+  width: 640px;
   margin-top: 150px;
+  justify-content: center; /* Alinea los elementos horizontalmente */
 }
 
-h2 {
-  color: #ffffff; /* Color blanco */
-  text-align: center;
-  font-weight: bold; /* Hace que el texto sea más grueso */
-  font-size: 2em; /* Tamaño de la fuente */
-  text-transform: uppercase; /* Convierte el texto en mayúsculas */
-  letter-spacing: 2px; /* Aumenta el espaciado entre letras */
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Agrega una sombra al texto */
+@media (max-width: 767px) {
+  .container {
+    flex-direction: column;
+    height: 630px;
+    width: 320px;
+  }
 }
-
-
-.form-group {
-  margin-bottom: 20px;
+.login {
+  font-family: 'Nunito', sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+  margin-top: 80px; /* Margen superior de 80px */
   color: white;
+  text-align: center;
 }
 
-
-label {
-  font-weight: bold;
+.left {
+  background: #474A59;
+  height: calc(100% - 40px);
+  top: 20px;
+  position: relative;
+  width: 50%;
+  text-align: center; /* Centra el contenido horizontalmente */
+  align-self: center; /* Alinea este elemento verticalmente */
 }
 
-.form-control {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #ccc; /* Borde del input */
-  border-radius: 5px;
-}
-.form-control:hover {
-  box-shadow: 0 0 5px 2px #ff4c1b; /* Cambia el color del borde al hacer clic */
-}
-.form-control:active {
-  box-shadow: 0 0 5px 2px #0404ff; /* Cambia el color del borde al hacer clic */
+@media (max-width: 767px) {
+  .left {
+    height: 100%;
+    left: 20px;
+    width: calc(100% - 40px);
+    max-height: 270px;
+  }
 }
 
-.form-check-label a {
-  color: #007bff; /* Enlace azul */
+.eula {
+  color: #fefefe;
+  font-size: 14px;
+  line-height: 1.5;
+  margin-top: 40px; /* Margen superior de 40px */
+  margin-right: auto; /* Margen derecho automático */
+  margin-bottom: 0; /* Sin margen inferior */
+  margin-left: auto; /* Margen izquierdo automático */
+}
+.right {
+  background: rgb(255, 98, 0);
+  box-shadow: 0px 0px 40px 16px rgba(0,0,0,0.22);
+  color: #F1F1F2;
+  position: relative;
+  width: 50%;
+  height: 820px;
+}
+@media (max-width: 767px) {
+  .right {
+    flex-shrink: 0;
+    height: 100%;
+    width: 100%;
+    max-height: 350px;
+  }
+}
+svg {
+  position: absolute;
+  width: 320px;
+}
+path {
+  fill: none;
+  stroke: url(#linearGradient);
+  stroke-width: 4;
+  stroke-dasharray: 240 1386;
+}
+.form {
+  margin: 40px;
+  position: absolute;
+  text-align: center; /* Centra el contenido horizontalmente */
+}
+
+.button-container {
+  text-align: center; /* Centra los elementos horizontalmente */
 }
 
 /* Estilos para los botones */
@@ -60,7 +132,7 @@ label {
   width: 100%; /* Ancho del espacio disponible */
 }
 
-.btn-success {
+.btn-primary {
   border-color: #007bff; /* Color del borde naranja */
   background-color: #fd7e14;
 }
@@ -74,7 +146,7 @@ label {
   background-color: #fd7e14; /* Color de fondo naranja al pasar el cursor */
 }
 
-.btn-success:hover {
+.btn-primary:hover {
   background-color: #5fa8f7; /* Color de fondo naranja al pasar el cursor */
 }
 
@@ -87,7 +159,7 @@ label {
   color: white;
 }
 
-.btn-success:active {
+.btn-primary:active {
   background-color: #fd7e14; /* Color de fondo naranja al hacer clic */
 }
 
@@ -101,6 +173,40 @@ label {
   color: white;
 }
 
+label {
+  color:  #ffffff;
+  display: block;
+  font-size: 16px;
+  height: 16px;
+  margin-top: 20px;
+  margin-bottom: 5px;
+}
+.form-control::placeholder {
+  font-size: 12px; /* Tamaño de fuente más pequeño para el placeholder */
+}
+input {
+  background: transparent;
+  border: 0;
+  color: #f2f2f2;
+  font-size: 20px;
+  height: 30px;
+  line-height: 30px;
+  outline: none !important;
+  width: 100%;
+}
+input::-moz-focus-inner { 
+  border: 0; 
+}
+.gradient-line {
+  border: 0;
+  height: 3px; /* Ajusta la altura de la línea según sea necesario */
+  background: linear-gradient(to right, #FF0000, #0000FF); /* Cambia los colores de gradiente según tu preferencia */
+  margin: 10px 0; /* Ajusta el margen según sea necesario */
+}
+
+input::placeholder {
+  color: #ffffff; /* Cambiar el color del placeholder a blanco */
+}
 /* Estilos para los términos y condiciones */
 .mt-3 {
   margin-top: 20px;
@@ -123,6 +229,7 @@ p {
   width: 100%;
   height: 100%;
   overflow: auto;
+  margin-bottom: 50px;
   background-color: rgba(0,0,0,0.4); /* Fondo oscuro semitransparente */
 }
 
@@ -159,11 +266,4 @@ p {
   height: 3px; /* Ajusta la altura de la línea según sea necesario */
   background: linear-gradient(to right, #FF0000, #0000FF); /* Cambia los colores de gradiente según tu preferencia */
   margin: 10px 0; /* Ajusta el margen según sea necesario */
-}
-
-input::placeholder {
-  color: #000000; /* Cambiar el color del placeholder a blanco */
-}
-.form-control::placeholder {
-  font-size: 12px; /* Tamaño de fuente más pequeño para el placeholder */
 }
