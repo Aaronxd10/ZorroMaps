@@ -17,7 +17,6 @@ import { Router } from '@angular/router';
   imports: [
     RouterOutlet,
     ContraOlvidadaComponent,
-    CrearCuentaComponent,
     EventoComponent,
     InicioComponent,
     LoginComponent,
