@@ -3,6 +3,7 @@ import { MaterialModule } from "../material.module";
 import { ReactiveFormsModule } from "@angular/forms";
 import { HttpClientModule } from "@angular/common/http";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { ToastrModule } from "ngx-toastr";
 
 
 imports: [
@@ -11,4 +12,5 @@ imports: [
     ReactiveFormsModule, 
     MaterialModule,
     HttpClientModule,
+    ToastrModule.forRoot(),
 ]
