@@ -194,8 +194,8 @@ input {
   outline: none !important;
   width: 100%;
 }
-input::-moz-focus-inner { 
-  border: 0; 
+input::-moz-focus-inner {
+  border: 0;
 }
 .gradient-line {
   border: 0;
