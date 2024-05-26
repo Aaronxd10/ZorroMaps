@@ -99,3 +99,6 @@ p {
   background-color: #3684d1; /* Gris claro */
 }
 
+.list-group-item {
+  cursor: pointer;
+}

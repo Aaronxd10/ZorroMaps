@@ -2,13 +2,24 @@
   <!-- Título "Mapa" -->
   <h1 class="display-4">MAPA</h1>
 
-  <!-- Barra de búsqueda -->
-  <div class="input-group mb-3">
-    <input type="text" class="form-control" placeholder="Buscar lugar">
-    <div class="input-group-append">
-      <button class="btn btn-primary" type="button">Buscar</button>
-    </div>
+ <!-- Barra de búsqueda -->
+ <div class="input-group mb-3">
+  <input type="text" class="form-control" placeholder="Buscar lugar" #busquedaInput (keyup)="buscarLugares($event)">
+  <div class="input-group-append">
+    <button class="btn btn-primary" type="button">Buscar</button>
   </div>
+</div>
+
+<div *ngIf="sugerencias.length > 0" class="sugerencias">
+  <ul class="list-group">
+    <li class="list-group-item" *ngFor="let sugerencia of sugerencias"
+     (click)="seleccionarSugerencia(sugerencia, busquedaInput)">{{ sugerencia }}</li>
+
+  </ul>
+</div>
+  
+  
+
 
   <!-- Menú de locaciones -->
   <div class="btn-group btn-group-toggle" data-toggle="buttons">

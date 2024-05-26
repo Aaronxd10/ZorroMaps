@@ -16,13 +16,14 @@ import { CustomerComponent } from './customer/customer.component';
 
 @NgModule({
   declarations: [
-    CrearCuentaComponent,
+    //CrearCuentaComponent,
     UserComponent,
     UpdatepopupComponent,
     CustomerComponent
   ],
   imports: [
     BrowserModule,
+    CrearCuentaComponent,
     BrowserAnimationsModule,
     ReactiveFormsModule,
     MaterialModule,
