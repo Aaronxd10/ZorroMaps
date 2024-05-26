@@ -13,10 +13,15 @@ import { ToastrModule } from 'ngx-toastr';
 import { UpdatepopupComponent } from './updatepopup/updatepopup.component';
 import { CrearCuentaComponent } from './crear-cuenta/crear-cuenta.component';
 import { CustomerComponent } from './customer/customer.component';
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { initializeApp } from "firebase/app";
+import { enviroment } from './environments/environment';
+
 
 @NgModule({
   declarations: [
-    //CrearCuentaComponent,
     UserComponent,
     UpdatepopupComponent,
     CustomerComponent
