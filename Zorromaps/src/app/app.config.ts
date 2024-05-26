@@ -3,7 +3,15 @@ import { provideRouter } from '@angular/router';
 
 import { routes } from './app.routes';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { FIREBASE_OPTIONS } from '@angular/fire/compat/firebase.app.module';
+import { environment } from './environments/environment';
 
 export const appConfig: ApplicationConfig = {
-  providers: [provideRouter(routes), provideAnimationsAsync(), provideAnimationsAsync()]
+  providers: [
+    { provide: FIREBASE_OPTIONS, useValue: environment.firebaseConfig},
+    provideRouter(routes), 
+    provideAnimationsAsync(),
+    
+  ]
+
 };
