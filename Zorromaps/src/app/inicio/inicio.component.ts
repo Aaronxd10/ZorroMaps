@@ -14,7 +14,7 @@ export class InicioComponent {
     this.router.navigate(['/login']);
   }
   navegarRegistrarse(){
-    this.router.navigate(['/registrarse']);
+    this.router.navigate(['/crear-cuenta']);
   }
   navegarEvento(){
     this.router.navigate(['/evento']);
