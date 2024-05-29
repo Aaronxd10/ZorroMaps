@@ -34,6 +34,7 @@ import { environment } from './environments/environment';
     AngularFireModule.initializeApp(environment.firebaseConfig), // Inicializa Firebase con la configuración
     AngularFireDatabaseModule, // Importa el módulo de base de datos
     AngularFirestoreModule,
+    
 
   ],
   providers: [],
