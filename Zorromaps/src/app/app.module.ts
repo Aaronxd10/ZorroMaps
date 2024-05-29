@@ -12,6 +12,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ToastrModule } from 'ngx-toastr';
 
 import { CrearCuentaComponent } from './crear-cuenta/crear-cuenta.component';
+import { MapComponent } from './map/map.component';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
@@ -25,6 +26,7 @@ import { environment } from './environments/environment';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     CrearCuentaComponent,
     BrowserAnimationsModule,
     ReactiveFormsModule,
@@ -34,7 +36,7 @@ import { environment } from './environments/environment';
     AngularFireModule.initializeApp(environment.firebaseConfig), // Inicializa Firebase con la configuración
     AngularFireDatabaseModule, // Importa el módulo de base de datos
     AngularFirestoreModule,
-
+    AppComponent,
   ],
   providers: [],
 })

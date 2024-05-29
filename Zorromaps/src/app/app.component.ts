@@ -25,7 +25,7 @@ import { FirestoreService } from './firestore.service';
     InicioComponent,
     LoginComponent,
     MapaComponent,
-    CommonModule
+    CommonModule,
   ],
 
   templateUrl: './app.component.html',
