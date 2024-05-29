@@ -8,14 +8,39 @@ import VectorSource from 'ol/source/Vector';
 import GeoJSON from 'ol/format/GeoJSON';
 import { fromLonLat } from 'ol/proj';
 import { HttpClient } from '@angular/common/http';
+import { CommonModule } from '@angular/common';  // Asegúrate de importar CommonModule
 
 @Component({
   selector: 'app-map',
+  standalone: true,
+  imports: [CommonModule],  // Incluye CommonModule en las importaciones
   templateUrl: './map.component.html',
-  styleUrls: ['./map.component.css']
+  styleUrl: './map.component.css'
 })
 export class MapComponent implements OnInit {
   private map!: Map;
+  sugerencias: any[] = [];  // Ejemplo de sugerencias
+
+  lugares = [
+    "Salones",
+    "Oficinas",
+    "Salas Audiovisuales",
+    "Auditorio",
+    "Cafetería",
+    "Baños",
+    "Estacionamientos"
+  ];
+  
+  buscarLugares(event: any){
+    const termino = (event.target as HTMLInputElement).value;
+    if(termino){
+      this.sugerencias = this.lugares.filter(lugar =>
+        lugar.toLowerCase().includes(termino.toLowerCase())
+      );
+    } else {
+      this.sugerencias = [];
+    }
+  }
 
   constructor(private http: HttpClient) {}
 
@@ -55,4 +80,10 @@ export class MapComponent implements OnInit {
       this.map.getView().fit(vectorSource.getExtent());
     });
   }
+
+  seleccionarSugerencia(sugerencia: string, input: HTMLInputElement) {
+    input.value = sugerencia;
+    this.sugerencias = [];
+  }
+  
 }

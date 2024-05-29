@@ -5,6 +5,7 @@ import { EventoComponent } from './evento/evento.component';
 import { InicioComponent } from './inicio/inicio.component';
 import { ContraOlvidadaComponent } from './contra-olvidada/contra-olvidada.component';
 import { MapaComponent } from './mapa/mapa.component';
+import { MapComponent } from './map/map.component';
 
 export const routes: Routes = [
 
@@ -14,4 +15,5 @@ export const routes: Routes = [
   {path: 'evento', component: EventoComponent},
   {path: 'contra-olvidada', component: ContraOlvidadaComponent},
   {path: 'mapa', component: MapaComponent},
+  {path: 'map', component: MapComponent},
   {path: '', redirectTo: '/inicio', pathMatch: 'full'}];

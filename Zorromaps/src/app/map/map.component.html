@@ -1,1 +1,10 @@
-<div id="map" class="map"></div>
+<div class="container">
+    <input #searchInput type="text" (input)="buscarLugares($event)" placeholder="Buscar lugares...">
+    <ul *ngIf="sugerencias.length > 0" class="sugerencias">
+      <li *ngFor="let sugerencia of sugerencias" (click)="seleccionarSugerencia(sugerencia, searchInput)">
+        {{ sugerencia }}
+      </li>
+    </ul>
+    <div id="map" class="map"></div>
+  </div>
+  

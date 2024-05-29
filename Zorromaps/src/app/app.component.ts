@@ -11,6 +11,8 @@ import { Router } from '@angular/router';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { FirestoreService } from './firestore.service';
+import { MapComponent } from './map/map.component';
+
 
 
 @Component({
@@ -26,6 +28,7 @@ import { FirestoreService } from './firestore.service';
     LoginComponent,
     MapaComponent,
     CommonModule,
+    MapComponent
   ],
 
   templateUrl: './app.component.html',
@@ -50,6 +53,9 @@ export class AppComponent {
   }
   navegarMapa(){
     this.router.navigate(['/mapa']);
+  }
+  navegarMap(){
+    this.router.navigate(['/map']);
   }
 
   addNewDocument() {
