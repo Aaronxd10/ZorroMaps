@@ -9,30 +9,19 @@ import VectorSource from 'ol/source/Vector';
 import GeoJSON from 'ol/format/GeoJSON';
 import { Style, Stroke, Fill, Circle as CircleStyle } from 'ol/style';
 import { CommonModule } from '@angular/common';
-<<<<<<< HEAD
-import OLCesium from 'olcs/OLCesium';
+import * as OLCesium from 'olcs/OLCesium';
 import * as Cesium from 'cesium'; // Import Cesium
-=======
-
->>>>>>> parent of a2e69d3 (Implementacion del modelo 3d)
 
 @Component({
   selector: 'app-map',
   standalone: true,
   templateUrl: './map.component.html',
-  styleUrl: './map.component.css',
-
-  imports: [
-    CommonModule
-  ],
+  styleUrls: ['./map.component.css'],
+  imports: [CommonModule],
 })
 export class MapComponent implements AfterViewInit {
-<<<<<<< HEAD
   map!: Map;
-  ol3d: any;
-=======
-  map!: Map;  // Utiliza el operador '!' para indicar que se inicializará más tarde
->>>>>>> parent of a2e69d3 (Implementacion del modelo 3d)
+  ol3d!: OLCesium;
   sugerencias: string[] = [];
 
   lugares = [
@@ -45,9 +34,9 @@ export class MapComponent implements AfterViewInit {
     "Estacionamientos"
   ];
 
-  buscarLugares(event: any){
+  buscarLugares(event: any) {
     const termino = (event.target as HTMLInputElement).value;
-    if(termino){
+    if (termino) {
       this.sugerencias = this.lugares.filter(lugar =>
         lugar.toLowerCase().includes(termino.toLowerCase())
       );
@@ -60,10 +49,10 @@ export class MapComponent implements AfterViewInit {
     input.value = sugerencia;
     this.sugerencias = [];
   }
-  
+
   constructor(private http: HttpClient) {}
 
-  ngAfterViewInit(): void {
+  async ngAfterViewInit(): Promise<void> {
     this.map = new Map({
       target: 'map',
       layers: [
@@ -92,6 +81,19 @@ export class MapComponent implements AfterViewInit {
       this.map.addLayer(vectorLayer);
       this.map.getView().fit(vectorSource.getExtent());
     });
+
+    // Initialize OLCesium
+    this.ol3d = new OLCesium({ map: this.map });
+    const scene = this.ol3d.getCesiumScene();
+    scene.terrainProvider = await Cesium.createWorldTerrainAsync();
+    this.ol3d.setEnabled(true);
+  }
+
+  setView(lat: number, lng: number, zoom: number): void {
+    this.map.setView(new View({
+      center: [lng, lat],
+      zoom: zoom
+    }));
   }
 
   styleFunction(feature: any) {

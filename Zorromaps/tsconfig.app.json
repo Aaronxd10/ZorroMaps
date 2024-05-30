@@ -1,8 +1,5 @@
-/* To learn more about this file see: https://angular.io/config/tsconfig. */
 {
-  "extends": "./tsconfig.json",
   "compilerOptions": {
-<<<<<<< HEAD
     "outDir": "./dist/out-tsc",
     "strict": true,
     "noImplicitOverride": true,
@@ -24,25 +21,14 @@
       "dom"
     ],
     "types": [
-      "jest",
-    ],
-    "typeRoots": ["node_modules/@types", "./typings"],
-    },
+      "cesium",
+      "ol-cesium"
+    ]
+  },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
     "strictInjectionParameters": true,
     "strictInputAccessModifiers": true,
     "strictTemplates": true
   }
-=======
-    "outDir": "./out-tsc/app",
-    "types": []
-  },
-  "files": [
-    "src/main.ts"
-  ],
-  "include": [
-    "src/**/*.d.ts"
-  ]
->>>>>>> parent of a2e69d3 (Implementacion del modelo 3d)
 }
