@@ -1,25 +1,28 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, AfterViewInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 import Map from 'ol/Map';
 import View from 'ol/View';
 import TileLayer from 'ol/layer/Tile';
 import OSM from 'ol/source/OSM';
-import VectorLayer from 'ol/layer/Vector';
+import { Vector as VectorLayer } from 'ol/layer';
 import VectorSource from 'ol/source/Vector';
 import GeoJSON from 'ol/format/GeoJSON';
-import { fromLonLat } from 'ol/proj';
-import { HttpClient } from '@angular/common/http';
-import { CommonModule } from '@angular/common';  // Asegúrate de importar CommonModule
+import { Style, Stroke, Fill, Circle as CircleStyle } from 'ol/style';
+import { CommonModule } from '@angular/common';
+import OLCesium from 'olcs/OLCesium';
+import * as Cesium from 'cesium'; // Import Cesium
 
 @Component({
   selector: 'app-map',
   standalone: true,
-  imports: [CommonModule],  // Incluye CommonModule en las importaciones
   templateUrl: './map.component.html',
-  styleUrl: './map.component.css'
+  styleUrls: ['./map.component.css'],
+  imports: [CommonModule],
 })
-export class MapComponent implements OnInit {
-  private map!: Map;
-  sugerencias: any[] = [];  // Ejemplo de sugerencias
+export class MapComponent implements AfterViewInit {
+  map!: Map;
+  ol3d: any;
+  sugerencias: string[] = [];
 
   lugares = [
     "Salones",
@@ -30,10 +33,10 @@ export class MapComponent implements OnInit {
     "Baños",
     "Estacionamientos"
   ];
-  
-  buscarLugares(event: any){
+
+  buscarLugares(event: any) {
     const termino = (event.target as HTMLInputElement).value;
-    if(termino){
+    if (termino) {
       this.sugerencias = this.lugares.filter(lugar =>
         lugar.toLowerCase().includes(termino.toLowerCase())
       );
@@ -42,14 +45,14 @@ export class MapComponent implements OnInit {
     }
   }
 
-  constructor(private http: HttpClient) {}
-
-  ngOnInit(): void {
-    this.initMap();
-    this.loadGeoJSON();
+  seleccionarSugerencia(sugerencia: string, input: HTMLInputElement) {
+    input.value = sugerencia;
+    this.sugerencias = [];
   }
 
-  private initMap(): void {
+  constructor(private http: HttpClient) {}
+
+  async ngAfterViewInit(): Promise<void> {
     this.map = new Map({
       target: 'map',
       layers: [
@@ -58,13 +61,11 @@ export class MapComponent implements OnInit {
         })
       ],
       view: new View({
-        center: fromLonLat([0, 0]),
+        center: [0, 0],
         zoom: 2
       })
     });
-  }
 
-  private loadGeoJSON(): void {
     this.http.get('assets/data/map.geojson').subscribe((geojson: any) => {
       const vectorSource = new VectorSource({
         features: new GeoJSON().readFeatures(geojson, {
@@ -73,17 +74,61 @@ export class MapComponent implements OnInit {
       });
 
       const vectorLayer = new VectorLayer({
-        source: vectorSource
+        source: vectorSource,
+        style: this.styleFunction
       });
 
       this.map.addLayer(vectorLayer);
       this.map.getView().fit(vectorSource.getExtent());
     });
+
+    // Initialize OLCesium
+    this.ol3d = new OLCesium({ map: this.map });
+    const scene = this.ol3d.getCesiumScene();
+    scene.terrainProvider = await Cesium.createWorldTerrainAsync();
+    this.ol3d.setEnabled(true);
   }
 
-  seleccionarSugerencia(sugerencia: string, input: HTMLInputElement) {
-    input.value = sugerencia;
-    this.sugerencias = [];
+  setView(lat: number, lng: number, zoom: number): void {
+    this.map.setView(new View({
+      center: [lng, lat],
+      zoom: zoom
+    }));
   }
-  
+
+  styleFunction(feature: any) {
+    const geometryType = feature.getGeometry().getType();
+    let style;
+    switch (geometryType) {
+      case 'Point':
+        style = new Style({
+          image: new CircleStyle({
+            radius: 5,
+            fill: new Fill({ color: 'red' }),
+            stroke: new Stroke({ color: 'black', width: 1 })
+          })
+        });
+        break;
+      case 'LineString':
+        style = new Style({
+          stroke: new Stroke({
+            color: 'blue',
+            width: 3
+          })
+        });
+        break;
+      case 'Polygon':
+        style = new Style({
+          stroke: new Stroke({
+            color: 'green',
+            width: 3
+          }),
+          fill: new Fill({
+            color: 'rgba(0, 255, 0, 0.1)'
+          })
+        });
+        break;
+    }
+    return style;
+  }
 }
