@@ -4,7 +4,8 @@
       {
         "type": "Feature",
         "properties": {
-          "H,G": "Salones"
+          "Edificio": "",
+          "Departamentos Administrativos": ""
         },
         "geometry": {
           "coordinates": [
@@ -17,20 +18,26 @@
       },
       {
         "type": "Feature",
-        "properties": {},
+        "properties": {
+          "Departamentos Administrativos": ""
+        },
         "geometry": {
           "coordinates": [
             [
-              20.595481, -100.406930
+              20.595481,
+              -100.40693
             ],
             [
-              20.592409, -100.405606
+              20.592409,
+              -100.405606
             ],
             [
-              20.593269, -100.403545
+              20.593269,
+              -100.403545
             ],
             [
-              20.595716, -100.404498
+              20.595716,
+              -100.404498
             ]
           ],
           "type": "LineString"
@@ -111,34 +118,45 @@
       },
       {
         "type": "Feature",
-        "properties": {},
+        "properties": {
+          "Edificio": "E"
+        },
         "geometry": {
           "coordinates": [
-            [
-              [
-                -100.40697427883828,
-                20.59552583510049
-              ],
-              [
-                -100.40562076190395,
-                20.59243373296873
-              ],
-              [
-                -100.40353221084203,
-                20.59326772796898
-              ],
-              [
-                -100.40450001995795,
-                20.59575852650442
-              ],
-              [
-                -100.40697427883828,
-                20.59552583510049
-              ]
-            ]
+            -100.40447769027013,
+            20.593738369809856
           ],
-          "type": "Polygon"
-        }
+          "type": "Point"
+        },
+        "id": 5
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "Edificio": "F"
+        },
+        "geometry": {
+          "coordinates": [
+            -100.4048095281929,
+            20.5938462028454
+          ],
+          "type": "Point"
+        },
+        "id": 6
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "Departamentos Administrativos": "a,b,c,d,e,f"
+        },
+        "geometry": {
+          "coordinates": [
+            -100.40549006198867,
+            20.59362015385281
+          ],
+          "type": "Point"
+        },
+        "id": 7
       }
     ]
   }
