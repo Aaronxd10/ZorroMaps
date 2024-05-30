@@ -10,6 +10,7 @@ import GeoJSON from 'ol/format/GeoJSON';
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> parent of cc98237 (Antes de que no se vea el mapa)
 import { Style, Stroke, Fill, Circle as CircleStyle } from 'ol/style';
@@ -34,12 +35,18 @@ import { CommonModule } from '@angular/common';  // Asegúrate de importar Commo
 >>>>>>> parent of 919a405 (Mapa visible 2D)
 =======
 >>>>>>> parent of cc98237 (Antes de que no se vea el mapa)
+=======
+import { fromLonLat } from 'ol/proj';
+import { HttpClient } from '@angular/common/http';
+import { CommonModule } from '@angular/common';  // Asegúrate de importar CommonModule
+>>>>>>> parent of 919a405 (Mapa visible 2D)
 
 @Component({
   selector: 'app-map',
   standalone: true,
   imports: [CommonModule],  // Incluye CommonModule en las importaciones
   templateUrl: './map.component.html',
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -77,6 +84,13 @@ export class MapComponent implements OnInit {
 >>>>>>> parent of 919a405 (Mapa visible 2D)
 =======
 >>>>>>> parent of cc98237 (Antes de que no se vea el mapa)
+=======
+  styleUrl: './map.component.css'
+})
+export class MapComponent implements OnInit {
+  private map!: Map;
+  sugerencias: any[] = [];  // Ejemplo de sugerencias
+>>>>>>> parent of 919a405 (Mapa visible 2D)
 
   lugares = [
     "Salones",
@@ -87,6 +101,7 @@ export class MapComponent implements OnInit {
     "Baños",
     "Estacionamientos"
   ];
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -103,6 +118,8 @@ export class MapComponent implements OnInit {
   buscarLugares(event: any) {
 =======
 >>>>>>> parent of cc98237 (Antes de que no se vea el mapa)
+=======
+>>>>>>> parent of 919a405 (Mapa visible 2D)
   
   buscarLugares(event: any){
 >>>>>>> parent of 919a405 (Mapa visible 2D)
@@ -116,6 +133,7 @@ export class MapComponent implements OnInit {
     }
   }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -144,6 +162,10 @@ export class MapComponent implements OnInit {
 >>>>>>> parent of 919a405 (Mapa visible 2D)
 =======
 >>>>>>> parent of cc98237 (Antes de que no se vea el mapa)
+=======
+  constructor(private http: HttpClient) {}
+
+>>>>>>> parent of 919a405 (Mapa visible 2D)
   ngOnInit(): void {
     this.initMap();
     this.loadGeoJSON();
@@ -153,12 +175,15 @@ export class MapComponent implements OnInit {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> parent of 919a405 (Mapa visible 2D)
 =======
 >>>>>>> parent of 919a405 (Mapa visible 2D)
 =======
 =======
 >>>>>>> parent of cc98237 (Antes de que no se vea el mapa)
+>>>>>>> parent of 919a405 (Mapa visible 2D)
+=======
 >>>>>>> parent of 919a405 (Mapa visible 2D)
     this.map = new Map({
       target: 'map',
@@ -200,6 +225,7 @@ export class MapComponent implements OnInit {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> parent of cc98237 (Antes de que no se vea el mapa)
   setView(lat: number, lng: number, zoom: number): void {
@@ -228,5 +254,11 @@ export class MapComponent implements OnInit {
 >>>>>>> parent of 919a405 (Mapa visible 2D)
 =======
 >>>>>>> parent of cc98237 (Antes de que no se vea el mapa)
+=======
+  seleccionarSugerencia(sugerencia: string, input: HTMLInputElement) {
+    input.value = sugerencia;
+    this.sugerencias = [];
+  }
+>>>>>>> parent of 919a405 (Mapa visible 2D)
   
 }
