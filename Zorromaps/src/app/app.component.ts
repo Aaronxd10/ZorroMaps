@@ -12,6 +12,7 @@ import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { FirestoreService } from './firestore.service';
 import { MapComponent } from './map/map.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -28,6 +29,7 @@ import { MapComponent } from './map/map.component';
     LoginComponent,
     MapaComponent,
     CommonModule,
+    HttpClientModule,
     MapComponent
   ],
 
