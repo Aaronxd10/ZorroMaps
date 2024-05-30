@@ -1,4 +1,10 @@
+/* styles.css */
+.logo {
+  width: 100px;  /* Ajusta a la dimensión deseada */
+  height: auto;
+}
+
 .map {
   width: 100%;
-  height: 500px;
+  height: 400px;  /* Ajusta la altura según sea necesario */
 }
