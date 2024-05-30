@@ -1,4 +1,5 @@
 <div class="container">
+<<<<<<< HEAD
   <input #searchInput type="text" (input)="buscarLugares($event)" placeholder="Buscar lugares..." id="searchInput">
   <ul *ngIf="sugerencias.length > 0" class="sugerencias">
     <li *ngFor="let sugerencia of sugerencias" (click)="seleccionarSugerencia(sugerencia, searchInput)">
@@ -6,4 +7,13 @@
     </li>
   </ul>
   <div id="map" class="map"></div>
+=======
+    <input #searchInput id="searchInput" type="text" (input)="buscarLugares($event)" placeholder="Buscar lugares...">
+    <ul *ngIf="sugerencias.length > 0" class="sugerencias">
+      <li *ngFor="let sugerencia of sugerencias" (click)="seleccionarSugerencia(sugerencia, searchInput)">
+        {{ sugerencia }}
+      </li>
+    </ul>
+    <div id="map" class="map"></div>
+>>>>>>> parent of 919a405 (Mapa visible 2D)
 </div>
