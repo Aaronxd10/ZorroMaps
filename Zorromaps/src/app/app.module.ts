@@ -16,10 +16,12 @@ import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { environment } from './environments/environment';
+import { CommonModule } from '@angular/common';
 
 
 @NgModule({
   declarations: [
+    
   ],
   imports: [
     LoginComponent,
@@ -31,6 +33,7 @@ import { environment } from './environments/environment';
     BrowserAnimationsModule,
     ReactiveFormsModule,
     MaterialModule,
+    CommonModule,   
     ToastrModule.forRoot(),
     AngularFireModule.initializeApp(environment.firebaseConfig), // Inicializa Firebase con la configuración
     AngularFireDatabaseModule, // Importa el módulo de base de datos

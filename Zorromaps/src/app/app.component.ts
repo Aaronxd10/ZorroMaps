@@ -19,7 +19,9 @@ import { HttpClientModule } from '@angular/common/http';
 @Component({
   selector: 'app-root',
   standalone: true,
-
+  templateUrl: './app.component.html',
+  styleUrl: './app.component.css',
+  
   imports: [
     RouterOutlet,
     ContraOlvidadaComponent,
@@ -33,8 +35,7 @@ import { HttpClientModule } from '@angular/common/http';
     MapComponent
   ],
 
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.css',
+  
 })
 export class AppComponent {
   constructor(private firestore: AngularFirestore, private router: Router, private firestoreService: FirestoreService) {}

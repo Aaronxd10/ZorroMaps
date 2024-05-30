@@ -1,40 +1,10 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
->>>>>>> parent of 919a405 (Mapa visible 2D)
-=======
->>>>>>> parent of 919a405 (Mapa visible 2D)
-=======
-=======
->>>>>>> parent of cc98237 (Antes de que no se vea el mapa)
-=======
->>>>>>> parent of 919a405 (Mapa visible 2D)
-/* styles.css */
-.logo {
-  width: 100px;  /* Ajusta a la dimensión deseada */
-  height: auto;
+.container {
+  position: relative;
+  width: 100%;
+  height: 100%;
 }
 
->>>>>>> parent of 919a405 (Mapa visible 2D)
 .map {
   width: 100%;
-  height: 400px;
-}
-
-.sugerencias {
-  list-style-type: none;
-  padding: 0;
-}
-
-.sugerencias li {
-  cursor: pointer;
-  padding: 5px;
-}
-
-.sugerencias li:hover {
-  background-color: #ddd;
+  height: 400px;  /* Ajusta la altura según sea necesario */
 }

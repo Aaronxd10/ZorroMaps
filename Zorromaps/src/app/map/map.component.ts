@@ -1,96 +1,29 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, AfterViewInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 import Map from 'ol/Map';
 import View from 'ol/View';
 import TileLayer from 'ol/layer/Tile';
 import OSM from 'ol/source/OSM';
-import VectorLayer from 'ol/layer/Vector';
+import { Vector as VectorLayer } from 'ol/layer';
 import VectorSource from 'ol/source/Vector';
 import GeoJSON from 'ol/format/GeoJSON';
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> parent of cc98237 (Antes de que no se vea el mapa)
 import { Style, Stroke, Fill, Circle as CircleStyle } from 'ol/style';
 import { CommonModule } from '@angular/common';
-import * as OLCesium from 'olcs/OLCesium';
-import * as Cesium from 'cesium'; // Import Cesium
-=======
-import { fromLonLat } from 'ol/proj';
-import { HttpClient } from '@angular/common/http';
-import { CommonModule } from '@angular/common';  // Asegúrate de importar CommonModule
->>>>>>> parent of 919a405 (Mapa visible 2D)
-<<<<<<< HEAD
-=======
-import { fromLonLat } from 'ol/proj';
-import { HttpClient } from '@angular/common/http';
-import { CommonModule } from '@angular/common';  // Asegúrate de importar CommonModule
->>>>>>> parent of 919a405 (Mapa visible 2D)
-=======
-import { fromLonLat } from 'ol/proj';
-import { HttpClient } from '@angular/common/http';
-import { CommonModule } from '@angular/common';  // Asegúrate de importar CommonModule
->>>>>>> parent of 919a405 (Mapa visible 2D)
-=======
->>>>>>> parent of cc98237 (Antes de que no se vea el mapa)
-=======
-import { fromLonLat } from 'ol/proj';
-import { HttpClient } from '@angular/common/http';
-import { CommonModule } from '@angular/common';  // Asegúrate de importar CommonModule
->>>>>>> parent of 919a405 (Mapa visible 2D)
+
 
 @Component({
   selector: 'app-map',
   standalone: true,
-  imports: [CommonModule],  // Incluye CommonModule en las importaciones
   templateUrl: './map.component.html',
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> parent of cc98237 (Antes de que no se vea el mapa)
-  styleUrls: ['./map.component.css'],
-  imports: [CommonModule],
+  styleUrl: './map.component.css',
+
+  imports: [
+    CommonModule
+  ],
 })
 export class MapComponent implements AfterViewInit {
-  map!: Map;
-  ol3d!: OLCesium;
+  map!: Map;  // Utiliza el operador '!' para indicar que se inicializará más tarde
   sugerencias: string[] = [];
-=======
-  styleUrl: './map.component.css'
-})
-export class MapComponent implements OnInit {
-  private map!: Map;
-  sugerencias: any[] = [];  // Ejemplo de sugerencias
->>>>>>> parent of 919a405 (Mapa visible 2D)
-<<<<<<< HEAD
-=======
-  styleUrl: './map.component.css'
-})
-export class MapComponent implements OnInit {
-  private map!: Map;
-  sugerencias: any[] = [];  // Ejemplo de sugerencias
->>>>>>> parent of 919a405 (Mapa visible 2D)
-=======
-  styleUrl: './map.component.css'
-})
-export class MapComponent implements OnInit {
-  private map!: Map;
-  sugerencias: any[] = [];  // Ejemplo de sugerencias
->>>>>>> parent of 919a405 (Mapa visible 2D)
-=======
->>>>>>> parent of cc98237 (Antes de que no se vea el mapa)
-=======
-  styleUrl: './map.component.css'
-})
-export class MapComponent implements OnInit {
-  private map!: Map;
-  sugerencias: any[] = [];  // Ejemplo de sugerencias
->>>>>>> parent of 919a405 (Mapa visible 2D)
 
   lugares = [
     "Salones",
@@ -101,30 +34,10 @@ export class MapComponent implements OnInit {
     "Baños",
     "Estacionamientos"
   ];
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
 
-  buscarLugares(event: any) {
-=======
-=======
->>>>>>> parent of 919a405 (Mapa visible 2D)
-=======
->>>>>>> parent of 919a405 (Mapa visible 2D)
-=======
-
-  buscarLugares(event: any) {
-=======
->>>>>>> parent of cc98237 (Antes de que no se vea el mapa)
-=======
->>>>>>> parent of 919a405 (Mapa visible 2D)
-  
   buscarLugares(event: any){
->>>>>>> parent of 919a405 (Mapa visible 2D)
     const termino = (event.target as HTMLInputElement).value;
-    if (termino) {
+    if(termino){
       this.sugerencias = this.lugares.filter(lugar =>
         lugar.toLowerCase().includes(termino.toLowerCase())
       );
@@ -133,58 +46,14 @@ export class MapComponent implements OnInit {
     }
   }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> parent of cc98237 (Antes de que no se vea el mapa)
   seleccionarSugerencia(sugerencia: string, input: HTMLInputElement) {
     input.value = sugerencia;
     this.sugerencias = [];
   }
-
+  
   constructor(private http: HttpClient) {}
 
-  async ngAfterViewInit(): Promise<void> {
-=======
-  constructor(private http: HttpClient) {}
-
-<<<<<<< HEAD
-=======
-  constructor(private http: HttpClient) {}
-
->>>>>>> parent of 919a405 (Mapa visible 2D)
-=======
-  constructor(private http: HttpClient) {}
-
->>>>>>> parent of 919a405 (Mapa visible 2D)
-=======
->>>>>>> parent of cc98237 (Antes de que no se vea el mapa)
-=======
-  constructor(private http: HttpClient) {}
-
->>>>>>> parent of 919a405 (Mapa visible 2D)
-  ngOnInit(): void {
-    this.initMap();
-    this.loadGeoJSON();
-  }
-
-  private initMap(): void {
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> parent of 919a405 (Mapa visible 2D)
-=======
->>>>>>> parent of 919a405 (Mapa visible 2D)
-=======
-=======
->>>>>>> parent of cc98237 (Antes de que no se vea el mapa)
->>>>>>> parent of 919a405 (Mapa visible 2D)
-=======
->>>>>>> parent of 919a405 (Mapa visible 2D)
+  ngAfterViewInit(): void {
     this.map = new Map({
       target: 'map',
       layers: [
@@ -193,13 +62,11 @@ export class MapComponent implements OnInit {
         })
       ],
       view: new View({
-        center: fromLonLat([0, 0]),
+        center: [0, 0],
         zoom: 2
       })
     });
-  }
 
-  private loadGeoJSON(): void {
     this.http.get('assets/data/map.geojson').subscribe((geojson: any) => {
       const vectorSource = new VectorSource({
         features: new GeoJSON().readFeatures(geojson, {
@@ -208,57 +75,48 @@ export class MapComponent implements OnInit {
       });
 
       const vectorLayer = new VectorLayer({
-        source: vectorSource
+        source: vectorSource,
+        style: this.styleFunction
       });
 
       this.map.addLayer(vectorLayer);
       this.map.getView().fit(vectorSource.getExtent());
     });
-
-    // Initialize OLCesium
-    this.ol3d = new OLCesium({ map: this.map });
-    const scene = this.ol3d.getCesiumScene();
-    scene.terrainProvider = await Cesium.createWorldTerrainAsync();
-    this.ol3d.setEnabled(true);
   }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> parent of cc98237 (Antes de que no se vea el mapa)
-  setView(lat: number, lng: number, zoom: number): void {
-    this.map.setView(new View({
-      center: [lng, lat],
-      zoom: zoom
-    }));
+  styleFunction(feature: any) {
+    const geometryType = feature.getGeometry().getType();
+    let style;
+    switch (geometryType) {
+      case 'Point':
+        style = new Style({
+          image: new CircleStyle({
+            radius: 5,
+            fill: new Fill({ color: 'red' }),
+            stroke: new Stroke({ color: 'black', width: 1 })
+          })
+        });
+        break;
+      case 'LineString':
+        style = new Style({
+          stroke: new Stroke({
+            color: 'blue',
+            width: 3
+          })
+        });
+        break;
+      case 'Polygon':
+        style = new Style({
+          stroke: new Stroke({
+            color: 'green',
+            width: 3
+          }),
+          fill: new Fill({
+            color: 'rgba(0, 255, 0, 0.1)'
+          })
+        });
+        break;
+    }
+    return style;
   }
-
-  seleccionarSugerencia(sugerencia: string, input: HTMLInputElement) {
-    input.value = sugerencia;
-    this.sugerencias = [];
-  }
-<<<<<<< HEAD
-=======
-  seleccionarSugerencia(sugerencia: string, input: HTMLInputElement) {
-    input.value = sugerencia;
-    this.sugerencias = [];
-  }
->>>>>>> parent of 919a405 (Mapa visible 2D)
-=======
-  seleccionarSugerencia(sugerencia: string, input: HTMLInputElement) {
-    input.value = sugerencia;
-    this.sugerencias = [];
-  }
->>>>>>> parent of 919a405 (Mapa visible 2D)
-=======
->>>>>>> parent of cc98237 (Antes de que no se vea el mapa)
-=======
-  seleccionarSugerencia(sugerencia: string, input: HTMLInputElement) {
-    input.value = sugerencia;
-    this.sugerencias = [];
-  }
->>>>>>> parent of 919a405 (Mapa visible 2D)
-  
 }
