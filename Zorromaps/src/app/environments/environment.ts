@@ -3,6 +3,7 @@ export const environment = {
     firebaseConfig: {
       apiKey: "AIzaSyDIomkPCKApaNwyvV5E3yKxejKpPKe7xRA",
       authDomain: "zorromaps-fa3e8.firebaseapp.com",
+      databaseURL: "https://zorromaps-fa3e8-default-rtdb.firebaseio.com",
       projectId: "zorromaps-fa3e8",
       storageBucket: "zorromaps-fa3e8.appspot.com",
       messagingSenderId: "710554476668",
