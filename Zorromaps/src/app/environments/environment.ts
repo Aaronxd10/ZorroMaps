@@ -1,5 +1,5 @@
 export const environment = {
-  production: false,
+  //production: false,
     firebaseConfig: {
       apiKey: "AIzaSyDIomkPCKApaNwyvV5E3yKxejKpPKe7xRA",
       authDomain: "zorromaps-fa3e8.firebaseapp.com",
