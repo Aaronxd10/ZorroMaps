@@ -12,7 +12,6 @@ import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { FirestoreService } from './firestore.service';
 
-
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -51,6 +50,8 @@ export class AppComponent {
   navegarMapa(){
     this.router.navigate(['/mapa']);
   }
+
+
 
   addNewDocument() {
     const newDoc = {

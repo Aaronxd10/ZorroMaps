@@ -102,3 +102,8 @@ p {
 .list-group-item {
   cursor: pointer;
 }
+
+.btn-logout {
+  position: absolute;
+  right: 0;
+}

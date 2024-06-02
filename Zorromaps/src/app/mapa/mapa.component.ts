@@ -1,5 +1,7 @@
 import { Component, ViewChild, ElementRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
+import { AuthenticateService } from '../services/authenticate.service';
 
 @Component({
   selector: 'app-mapa',
@@ -10,6 +12,8 @@ import { CommonModule } from '@angular/common';
   
 })
 export class MapaComponent {
+
+  constructor(private router: Router, private authService: AuthenticateService){}
 
   sugerencias: string[] = [];
 
@@ -41,4 +45,9 @@ export class MapaComponent {
     this.sugerencias = [];
   }
   
+  logout(){
+    this.authService.logout();
+    this.router.navigate(['inicio']);
+  }
+
 }

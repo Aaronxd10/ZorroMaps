@@ -51,4 +51,6 @@ export class AuthenticateService {
     console.log(user?.email);
     return user !== null;
   }
+
+ 
 }

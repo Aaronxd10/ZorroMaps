@@ -5,6 +5,7 @@ import { EventoComponent } from './evento/evento.component';
 import { InicioComponent } from './inicio/inicio.component';
 import { ContraOlvidadaComponent } from './contra-olvidada/contra-olvidada.component';
 import { MapaComponent } from './mapa/mapa.component';
+import { authGuard } from './guards/auth.guard';
 
 export const routes: Routes = [
 
@@ -13,5 +14,5 @@ export const routes: Routes = [
   {path: 'crear-cuenta', component: CrearCuentaComponent},
   {path: 'evento', component: EventoComponent},
   {path: 'contra-olvidada', component: ContraOlvidadaComponent},
-  {path: 'mapa', component: MapaComponent},
+  {path: 'mapa', canActivate: [authGuard], component: MapaComponent},
   {path: '', redirectTo: '/inicio', pathMatch: 'full'}];
