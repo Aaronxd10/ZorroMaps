@@ -26,9 +26,6 @@ export class CrearCuentaComponent {
   public message: string ='';
   public type: string ='';
   public loadingregister: boolean = false;
-  //authService: any;
-  
-  
 //fin de nuevo
 
   mostrarTerminosCondiciones: boolean = false;
@@ -53,14 +50,20 @@ export class CrearCuentaComponent {
       this.loadingregister = true;
       this.authService.register(this.email, this.password)
       .then(() => {
-        this.message = "Usiario registrado exitosamente!! Por Favor revisa tu email para confirmar la cuenta";
+        this.message = "Usuario registrado exitosamente!! Por Favor revisa tu email para confirmar la cuenta";
         this.type = "sucess";
         this.loadingregister = false;
+        this.router.navigate(['/login']);
       })
       .catch((error) => {
+        if(error.message === 'auth/email-already-in-use'){
+          this.message = "Correo ya registrado, ingresa otro o ve a Iniciar sesion";
+          this.type = "warning";
+        }else{
         this.message = "Error: " + error.message;
         this.type = "danger";
         this.loadingregister = false;
+        }
       })
     }
   }

@@ -1,26 +1,88 @@
 <div class="page">
   <div class="container">
     <div class="left">
-      <div class="login">Login</div>
-      <div class="eula">ZORROMAPS</div>
+      <div class="login">
+        <a (click)="irAHome()"><mat-icon aria-hidden="false" aria-label="Login Back"
+            fontIcon="arrow_back"></mat-icon></a>
+        Login
+      </div>
+      <div class="eula">ZorroMaps</div>
     </div>
     <div class="right">
       <div class="form">
-        <label for="numeroControl">Numero de Control</label>
-        <input type="text" class="form-control" id="numeroControl" placeholder="Número de control">
+        <label for="numeroControl">Correo Electronico</label>
+        <input type="email" class="form-control" placeholder="Ingrese su correo electrónico" cFormControL name="email"
+          [(ngModel)]="email">
         <hr class="gradient-line">
-        
+
         <label for="password">Contraseña</label>
-        <input type="password" class="form-control" id="password" placeholder="Ingrese su contraseña">
+        <input type="password" class="form-control" placeholder="Ingrese su contraseña" cFormControL name="password"
+          [(ngModel)]="password">
         <hr class="gradient-line">
-          <div class="form-group form-check">
-            <a href="#" (click)="olvideContrasena($event)">¿Olvidaste tu contraseña?</a>
-          </div>  
-            <div >
-              <button type="button" class="btn btn-primary mt-3" (click)="iniciarSesion()">Submit</button>
-              <button type="button" class="btn btn-secondary mt-3" (click)="registrarse()">Registrarse</button>
-            </div>
+        <!------Seccion de mensages------>
+        @if (message) {
+        <div class="alert alert-{{type}}" role="alert">
+          {{message}}
+        </div>
+        }
+        <!----Olvide contraseña------->
+        <div class="form-group form-check">
+          <a href="#" (click)="olvideContrasena($event)">¿Olvidaste tu contraseña?</a>
+        </div>
+        <!----Olvide contraseña------->
+        <div class="form-group form-check">
+          <button cButton class="btn-contra" (click)="toggleModal()">¿Olvidaste tu contraseña?1</button>
+        </div>
+
+        <div>
+          <button type="button" cButton class="btn btn-primary mt-3" (click)="iniciarSesion()">
+            <!-- Sección de animación de carga -->
+            @if (loadinglogin){
+            <c-spinner aria-hidden="false" size="sm"></c-spinner>Loading...
+            }
+            @else
+            {
+            Login
+            }
+          </button>
+        </div>
       </div>
     </div>
   </div>
+
+  <!---nuevo-->
+
+   <!-- Modal Forgot Password -->
+<c-modal id="modalForgot" [visible]="visible" (visibleChange)="handleLiveDemoChange($event)" class="custom-modal">
+  <c-modal-header class="custom-header">
+    <h5 cModalTitle class="custom-title">Forgot Password</h5>
+    <button (click)="toggleModal()" cButtonClose class="custom-close">X</button>
+  </c-modal-header>
+  <c-modal-body class="custom-body">
+    <!-- Sección de mensajes del modal-->
+    @if (messagemodal) {
+      <div class="alert alert-{{typemodal}}" role="alert">
+        {{messagemodal}}
+      </div>
+    }
+    <!---------------------->
+    <input type="email" [(ngModel)]="emailforgot" name="emailforgot" placeholder="Enter your Email Address" cFormControl autoComplete="email" class="custom-input">
+  </c-modal-body>
+  <c-modal-footer class="custom-footer">
+    <button (click)="toggleModal()" cButton  class="custom-button">
+      Close
+    </button>
+    <button cButton color="primary" (click)="forgotpassword()" class="custom-button">
+      @if (loadingforgot) {
+        <c-spinner aria-hidden="false" size="sm"></c-spinner>Loading...
+      }
+      @else {
+        Send Email
+      }
+    </button>
+  </c-modal-footer>
+</c-modal>
+
+  <!---fin de nuevo-->
+
 </div>

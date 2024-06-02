@@ -24,6 +24,31 @@ export class AuthenticateService {
     .then((result) => {
       sendEmailVerification(result.user);
     });
+  }
 
+  login(email: string, password: string): Promise<void> {
+    return signInWithEmailAndPassword(this.auth, email, password)
+    .then((result) => {
+      if(!result.user.emailVerified) {
+      sendEmailVerification(result.user);
+      this.logout();
+      throw new Error('auth/email-not-verified');
+      }
+    });
+  }
+
+  logout() {
+    this.auth.signOut();
+  }
+
+  passwordreset(email: string): Promise<void> {
+    return sendPasswordResetEmail(this.auth, email);
+  }
+
+  isAuthenticated(): boolean {
+    const user = this.auth.currentUser;
+    console.log(user?.uid);
+    console.log(user?.email);
+    return user !== null;
   }
 }

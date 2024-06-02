@@ -67,6 +67,9 @@ body {
 }
 
 .eula {
+  font-family: 'MyFontRoboto', sans-serif;
+  font-size: 12px;
+  font-weight: bold;
   color: #fefefe;
   font-size: 14px;
   line-height: 1.5;
@@ -135,6 +138,15 @@ path {
   background-color: #007bff;
 }
 
+/*nuevo*/
+.btn-contra {
+  border-color: #007bff; 
+  background-color: #fd7e14;
+  color: #007bff; 
+  text-decoration: underline; 
+  cursor: pointer; 
+}
+
 .btn:hover {
   background-color: #fd7e14; /* Color de fondo naranja al pasar el cursor */
 }
@@ -145,6 +157,15 @@ path {
 
 .btn-secondary:hover {
   background-color: #5fa8f7; /* Color de fondo azul al pasar el cursor */
+}
+
+/*nuevo*/
+.btn-contra:hover {
+  border-color: #007bff; 
+  background-color: #fd7e14;
+  color: #0e3e85; 
+  text-decoration: underline; 
+  cursor: pointer; 
 }
 
 .btn:active {
@@ -199,4 +220,62 @@ input::-moz-focus-inner {
 
 input::placeholder {
   color: #ffffff; /* Cambiar el color del placeholder a blanco */
+}
+
+/*nuevo*/
+.custom-modal {
+  /* Estilos generales para el modal */
+  border-color: #0000FF;
+}
+
+.custom-header {
+  /* Estilos para el encabezado del modal */
+  background: #474A59;
+  color: #F1F1F2;
+}
+
+.custom-title {
+  /* Estilos para el título del modal */
+  font-family: 'MyFontRoboto', sans-serif;
+  font-size: 12px;
+  font-weight: bold;
+  color: #fefefe;
+}
+
+.custom-close {
+  /* Estilos para el botón de cerrar del modal */
+  background-color: #FF0000;
+  color: black;
+}
+
+.custom-close:hover {
+  background-color: #b52020;
+  color:#fefefe;
+}
+
+.custom-body {
+  /* Estilos para el cuerpo del modal */
+  background-color: #fd7e14;
+}
+
+.custom-input {
+  /* Estilos para los campos de entrada del modal */
+  border-color: #2D2F36;
+  font-family: 'MyFontRoboto', sans-serif;
+  font-size: 12px;
+  font-weight: bold;
+  color: #fefefe;
+
+}
+
+.custom-footer {
+  /* Estilos para el pie del modal */
+  background-color: #fa8f36;
+}
+
+.custom-button {
+  /* Estilos para los botones del modal */
+  border-color: #007bff; /* Color del borde naranja */
+  background-color: #fd7e14;
+  color: #F1F1F2;
 }
