@@ -20,7 +20,7 @@ import { FirestoreService } from './firestore.service';
   imports: [
     RouterOutlet,
     ContraOlvidadaComponent,
-    CrearCuentaComponent,
+    //CrearCuentaComponent,
     EventoComponent,
     InicioComponent,
     LoginComponent,

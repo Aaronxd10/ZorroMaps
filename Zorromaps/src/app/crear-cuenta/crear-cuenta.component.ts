@@ -4,16 +4,15 @@ import { Router } from '@angular/router';
 
 //nuevo
 import { AppModule } from '../app.module';
-import { FormsModule } from '@angular/forms';
-import { MatIconModule } from '@angular/material/icon';
-import { NgModule } from '@angular/core';
-import { SpinnerComponent } from '@coreui/angular';
+import { SharedModule } from '../shared/shared.module';
 import { AuthenticateService } from '../services/authenticate.service';
+
+
 
 @Component({
   selector: 'app-crear-cuenta',
   standalone: true,
-  imports: [CommonModule, MatIconModule, FormsModule, SpinnerComponent], // Aquí se importa CommonModule
+  imports: [CommonModule, SharedModule], // Aquí se importa CommonModule
   templateUrl: './crear-cuenta.component.html',
   styleUrl: './crear-cuenta.component.css',
 })
@@ -33,7 +32,7 @@ export class CrearCuentaComponent {
 //fin de nuevo
 
   mostrarTerminosCondiciones: boolean = false;
-  constructor(authService: AuthenticateService, private router: Router) { }
+  constructor(private authService: AuthenticateService, private router: Router) { }
 
   mostrarTerminos(event: MouseEvent): void {
     event.preventDefault(); // Detener la navegación por defecto
@@ -42,7 +41,7 @@ export class CrearCuentaComponent {
   ocultarTerminos(): void {
     this.mostrarTerminosCondiciones = false;
   }
-  registrarse(): void {
+  registrarse() {
     // Aquí puedes registrar al usuario
     // Luego de registrar al usuario, puedes redirigirlo a la página de inicio
     if(this.email === '' || this.password === '' || this.repeatpassword === ''){
@@ -64,7 +63,6 @@ export class CrearCuentaComponent {
         this.loadingregister = false;
       })
     }
-    this.router.navigate(['/login']);
   }
   irALogin(): void {
     // Aquí puedes navegar al componente de inicio de sesión o a la ruta correspondiente

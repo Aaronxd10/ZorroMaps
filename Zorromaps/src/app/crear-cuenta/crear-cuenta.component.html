@@ -5,13 +5,6 @@
         <a (click)="irALogin()"><mat-icon aria-hidden="false" aria-label="Login Back" fontIcon="arrow_back"></mat-icon></a>
         Registro de Estudiantes y Docentes
       </div>
-      <!------Seccion de mensages------>
-      @if (message) {
-        <div class="alert alert-{{type}}" role="alert">
-        {{message}}
-        </div>
-      }
-      <!------------>
     </div>
     <div class="right">
       <div class="form">
@@ -25,6 +18,13 @@
         <label for="confirmPassword">Confirmar Contraseña</label>
         <input type="password" class="form-control"  placeholder="Confirme su contraseña" cFormControL name="repeatpassword"  [(ngModel)]="repeatpassword">
         <hr class="gradient-line">
+        <!------Seccion de mensages------>
+      @if (message) {
+        <div class="alert alert-{{type}}" role="alert">
+        {{message}}
+        </div>
+      }
+      <!------------>
         <!---seccion terminos y condiciones-->
         <div class="form-check">
           <input type="checkbox" class="form-check-input" id="terminosCondiciones">
@@ -34,7 +34,7 @@
         </div>
         <!--seccion boton submit-->
         <div class="form-check">
-          <button type="submit" class="btn btn-primary mt-3" (click)="registrarse()" style="margin-top: 10px;">
+          <button cButton type="submit" class="btn btn-primary mt-3" (click)="registrarse()" style="margin-top: 10px;">
             <!-- Sección de animación de carga -->
             @if (loadingregister){
               <c-spinner aria-hidden="false" size="sm"></c-spinner>Loading...

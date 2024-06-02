@@ -35,7 +35,7 @@ import { routes } from './app.routes';
   ],
   imports: [
     BrowserModule,
-    CrearCuentaComponent,
+    //CrearCuentaComponent,
     BrowserAnimationsModule,
     ReactiveFormsModule,
     MaterialModule,
