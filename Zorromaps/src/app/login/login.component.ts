@@ -27,7 +27,21 @@ public loadinglogin: boolean = false;
   public loadingforgot: boolean = false;
 //fin de nuevo
 
+
   constructor(private authService: AuthenticateService, private router: Router) {}
+
+   // Función para validar la contraseña
+   validarPassword(password: string): boolean {
+    const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+    return regex.test(password);
+  }
+
+  // Función para validar el formato del correo electrónico
+  validarEmail(email: string): boolean {
+    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return regex.test(email);
+  }
+
 
   irAHome() {
     this.router.navigate(['/inicio']);
@@ -43,8 +57,11 @@ public loadinglogin: boolean = false;
     if(this.email === '' || this.password === ''){
       this.message = "Error: Ingresa un correo o una contraseña valida";
       this.type = "danger";
-    }
-    else {
+    } else if (!this.validarPassword(this.password)){
+      this.message = "Error: Contraseña no cumple con los criterios de seguridad"+
+      "Recuerda usar numeros, mayusculas, minusculas y caracter especial";
+      this.type="danger";
+    } else {
       // Redirige a la pantalla de mapa
       this.loadinglogin = true;
       this.authService.login(this.email, this.password)
@@ -55,15 +72,17 @@ public loadinglogin: boolean = false;
       //Seccion de errores
       .catch((error) => {
         //correo de email no verificado
-        if(error.message === 'auth/email-not-veried'){
+        if(error.code === 'auth/email-not-verified'){
           this.message = "Nos haz confirmado tu cuenta. Por favor verifica tu cuenta en tu correo, el email quizas esta en tus no deseados o Span";
-          this.type = "warning";
+          this.type = "danger";
           //contraseña equivocada
-        }else if(error.message === 'auth/invalid-credential'){
+        } else if(error.message === 'auth/invalid-credential'){
           this.message = "Contraseña Incorrecta";
-          this.type = "warning";
-        }
-        else {
+          this.type = "danger";
+        } else if(error.message === "auth/invalid-email"){
+          this.message = "Usa un correo valido";
+          this.type = "danger";
+        } else {
           this.message = "Error: " + error.message;
           this.type = "danger";
         }
@@ -72,6 +91,7 @@ public loadinglogin: boolean = false;
     }
     //this.router.navigate(['/mapa']);
   }
+
   registrarse(): void {
     // Redirecciona a la página de registro
     this.router.navigate(['/crear-cuenta']);
@@ -105,5 +125,7 @@ public loadinglogin: boolean = false;
         });
     }
   }
+
+  
 
 }
