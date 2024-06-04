@@ -26,7 +26,6 @@ import { CommonModule } from '@angular/common';
   imports: [
     LoginComponent,
     InicioComponent,
-    MapComponent,
     BrowserModule,
     HttpClientModule,
     CrearCuentaComponent,

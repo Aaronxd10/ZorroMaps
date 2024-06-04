@@ -32,7 +32,6 @@ import { HttpClientModule } from '@angular/common/http';
     MapaComponent,
     CommonModule,
     HttpClientModule,
-    MapComponent
   ],
 
   
