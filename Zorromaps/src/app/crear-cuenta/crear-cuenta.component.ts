@@ -28,6 +28,18 @@ export class CrearCuentaComponent {
   public loadingregister: boolean = false;
 //fin de nuevo
 
+ // Función para validar la contraseña
+ validarPassword(password: string): boolean {
+  const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+  return regex.test(password);
+}
+
+// Función para validar el formato del correo electrónico
+validarEmail(email: string): boolean {
+  const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return regex.test(email);
+}
+
   mostrarTerminosCondiciones: boolean = false;
   constructor(private authService: AuthenticateService, private router: Router) { }
 
@@ -59,6 +71,10 @@ export class CrearCuentaComponent {
         if(error.message === 'auth/email-already-in-use'){
           this.message = "Correo ya registrado, ingresa otro o ve a Iniciar sesion";
           this.type = "warning";
+        }else if (!this.validarPassword(this.password)){
+          this.message = "Error: Contraseña no cumple con los criterios de seguridad"+
+          "Recuerda usar numeros, mayusculas, minusculas y caracter especial";
+          this.type="danger";
         }else{
         this.message = "Error: " + error.message;
         this.type = "danger";

@@ -30,17 +30,7 @@ public loadinglogin: boolean = false;
 
   constructor(private authService: AuthenticateService, private router: Router) {}
 
-   // Función para validar la contraseña
-   validarPassword(password: string): boolean {
-    const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
-    return regex.test(password);
-  }
-
-  // Función para validar el formato del correo electrónico
-  validarEmail(email: string): boolean {
-    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return regex.test(email);
-  }
+  
 
 
   irAHome() {
@@ -57,11 +47,7 @@ public loadinglogin: boolean = false;
     if(this.email === '' || this.password === ''){
       this.message = "Error: Ingresa un correo o una contraseña valida";
       this.type = "danger";
-    } else if (!this.validarPassword(this.password)){
-      this.message = "Error: Contraseña no cumple con los criterios de seguridad"+
-      "Recuerda usar numeros, mayusculas, minusculas y caracter especial";
-      this.type="danger";
-    } else {
+    }  else {
       // Redirige a la pantalla de mapa
       this.loadinglogin = true;
       this.authService.login(this.email, this.password)
