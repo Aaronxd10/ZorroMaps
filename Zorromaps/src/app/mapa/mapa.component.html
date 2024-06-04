@@ -9,10 +9,10 @@
     <button class="btn btn-primary" type="button">Buscar</button>
   </div>
 </div>
-
-<div *ngIf="sugerencias.length > 0" class="sugerencias">
-  <ul class="list-group">
-    <li class="list-group-item" *ngFor="let sugerencia of sugerencias"
+<div>
+  <iframe width='100%' height='400px' src="https://api.mapbox.com/styles/v1/19141218/clwile9wp01gk01qo11vu2y9f.html?title=false&access_token=pk.eyJ1IjoiMTkxNDEyMTgiLCJhIjoiY2x3aWxiajFrMGQ4bDJqbnIyc3U2dXh2dSJ9.F7-tPZXbjdg3GbCeDULKWg&zoomwheel=false#17.77/20.594332/-100.404513/58.7/71" title="Untitled" style="border:none;"></iframe>
+  <ul>  
+  <li class="list-group-item" *ngFor="let sugerencia of sugerencias"
      (click)="seleccionarSugerencia(sugerencia, busquedaInput)">{{ sugerencia }}</li>
 
   </ul>
