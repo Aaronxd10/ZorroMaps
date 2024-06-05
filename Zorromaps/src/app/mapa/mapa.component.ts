@@ -69,9 +69,7 @@ export class MapaComponent {
       }
     });
   }
-
-  agregarMarcadores() {
-    const marcadores: { name: string, coordinates: [number, number] }[] = [
+  marcadores: { name: string, coordinates: [number, number] }[] = [
     { name: "Direccion", coordinates: [-100.40552259718322, 20.593618079982686] },
     { name: "Servicios Escolares", coordinates: [-100.40540409851523, 20.593351708226223] },
     { name: "Cancha", coordinates: [-100.40581469542131, 20.594908065032868] },
@@ -100,12 +98,14 @@ export class MapaComponent {
     { name: "Sala Audiovisual 3", coordinates: [-100.40434376905252, 20.593775720251145] },
 
     ];
+
+  agregarMarcadores() {
     new mapboxgl.Marker({ color: 'green' })
     .setLngLat([-100.405979, 20.593216])
     .setPopup(new mapboxgl.Popup().setHTML("<h3>Inicio</h3>"))
     .addTo(this.map!);
 
-  marcadores.forEach(marcador => {
+    this.marcadores.forEach(marcador => {
     const marker = new mapboxgl.Marker()
       .setLngLat(marcador.coordinates)
       .setPopup(new mapboxgl.Popup().setHTML(`<h3>${marcador.name}</h3>`))
@@ -119,8 +119,23 @@ export class MapaComponent {
 
   }
 
-  calcularRuta(destino: [number, number]) {
+  calcularRuta(destino: [number, number] | string) {
     const origen: [number, number] = [-100.405979, 20.593216]; // Coordenadas del punto de inicio
+
+    let destinoCoords: [number, number];
+
+    if (typeof destino === 'string') {
+      // Buscar el marcador por nombre
+      const marcador = this.marcadores.find(m => m.name === destino);
+      if (marcador) {
+        destinoCoords = marcador.coordinates;
+      } else {
+        console.error('Lugar no encontrado');
+        return;
+      }
+    } else {
+      destinoCoords = destino;
+    }
 
     // Comprueba si ya existe una fuente de ruta y elimínala
     if (this.map!.getSource('ruta')) {
@@ -137,46 +152,7 @@ export class MapaComponent {
           type: 'LineString',
           coordinates: [
             origen,
-            destino
-          ]
-        },
-        properties: {} // Agrega un objeto de propiedades vacío
-      }
-    });
-
-    this.map!.addLayer({
-      id: 'ruta',
-      type: 'line',
-      source: 'ruta',
-      layout: {
-        'line-join': 'round',
-        'line-cap': 'round'
-      },
-      paint: {
-        'line-color': '#00008b', // Azul oscuro
-        'line-width': 4
-      }
-    });
-  }
-  dibujarRuta(coordenadas: [number, number]) {
-    const origen: [number, number] = [-100.405979, 20.593216]; // Coordenadas del punto de inicio
-
-    // Comprueba si ya existe una fuente de ruta y elimínala
-    if (this.map!.getSource('ruta')) {
-      this.map!.removeLayer('ruta');
-      this.map!.removeSource('ruta');
-    }
-
-    // Agrega una línea de ruta desde el origen hasta el destino
-    this.map!.addSource('ruta', {
-      type: 'geojson',
-      data: {
-        type: 'Feature',
-        geometry: {
-          type: 'LineString',
-          coordinates: [
-            origen,
-            coordenadas
+            destinoCoords
           ]
         },
         properties: {} // Agrega un objeto de propiedades vacío
@@ -198,45 +174,29 @@ export class MapaComponent {
     });
   }
 
-  lugares = [
-    "Direccion",
-    "Servicios Escolares",
-    "Cancha",
-    "Centro De Informacion",
-    "Centro de Copiado",
-    "Cafeteria",
-    "Auditorio",
-    "Centro de Idiomas",
-    "Laboratorio de Quimica",
-    "Edificio F",
-    "Edificio B",
-    "Edificio C",
-    "Edificio G",
-    "Laboratorio de Matematicas",
-    "Edificio J",
-    "Division de Estudios Profesionales",
-    "Edificio I",
-    "Laboratorio de Electronica",
-    "Alberca",
-    "Laboratorio de Ingenieria Industrial",
-    "Centro de Computo",
-    "Edificio K",
-    "Edificio X",
-    "Edificio H",
-    "Sala Audiovisual 2",
-    "Sala Audiovisual 3"
-
-  ];
 
   @ViewChild('busquedaInput') busquedaInput!: ElementRef<HTMLInputElement>;
 
-  buscarLugares(event: any){
-    const termino = (event.target as HTMLInputElement).value;
-    if(termino){
-      this.sugerencias = this.lugares.filter(lugar =>
-        lugar.toLowerCase().includes(termino.toLowerCase())
+  buscar() {
+    const termino = this.busquedaInput.nativeElement.value;
+    if (termino) {
+      const marcador = this.marcadores.find(m => m.name.toLowerCase() === termino.toLowerCase());
+      if (marcador) {
+        this.calcularRuta(marcador.coordinates);
+      } else {
+        console.error('Lugar no encontrado');
+      }
+    } else {
+      console.error('Por favor, introduzca un término de búsqueda');
+    }
+  }
 
-      );
+  buscarLugares(event: any) {
+    const termino = (event.target as HTMLInputElement).value;
+    if (termino) {
+      this.sugerencias = this.marcadores
+        .filter(marcador => marcador.name.toLowerCase().includes(termino.toLowerCase()))
+        .map(marcador => marcador.name);
     } else {
       this.sugerencias = [];
     }
@@ -245,6 +205,10 @@ export class MapaComponent {
   seleccionarSugerencia(sugerencia: string, input: HTMLInputElement) {
     input.value = sugerencia;
     this.sugerencias = [];
+    const marcadorSeleccionado = this.marcadores.find(marcador => marcador.name === sugerencia);
+    if (marcadorSeleccionado) {
+      this.calcularRuta(marcadorSeleccionado.coordinates);
+    }
   }
 
   logout(){
