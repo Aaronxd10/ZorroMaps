@@ -23,37 +23,92 @@
   </ul>
 </div>
 
-
-
-
-  <!-- Menú de locaciones -->
-  <div class="btn-group btn-group-toggle" data-toggle="buttons">
-    <div class="locaciones-label">
-      <strong>Locaciones:</strong>
-    </div>
-    <label class="btn btn-secondary">
-      <input type="radio" name="options" id="salones"> Salones
-    </label>
-    <label class="btn btn-secondary">
-      <input type="radio" name="options" id="oficinas"> Oficinas
-    </label>
-    <label class="btn btn-secondary">
-      <input type="radio" name="options" id="salas"> Salas Audiovisuales
-    </label>
-    <label class="btn btn-secondary">
-      <input type="radio" name="options" id="auditorios"> Auditorio
-    </label>
-    <label class="btn btn-secondary">
-      <input type="radio" name="options" id="cafeterias"> Cafetería
-    </label>
-    <label class="btn btn-secondary">
-      <input type="radio" name="options" id="baños"> Baños
-    </label>
-    <label class="btn btn-secondary">
-      <input type="radio" name="options" id="estacionamientos"> Estacionamientos
-    </label>
-    <!-- Agrega más opciones según sea necesario -->
+<div class="btn-group btn-group-toggle" data-toggle="buttons">
+  <div class="locaciones-label">
+    <strong>Locaciones:</strong>
   </div>
+  <label class="btn btn-secondary" (click)="dibujarRuta([-100.40552259718322, 20.593618079982686])">
+    <input type="radio" name="options" id="direccion"> Dirección
+  </label>
+  <label class="btn btn-secondary" (click)="dibujarRuta([-100.40540409851523, 20.593351708226223])">
+    <input type="radio" name="options" id="servicios-escolares"> Servicios Escolares
+  </label>
+  <label class="btn btn-secondary" (click)="dibujarRuta([-100.40581469542131, 20.594908065032868])">
+    <input type="radio" name="options" id="cancha"> Cancha
+  </label>
+  <label class="btn btn-secondary" (click)="dibujarRuta([-100.4051567928475, 20.59292712590462])">
+    <input type="radio" name="options" id="centro-de-informacion"> Centro de Información
+  </label>
+  <label class="btn btn-secondary" (click)="dibujarRuta([-100.40522237138502, 20.593186511881363])">
+    <input type="radio" name="options" id="centro-de-copiado"> Centro de Copiado
+  </label>
+  <label class="btn btn-secondary" (click)="dibujarRuta([-100.40535245821307, 20.59398118359892])">
+    <input type="radio" name="options" id="cafeteria"> Cafetería
+  </label>
+  <label class="btn btn-secondary" (click)="dibujarRuta([-100.4059640024669, 20.594140620238107])">
+    <input type="radio" name="options" id="auditorio"> Auditorio
+  </label>
+  <label class="btn btn-secondary" (click)="dibujarRuta([-100.4043506538542, 20.593092353546716])">
+    <input type="radio" name="options" id="centro-de-idiomas"> Centro de Idiomas
+  </label>
+  <label class="btn btn-secondary" (click)="dibujarRuta([-100.40469074917935, 20.592944184529394])">
+    <input type="radio" name="options" id="laboratorio-de-quimica"> Laboratorio de Química
+  </label>
+  <label class="btn btn-secondary" (click)="dibujarRuta([-100.40480931069172, 20.593824258328585])">
+    <input type="radio" name="options" id="edificio-f"> Edificio F
+  </label>
+  <label class="btn btn-secondary" (click)="dibujarRuta([-100.40456388841513, 20.593717548136244])">
+    <input type="radio" name="options" id="edificio-b"> Edificio B
+  </label>
+  <label class="btn btn-secondary" (click)="dibujarRuta([-100.40462705781555, 20.59345107234265])">
+    <input type="radio" name="options" id="edificio-c"> Edificio C
+  </label>
+  <label class="btn btn-secondary" (click)="dibujarRuta([-100.40470487143143, 20.594110864419093])">
+    <input type="radio" name="options" id="edificio-g"> Edificio G
+  </label>
+  <label class="btn btn-secondary" (click)="dibujarRuta([-100.40427407821244, 20.594054913624632])">
+    <input type="radio" name="options" id="laboratorio-de-matematicas"> Laboratorio de Matemáticas
+  </label>
+  <label class="btn btn-secondary" (click)="dibujarRuta([-100.40568035769766,20.594652418585216])">
+    <input type="radio" name="options" id="edificio-j"> Edificio J
+  </label>
+  <label class="btn btn-secondary" (click)="dibujarRuta([-100.40545142862305, 20.59446451062098])">
+    <input type="radio" name="options" id="division-de-estudios-profesionales"> División de Estudios Profesionales
+  </label>
+  <label class="btn btn-secondary" (click)="dibujarRuta([-100.40488956208807, 20.594804422018946])">
+    <input type="radio" name="options" id="edificio-i"> Edificio I
+  </label>
+  <label class="btn btn-secondary" (click)="dibujarRuta([-100.40499778557738, 20.595067274250745])">
+    <input type="radio" name="options" id="laboratorio-de-electronica"> Laboratorio de Electrónica
+  </label>
+  <label class="btn btn-secondary" (click)="dibujarRuta([-100.40531368313798, 20.5949960853072])">
+    <input type="radio" name="options" id="alberca"> Alberca
+  </label>
+  <label class="btn btn-secondary" (click)="dibujarRuta([-100.40450492859108, 20.59484275458468])">
+    <input type="radio" name="options" id="laboratorio-de-ingenieria-industrial"> Laboratorio de Ingeniería Industrial
+  </label>
+  <label class="btn btn-secondary" (click)="dibujarRuta([-100.40519522135426, 20.595490299684798])">
+    <input type="radio" name="options" id="centro-de-computo"> Centro de Cómputo
+  </label>
+  <label class="btn btn-secondary" (click)="dibujarRuta([-100.40466330571326, 20.59541822747681])">
+    <input type="radio" name="options" id="edificio-k"> Edificio K
+  </label>
+  <label class="btn btn-secondary" (click)="dibujarRuta([-100.40463767551115, 20.595209011578216])">
+    <input type="radio" name="options" id="edificio-x"> Edificio X
+  </label>
+  <label class="btn btn-secondary" (click)="dibujarRuta([-100.40471366043532, 20.594369946665356])">
+    <input type="radio" name="options" id="edificio-h"> Edificio H
+  </label>
+  <label class="btn btn-secondary" (click)="dibujarRuta([-100.40447218034348, 20.594445547425384])">
+    <input type="radio" name="options" id="sala-audiovisual-2"> Sala Audiovisual 2
+  </label>
+  <label class="btn btn-secondary" (click)="dibujarRuta([-100.40434376905252, 20.593775720251145])">
+    <input type="radio" name="options" id="sala-audiovisual-3"> Sala Audiovisual 3
+  </label>
+</div>
+
+
+
 
   <!-- Mini mapa con Mapbox -->
   <div id="map" style="height: 450px;"></div>

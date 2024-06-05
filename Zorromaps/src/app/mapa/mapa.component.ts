@@ -6,6 +6,7 @@ import * as mapboxgl from 'mapbox-gl';
 import { MAPBOX_ACCESS_TOKEN } from '../mapa/mapa.config'; // Ajusta la ruta si es necesario
 
 
+
 @Component({
   selector: 'app-mapa',
   standalone: true,
@@ -34,7 +35,6 @@ export class MapaComponent {
 
     this.map.on('load', () => {
       this.defineZone();
-      this.addMarkers();
       this.agregarMarcadores();
     });
   }
@@ -72,7 +72,7 @@ export class MapaComponent {
 
   agregarMarcadores() {
     const marcadores: { name: string, coordinates: [number, number] }[] = [
-      { name: "Direccion", coordinates: [-100.40552259718322, 20.593618079982686] },
+    { name: "Direccion", coordinates: [-100.40552259718322, 20.593618079982686] },
     { name: "Servicios Escolares", coordinates: [-100.40540409851523, 20.593351708226223] },
     { name: "Cancha", coordinates: [-100.40581469542131, 20.594908065032868] },
     { name: "Centro De Informacion", coordinates: [-100.4051567928475, 20.59292712590462] },
@@ -97,52 +97,38 @@ export class MapaComponent {
     { name: "Edificio X", coordinates: [-100.40463767551115, 20.595209011578216] },
     { name: "Edificio H", coordinates: [-100.40471366043532, 20.594369946665356] },
     { name: "Sala Audiovisual 2", coordinates: [-100.40447218034348, 20.594445547425384] },
-    { name: "Sala Audiovisual 3", coordinates: [-100.40434376905252, 20.593775720251145] }
+    { name: "Sala Audiovisual 3", coordinates: [-100.40434376905252, 20.593775720251145] },
+
     ];
-
-    marcadores.forEach(marcador => {
-      new mapboxgl.Marker()
-        .setLngLat(marcador.coordinates)
-        .setPopup(new mapboxgl.Popup().setHTML(`<h3>${marcador.name}</h3>`)) // Aquí está el cambio
-        .addTo(this.map!);
-    });
-  }
-
-
-  addMarkers() {
     new mapboxgl.Marker({ color: 'green' })
-      .setLngLat([-100.405979, 20.593216])
-      .setPopup(new mapboxgl.Popup().setHTML("<h3>Inicio</h3>"))
+    .setLngLat([-100.405979, 20.593216])
+    .setPopup(new mapboxgl.Popup().setHTML("<h3>Inicio</h3>"))
+    .addTo(this.map!);
+
+  marcadores.forEach(marcador => {
+    const marker = new mapboxgl.Marker()
+      .setLngLat(marcador.coordinates)
+      .setPopup(new mapboxgl.Popup().setHTML(`<h3>${marcador.name}</h3>`))
       .addTo(this.map!);
 
-    const redMarker = new mapboxgl.Marker({ color: 'red' })
-      .setLngLat([-100.405134, 20.595314])
-      .setPopup(new mapboxgl.Popup().setHTML("<h3>Fin</h3>"))
-      .addTo(this.map!);
-
-    // Agrega un evento de clic al marcador rojo
-    redMarker.getElement().addEventListener('click', () => {
-      // Verifica si la ruta ya está presente en el mapa
-      if (this.map!.getSource('ruta')) {
-        // Si la ruta existe, elimínala
-        this.map!.removeLayer('ruta');
-        this.map!.removeSource('ruta');
-      } else {
-        // Si la ruta no existe, calcula y muestra la ruta
-        this.calcularRuta();
-      }
+    // Agregar un evento de clic a cada marcador
+    marker.getElement().addEventListener('click', () => {
+      this.calcularRuta(marcador.coordinates); // Llama a la función calcularRuta con las coordenadas del marcador clickeado
     });
+  });
+
   }
 
+  calcularRuta(destino: [number, number]) {
+    const origen: [number, number] = [-100.405979, 20.593216]; // Coordenadas del punto de inicio
 
-
-  calcularRuta() {
     // Comprueba si ya existe una fuente de ruta y elimínala
     if (this.map!.getSource('ruta')) {
       this.map!.removeLayer('ruta');
       this.map!.removeSource('ruta');
     }
-    // Agrega una línea de ruta (ejemplo simple)
+
+    // Agrega una línea de ruta desde el origen hasta el destino
     this.map!.addSource('ruta', {
       type: 'geojson',
       data: {
@@ -150,9 +136,8 @@ export class MapaComponent {
         geometry: {
           type: 'LineString',
           coordinates: [
-            [-100.405979, 20.593216],
-            [-100.405079, 20.594878], // Punto intermedio
-            [-100.405134, 20.595314]
+            origen,
+            destino
           ]
         },
         properties: {} // Agrega un objeto de propiedades vacío
@@ -168,7 +153,7 @@ export class MapaComponent {
         'line-cap': 'round'
       },
       paint: {
-        'line-color': '#0000ff',
+        'line-color': '#00008b', // Azul oscuro
         'line-width': 4
       }
     });
@@ -207,5 +192,45 @@ export class MapaComponent {
     this.router.navigate(['inicio']);
   }
 
+  dibujarRuta(coordenadas: [number, number]) {
+    const origen: [number, number] = [-100.405979, 20.593216]; // Coordenadas del punto de inicio
+
+    // Comprueba si ya existe una fuente de ruta y elimínala
+    if (this.map!.getSource('ruta')) {
+      this.map!.removeLayer('ruta');
+      this.map!.removeSource('ruta');
+    }
+
+    // Agrega una línea de ruta desde el origen hasta el destino
+    this.map!.addSource('ruta', {
+      type: 'geojson',
+      data: {
+        type: 'Feature',
+        geometry: {
+          type: 'LineString',
+          coordinates: [
+            origen,
+            coordenadas
+          ]
+        },
+        properties: {} // Agrega un objeto de propiedades vacío
+      }
+    });
+
+    this.map!.addLayer({
+      id: 'ruta',
+      type: 'line',
+      source: 'ruta',
+      layout: {
+        'line-join': 'round',
+        'line-cap': 'round'
+      },
+      paint: {
+        'line-color': '#00008b', // Azul oscuro
+        'line-width': 4
+      }
+    });
+  }
 }
+
 
