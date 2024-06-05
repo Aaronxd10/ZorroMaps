@@ -25,6 +25,7 @@ public loadinglogin: boolean = false;
   public messagemodal: string = '';
   public typemodal: string = '';
   public loadingforgot: boolean = false;
+  public passwordVisible1: boolean = false;
 //fin de nuevo
 
 
@@ -105,13 +106,24 @@ public loadinglogin: boolean = false;
           this.loadingforgot = false;
         })
         .catch((error) => {
-          this.messagemodal = 'Error: ' + error.message;
-          this.typemodal = "danger";
-          this.loadingforgot = false;
-        });
+          if(error.message === 'auth/email-not-verified'){
+            this.message = "Error: Cuenta no verificada" +"\n"+"Ingresa a tu email, para verificar la cuenta";
+            this.type = "warning";
+          }else if(error.message === 'auth/invalid-credential'){
+            this.message = "Error: Contraseña Incorrecta" +"\n"+"Intenta de nuevo o restablece tu contraseña";
+            this.type = "warning";
+          }else{
+          this.message = "Error: " + error.message;
+          this.type = "danger";
+          this.loadinglogin = false;
+          }
+        })
     }
   }
 
   
+  togglePasswordVisibility1() {
+    this.passwordVisible1 = !this.passwordVisible1;
+  }
 
 }

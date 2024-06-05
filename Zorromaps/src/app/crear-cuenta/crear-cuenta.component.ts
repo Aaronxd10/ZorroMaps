@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 import { AppModule } from '../app.module';
 import { SharedModule } from '../shared/shared.module';
 import { AuthenticateService } from '../services/authenticate.service';
+import { ElementRef } from '@angular/core'; //libreria bloquear register
 
 
 
@@ -28,6 +29,8 @@ export class CrearCuentaComponent {
   public loadingregister: boolean = false;
   public passwordVisible1: boolean = false;
   public passwordVisible2: boolean = false;
+   // Variable para controlar la habilitación del botón de registro
+   public termsAccepted: boolean = false;
 //fin de nuevo
 
  // Función para validar la contraseña
@@ -43,7 +46,7 @@ validarEmail(email: string): boolean {
 }
 
   mostrarTerminosCondiciones: boolean = false;
-  constructor(private authService: AuthenticateService, private router: Router) { }
+  constructor(private authService: AuthenticateService, private router: Router, private elementRef: ElementRef) { }
 
   mostrarTerminos(event: MouseEvent): void {
     event.preventDefault(); // Detener la navegación por defecto
@@ -74,7 +77,7 @@ validarEmail(email: string): boolean {
           this.message = "Correo ya registrado, ingresa otro o ve a Iniciar sesion";
           this.type = "warning";
         }else if (!this.validarPassword(this.password)){
-          this.message = "Error: Contraseña no cumple con los criterios de seguridad"+
+          this.message = "Error: Contraseña no cumple con los criterios de seguridad"+"\n"+
           "Recuerda usar numeros, mayusculas, minusculas y caracter especial";
           this.type="danger";
         }else{
