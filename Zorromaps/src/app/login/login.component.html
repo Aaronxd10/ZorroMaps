@@ -16,8 +16,14 @@
         <hr class="gradient-line">
 
         <label for="password">Contraseña</label>
-        <input type="password" class="form-control" placeholder="Ingrese su contraseña" cFormControL name="password"
-          [(ngModel)]="password">
+        <div class="input-group">
+            <input type="{{ passwordVisible1 ? 'text' : 'password' }}" class="form-control" placeholder="Ingrese su contraseña" name="password" [(ngModel)]="password">
+            <div class="input-group-append">
+                <button class="btn btn-outline-secondary" type="button" (click)="togglePasswordVisibility1()">
+                    <mat-icon aria-hidden="false" aria-label="Show/Hide Password">{{ passwordVisible1 ? 'visibility_off' : 'visibility' }}</mat-icon>
+                </button>
+            </div>
+        </div>
         <hr class="gradient-line">
         <!------Seccion de mensages------>
         @if (message) {
