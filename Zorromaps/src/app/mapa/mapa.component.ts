@@ -96,70 +96,89 @@ export class MapaComponent {
 
       // Agregar un evento de clic a cada marcador
       marker.getElement().addEventListener('click', () => {
-        this.calcularRuta(marcador.coordinates); // Llama a la función calcularRuta con las coordenadas del marcador clickeado
+        this.calcularRuta(marcador.coordinates, marcador.intermediatePoints); // Llama a la función calcularRuta con las coordenadas del marcador clickeado y los puntos intermedios
       });
     });
   }
 
-
-  calcularRuta(destino: [number, number] | string) {
+  calcularRuta(destino: [number, number] | string, puntosIntermedios?: ([number, number])[]) {
     const origen: [number, number] = [-100.405979, 20.593216]; // Coordenadas del punto de inicio
 
     let destinoCoords: [number, number];
+    let puntosIntermediosRuta: [number, number][] = [];
 
+    // Determinar las coordenadas del destino
     if (typeof destino === 'string') {
-      // Buscar el marcador por nombre
-      const marcador = this.marcadores.find(m => m.name === destino);
-      if (marcador) {
-        destinoCoords = marcador.coordinates;
-      } else {
-        console.error('Lugar no encontrado');
-        return;
-      }
+        // Buscar el marcador por nombre
+        const marcadorDestino = this.marcadores.find(m => m.name === destino);
+        if (marcadorDestino) {
+            destinoCoords = marcadorDestino.coordinates;
+        } else {
+            console.error('Destino no encontrado');
+            return;
+        }
     } else {
-      destinoCoords = destino;
+        destinoCoords = destino;
     }
+
+    // Determinar las coordenadas de los puntos intermedios
+    if (puntosIntermedios && puntosIntermedios.length > 0) {
+        puntosIntermedios.forEach(punto => {
+            if (typeof punto === 'string') {
+                // Buscar el marcador por nombre
+                const marcadorPunto = this.marcadores.find(m => m.name === punto);
+                if (marcadorPunto) {
+                    puntosIntermediosRuta.push(marcadorPunto.coordinates);
+                } else {
+                    console.error(`Punto intermedio '${punto}' no encontrado`);
+                }
+            } else {
+                puntosIntermediosRuta.push(punto);
+            }
+        });
+    }
+
+    // Combinar origen, puntos intermedios y destino para obtener la ruta completa
+    const rutaCoordinates = [origen, ...puntosIntermediosRuta, destinoCoords];
+
+    // Mostrar información de depuración
+    console.log('Origen:', origen);
+    console.log('Destino:', destinoCoords);
+    console.log('Puntos intermedios:', puntosIntermediosRuta);
 
     // Comprueba si ya existe una fuente de ruta y elimínala
     if (this.map!.getSource('ruta')) {
-      this.map!.removeLayer('ruta');
-      this.map!.removeSource('ruta');
+        this.map!.removeLayer('ruta');
+        this.map!.removeSource('ruta');
     }
 
-    // Agrega una línea de ruta desde el origen hasta el destino
+    // Agrega una línea de ruta desde el origen hasta el destino, pasando por los puntos intermedios
     this.map!.addSource('ruta', {
-      type: 'geojson',
-      data: {
-        type: 'Feature',
-        geometry: {
-          type: 'LineString',
-          coordinates: [
-            origen,
-            destinoCoords
-          ]
-        },
-        properties: {} // Agrega un objeto de propiedades vacío
-      }
+        type: 'geojson',
+        data: {
+            type: 'Feature',
+            geometry: {
+                type: 'LineString',
+                coordinates: rutaCoordinates
+            },
+            properties: {} // Agrega un objeto de propiedades vacío
+        }
     });
 
     this.map!.addLayer({
-      id: 'ruta',
-      type: 'line',
-      source: 'ruta',
-      layout: {
-        'line-join': 'round',
-        'line-cap': 'round'
-      },
-      paint: {
-        'line-color': '#00008b', // Azul oscuro
-        'line-width': 4
-      }
+        id: 'ruta',
+        type: 'line',
+        source: 'ruta',
+        layout: {
+            'line-join': 'round',
+            'line-cap': 'round'
+        },
+        paint: {
+            'line-color': '#00008b', // Azul oscuro
+            'line-width': 4
+        }
     });
-  }
-
-
-
-
+}
 
 
   @ViewChild('busquedaInput') busquedaInput!: ElementRef<HTMLInputElement>;
