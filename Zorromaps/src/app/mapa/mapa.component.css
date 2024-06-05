@@ -1,3 +1,5 @@
+@import url('https://api.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.css');
+
 /* Estilos para el título "Mapa" */
 .display-4 {
   font-size: 3.5rem; /* Tamaño de fuente grande */
@@ -107,8 +109,10 @@ p {
   position: absolute;
   right: 0;
 }
+
 #map {
   margin-top: 10px;
+  height: 500px;
   width: 100%;
-  height: 100%;
 }
+
