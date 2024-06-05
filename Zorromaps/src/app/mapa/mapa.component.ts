@@ -188,7 +188,7 @@ export class MapaComponent {
     if (termino) {
       const marcador = this.marcadores.find(m => m.name.toLowerCase() === termino.toLowerCase());
       if (marcador) {
-        this.calcularRuta(marcador.coordinates);
+        this.calcularRuta(marcador.coordinates, marcador.intermediatePoints);
       } else {
         console.error('Lugar no encontrado');
       }
@@ -213,7 +213,7 @@ export class MapaComponent {
     this.sugerencias = [];
     const marcadorSeleccionado = this.marcadores.find(marcador => marcador.name === sugerencia);
     if (marcadorSeleccionado) {
-      this.calcularRuta(marcadorSeleccionado.coordinates);
+      this.calcularRuta(marcadorSeleccionado.coordinates, marcadorSeleccionado.intermediatePoints);
     }
   }
 

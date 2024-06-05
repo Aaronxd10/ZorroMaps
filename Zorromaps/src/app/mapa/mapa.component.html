@@ -27,83 +27,83 @@
     <div class="locaciones-label">
       <strong>Locaciones:</strong>
     </div>
-    <label class="btn btn-secondary" (click)="calcularRuta('Direccion')">
+    <label class="btn btn-secondary" (click)="calcularRuta('Direccion', marcadores[0].intermediatePoints)">
       <input type="radio" name="options" id="direccion"> Dirección
   </label>
 
-    <label class="btn btn-secondary" (click)="calcularRuta('Servicios Escolares')">
-      <input type="radio" name="options" id="servicios-escolares"> Servicios Escolares
-    </label>
-    <label class="btn btn-secondary" (click)="calcularRuta('Cancha')">
-      <input type="radio" name="options" id="cancha"> Cancha
-    </label>
-    <label class="btn btn-secondary" (click)="calcularRuta('Centro De Informacion')">
+  <label class="btn btn-secondary" (click)="calcularRuta('Servicios Escolares', marcadores[1].intermediatePoints)">
+    <input type="radio" name="options" id="servicios-escolares"> Servicios Escolares
+</label>
+<label class="btn btn-secondary" (click)="calcularRuta('Cancha', marcadores[2].intermediatePoints)">
+    <input type="radio" name="options" id="cancha"> Cancha
+</label>
+    <label class="btn btn-secondary" (click)="calcularRuta('Centro De Informacion',  marcadores[3].intermediatePoints)">
       <input type="radio" name="options" id="centro-de-informacion"> Centro de Información
     </label>
-    <label class="btn btn-secondary" (click)="calcularRuta('Centro de Copiado')">
+    <label class="btn btn-secondary" (click)="calcularRuta('Centro de Copiado',  marcadores[4].intermediatePoints)">
       <input type="radio" name="options" id="centro-de-copiado"> Centro de Copiado
     </label>
-    <label class="btn btn-secondary" (click)="calcularRuta('Cafeteria')">
+    <label class="btn btn-secondary" (click)="calcularRuta('Cafeteria',  marcadores[5].intermediatePoints)">
       <input type="radio" name="options" id="cafeteria"> Cafetería
     </label>
-    <label class="btn btn-secondary" (click)="calcularRuta('Auditorio')">
+    <label class="btn btn-secondary" (click)="calcularRuta('Auditorio',  marcadores[7].intermediatePoints)">
       <input type="radio" name="options" id="auditorio"> Auditorio
     </label>
-    <label class="btn btn-secondary" (click)="calcularRuta('Centro de Idiomas')">
+    <label class="btn btn-secondary" (click)="calcularRuta('Centro de Idiomas', marcadores[8].intermediatePoints)">
       <input type="radio" name="options" id="centro-de-idiomas"> Centro de Idiomas
     </label>
-    <label class="btn btn-secondary" (click)="calcularRuta('Laboratorio de Quimica')">
+    <label class="btn btn-secondary" (click)="calcularRuta('Laboratorio de Quimica',  marcadores[9].intermediatePoints)">
       <input type="radio" name="options" id="laboratorio-de-quimica"> Laboratorio de Química
     </label>
-    <label class="btn btn-secondary" (click)="calcularRuta('Edificio F')">
+    <label class="btn btn-secondary" (click)="calcularRuta('Edificio F',  marcadores[10].intermediatePoints)">
       <input type="radio" name="options" id="edificio-f"> Edificio F
     </label>
-    <label class="btn btn-secondary" (click)="calcularRuta('Edificio B')">
+    <label class="btn btn-secondary" (click)="calcularRuta('Edificio B',  marcadores[11].intermediatePoints)">
       <input type="radio" name="options" id="edificio-b"> Edificio B
     </label>
-    <label class="btn btn-secondary" (click)="calcularRuta('Edificio C')">
+    <label class="btn btn-secondary" (click)="calcularRuta('Edificio C',  marcadores[12].intermediatePoints)">
       <input type="radio" name="options" id="edificio-c"> Edificio C
     </label>
-    <label class="btn btn-secondary" (click)="calcularRuta('Edificio G')">
+    <label class="btn btn-secondary" (click)="calcularRuta('Edificio G',  marcadores[13].intermediatePoints)">
       <input type="radio" name="options" id="edificio-g"> Edificio G
     </label>
-    <label class="btn btn-secondary" (click)="calcularRuta('Laboratorio de Matematicas')">
+    <label class="btn btn-secondary" (click)="calcularRuta('Laboratorio de Matematicas',  marcadores[14].intermediatePoints)">
       <input type="radio" name="options" id="laboratorio-de-matematicas"> Laboratorio de Matemáticas
     </label>
-    <label class="btn btn-secondary" (click)="calcularRuta('Edificio J')">
+    <label class="btn btn-secondary" (click)="calcularRuta('Edificio J',  marcadores[15].intermediatePoints)">
       <input type="radio" name="options" id="edificio-j"> Edificio J
     </label>
-    <label class="btn btn-secondary" (click)="calcularRuta('Division de Estudios Profesionales')">
+    <label class="btn btn-secondary" (click)="calcularRuta('Division de Estudios Profesionales',  marcadores[16].intermediatePoints)">
       <input type="radio" name="options" id="division-de-estudios-profesionales"> División de Estudios Profesionales
     </label>
-    <label class="btn btn-secondary" (click)="calcularRuta('Edificio I')">
+    <label class="btn btn-secondary" (click)="calcularRuta('Edificio I',  marcadores[17].intermediatePoints)">
       <input type="radio" name="options" id="edificio-i"> Edificio I
     </label>
-    <label class="btn btn-secondary" (click)="calcularRuta('Laboratorio de Electronica')">
+    <label class="btn btn-secondary" (click)="calcularRuta('Laboratorio de Electronica',  marcadores[18].intermediatePoints)">
       <input type="radio" name="options" id="laboratorio-de-electronica"> Laboratorio de Electrónica
     </label>
-    <label class="btn btn-secondary" (click)="calcularRuta('Alberca')">
+    <label class="btn btn-secondary" (click)="calcularRuta('Alberca',  marcadores[19].intermediatePoints)">
       <input type="radio" name="options" id="alberca"> Alberca
     </label>
-    <label class="btn btn-secondary" (click)="calcularRuta('Laboratorio de Ingenieria Industrial')">
+    <label class="btn btn-secondary" (click)="calcularRuta('Laboratorio de Ingenieria Industrial',  marcadores[20].intermediatePoints)">
       <input type="radio" name="options" id="laboratorio-de-ingenieria-industrial"> Laboratorio de Ingeniería Industrial
     </label>
-    <label class="btn btn-secondary" (click)="calcularRuta('Centro de Computo')">
+    <label class="btn btn-secondary" (click)="calcularRuta('Centro de Computo',  marcadores[21].intermediatePoints)">
       <input type="radio" name="options" id="centro-de-computo"> Centro de Cómputo
     </label>
-    <label class="btn btn-secondary" (click)="calcularRuta('Edificio K')">
+    <label class="btn btn-secondary" (click)="calcularRuta('Edificio K',  marcadores[22].intermediatePoints)">
       <input type="radio" name="options" id="edificio-k"> Edificio K
     </label>
-    <label class="btn btn-secondary" (click)="calcularRuta('Edificio X')">
+    <label class="btn btn-secondary" (click)="calcularRuta('Edificio X',  marcadores[23].intermediatePoints)">
       <input type="radio" name="options" id="edificio-x"> Edificio X
     </label>
-    <label class="btn btn-secondary" (click)="calcularRuta('Edificio H')">
+    <label class="btn btn-secondary" (click)="calcularRuta('Edificio H',  marcadores[24].intermediatePoints)">
       <input type="radio" name="options" id="edificio-h"> Edificio H
     </label>
-    <label class="btn btn-secondary" (click)="calcularRuta('Sala Audiovisual 2')">
+    <label class="btn btn-secondary" (click)="calcularRuta('Sala Audiovisual 2',  marcadores[25].intermediatePoints)">
       <input type="radio" name="options" id="sala-audiovisual-2"> Sala Audiovisual 2
     </label>
-    <label class="btn btn-secondary" (click)="calcularRuta('Sala Audiovisual 3')">
+    <label class="btn btn-secondary" (click)="calcularRuta('Sala Audiovisual 3',  marcadores[26].intermediatePoints)">
       <input type="radio" name="options" id="sala-audiovisual-3"> Sala Audiovisual 3
     </label>
   </div>
