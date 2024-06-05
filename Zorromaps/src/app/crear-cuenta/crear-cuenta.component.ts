@@ -26,6 +26,8 @@ export class CrearCuentaComponent {
   public message: string ='';
   public type: string ='';
   public loadingregister: boolean = false;
+  public passwordVisible1: boolean = false;
+  public passwordVisible2: boolean = false;
 //fin de nuevo
 
  // Función para validar la contraseña
@@ -89,7 +91,13 @@ validarEmail(email: string): boolean {
   }
 
 
- 
+  togglePasswordVisibility1() {
+    this.passwordVisible1 = !this.passwordVisible1;
+  }
+
+  togglePasswordVisibility2() {
+    this.passwordVisible2 = !this.passwordVisible2;
+  }
   
 
 
