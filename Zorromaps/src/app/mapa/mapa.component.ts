@@ -81,12 +81,13 @@ export class MapaComponent {
   }
 
   agregarMarcadores() {
-
+    // Marcador de inicio
     new mapboxgl.Marker({ color: 'green' })
-    .setLngLat([-100.405979, 20.593216])
-    .setPopup(new mapboxgl.Popup().setHTML("<h3>Inicio</h3>"))
-    .addTo(this.map!);
+      .setLngLat([-100.405979, 20.593216])
+      .setPopup(new mapboxgl.Popup().setHTML("<h3>Inicio</h3>"))
+      .addTo(this.map!);
 
+    // Agregar puntos intermedios como marcadores
     this.marcadores.forEach(marcador => {
       const marker = new mapboxgl.Marker()
         .setLngLat(marcador.coordinates)
@@ -99,6 +100,7 @@ export class MapaComponent {
       });
     });
   }
+
 
   calcularRuta(destino: [number, number] | string) {
     const origen: [number, number] = [-100.405979, 20.593216]; // Coordenadas del punto de inicio
@@ -154,6 +156,11 @@ export class MapaComponent {
       }
     });
   }
+
+
+
+
+
 
   @ViewChild('busquedaInput') busquedaInput!: ElementRef<HTMLInputElement>;
 
