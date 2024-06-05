@@ -158,40 +158,6 @@ export class MapaComponent {
       }
     });
   }
-
-  lugares = [
-    "Salones",
-    "Oficinas",
-    "Salas Audiovisuales",
-    "Auditorio",
-    "Cafetería",
-    "Baños",
-    "Estacionamientos"
-  ];
-
-  @ViewChild('busquedaInput') busquedaInput!: ElementRef<HTMLInputElement>;
-
-  buscarLugares(event: any){
-    const termino = (event.target as HTMLInputElement).value;
-    if(termino){
-      this.sugerencias = this.lugares.filter(lugar =>
-        lugar.toLowerCase().includes(termino.toLowerCase())
-      );
-    } else {
-      this.sugerencias = [];
-    }
-  }
-
-  seleccionarSugerencia(sugerencia: string, input: HTMLInputElement) {
-    input.value = sugerencia;
-    this.sugerencias = [];
-  }
-
-  logout(){
-    this.authService.logout();
-    this.router.navigate(['inicio']);
-  }
-
   dibujarRuta(coordenadas: [number, number]) {
     const origen: [number, number] = [-100.405979, 20.593216]; // Coordenadas del punto de inicio
 
@@ -231,6 +197,61 @@ export class MapaComponent {
       }
     });
   }
+
+  lugares = [
+    "Direccion",
+    "Servicios Escolares",
+    "Cancha",
+    "Centro De Informacion",
+    "Centro de Copiado",
+    "Cafeteria",
+    "Auditorio",
+    "Centro de Idiomas",
+    "Laboratorio de Quimica",
+    "Edificio F",
+    "Edificio B",
+    "Edificio C",
+    "Edificio G",
+    "Laboratorio de Matematicas",
+    "Edificio J",
+    "Division de Estudios Profesionales",
+    "Edificio I",
+    "Laboratorio de Electronica",
+    "Alberca",
+    "Laboratorio de Ingenieria Industrial",
+    "Centro de Computo",
+    "Edificio K",
+    "Edificio X",
+    "Edificio H",
+    "Sala Audiovisual 2",
+    "Sala Audiovisual 3"
+
+  ];
+
+  @ViewChild('busquedaInput') busquedaInput!: ElementRef<HTMLInputElement>;
+
+  buscarLugares(event: any){
+    const termino = (event.target as HTMLInputElement).value;
+    if(termino){
+      this.sugerencias = this.lugares.filter(lugar =>
+        lugar.toLowerCase().includes(termino.toLowerCase())
+
+      );
+    } else {
+      this.sugerencias = [];
+    }
+  }
+
+  seleccionarSugerencia(sugerencia: string, input: HTMLInputElement) {
+    input.value = sugerencia;
+    this.sugerencias = [];
+  }
+
+  logout(){
+    this.authService.logout();
+    this.router.navigate(['inicio']);
+  }
+
 }
 
 

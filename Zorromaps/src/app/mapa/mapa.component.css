@@ -30,6 +30,13 @@
 .form-control {
   border-color: #333; /* Negro */
 }
+/* Estilos para la etiqueta "Locaciones" */
+.locaciones-label {
+  margin-right: 10px; /* Espacio entre la palabra "Locaciones" y los botones */
+  margin-top: 8px; /* Ajuste vertical */
+}
+
+/* Estilos para la etiqueta "Locaciones" */
 .locaciones-label {
   margin-right: 10px; /* Espacio entre la palabra "Locaciones" y los botones */
   margin-top: 8px; /* Ajuste vertical */
@@ -38,19 +45,32 @@
 /* Estilos para el menú de locaciones */
 .btn-group-toggle {
   display: flex;
-  justify-content: center; /* Centrar los botones horizontalmente */
+  overflow-x: auto; /* Hace que la barra se deslice horizontalmente */
   margin-top: 20px;
 }
 
 .btn-secondary {
-  background-color: #ffa500 !important; /* Naranja */
-  border-color: #ffa500 !important; /* Naranja */
+  background-color: #ff8c00; /* Naranja */
+  border-color: #ff8c00; /* Naranja */
+  margin-right: 5px; /* Espaciado entre los botones */
+  font-size: 12px; /* Tamaño de fuente */
+}
+
+.btn-secondary:last-child {
+  margin-right: 0; /* Elimina el margen derecho del último botón */
 }
 
 .btn-secondary.active {
-  background-color: #ff8c00 !important; /* Naranja más oscuro */
-  border-color: #ff8c00 !important; /* Naranja más oscuro */
+  background-color: #ff8c00; /* Naranja más oscuro */
+  border-color: #ff8c00; /* Naranja más oscuro */
 }
+
+/* Estilo para el texto dentro de los botones */
+.btn-secondary input[type="radio"] {
+  margin-right: 5px; /* Espacio entre el botón y el texto */
+}
+
+
 
 /* Estilos para el mapa */
 .map-container {
