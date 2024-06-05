@@ -96,12 +96,12 @@ export class MapaComponent {
 
       // Agregar un evento de clic a cada marcador
       marker.getElement().addEventListener('click', () => {
-        this.calcularRuta(marcador.coordinates, marcador.intermediatePoints); // Llama a la función calcularRuta con las coordenadas del marcador clickeado y los puntos intermedios
+        this.calcularRuta(marcador.coordinates, marcador.intermediatePoints, marcador.steps); // Llama a la función calcularRuta con las coordenadas del marcador clickeado y los puntos intermedios
       });
     });
   }
 
-  calcularRuta(destino: [number, number] | string, puntosIntermedios?: ([number, number])[]) {
+  calcularRuta(destino: [number, number] | string, puntosIntermedios?: ([number, number])[], steps?: string[]) {
     const origen: [number, number] = [-100.405979, 20.593216]; // Coordenadas del punto de inicio
 
     let destinoCoords: [number, number];
@@ -145,6 +145,7 @@ export class MapaComponent {
     console.log('Origen:', origen);
     console.log('Destino:', destinoCoords);
     console.log('Puntos intermedios:', puntosIntermediosRuta);
+    //console.log('Pasos:', steps);
 
     // Comprueba si ya existe una fuente de ruta y elimínala
     if (this.map!.getSource('ruta')) {
@@ -164,22 +165,33 @@ export class MapaComponent {
             properties: {} // Agrega un objeto de propiedades vacío
         }
     });
-
     this.map!.addLayer({
-        id: 'ruta',
-        type: 'line',
-        source: 'ruta',
-        layout: {
-            'line-join': 'round',
-            'line-cap': 'round'
-        },
-        paint: {
-            'line-color': '#00008b', // Azul oscuro
-            'line-width': 4
-        }
-    });
+      id: 'ruta',
+      type: 'line',
+      source: 'ruta',
+      layout: {
+          'line-join': 'round',
+          'line-cap': 'round'
+      },
+      paint: {
+          'line-color': '#00008b', // Azul oscuro
+          'line-width': 4
+      }
+  });
+  if (steps) {
+    this.imprimirRuta(steps);
+  }
 }
 
+imprimirRuta(steps: string[]): void {
+  if (steps && steps.length > 0) {
+    const ruta = steps.map((step, index) => `${index + 1}. ${step}`).join('<br>');
+    const rutaContainer = document.getElementById('ruta-container');
+    if (rutaContainer) {
+      rutaContainer.innerHTML = ruta;
+    }
+  }
+}
 
   @ViewChild('busquedaInput') busquedaInput!: ElementRef<HTMLInputElement>;
 
@@ -188,7 +200,7 @@ export class MapaComponent {
     if (termino) {
       const marcador = this.marcadores.find(m => m.name.toLowerCase() === termino.toLowerCase());
       if (marcador) {
-        this.calcularRuta(marcador.coordinates, marcador.intermediatePoints);
+        this.calcularRuta(marcador.coordinates, marcador.intermediatePoints, marcador.steps);
       } else {
         console.error('Lugar no encontrado');
       }
@@ -213,7 +225,7 @@ export class MapaComponent {
     this.sugerencias = [];
     const marcadorSeleccionado = this.marcadores.find(marcador => marcador.name === sugerencia);
     if (marcadorSeleccionado) {
-      this.calcularRuta(marcadorSeleccionado.coordinates, marcadorSeleccionado.intermediatePoints);
+      this.calcularRuta(marcadorSeleccionado.coordinates, marcadorSeleccionado.intermediatePoints, marcadorSeleccionado.steps);
     }
   }
 

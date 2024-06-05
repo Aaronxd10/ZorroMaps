@@ -93,37 +93,44 @@ p {
   margin-top: 20px;
   color: #333; /* Negro */
 }
+
 /* Estilos para el cuadro de direcciones */
 .card {
-  background-color: #f49521;
-  margin-top: 20px;
-  border: 1px solid #333; /* Negro */
-  border-radius: 10px;
-  display: flex; /* Hacer que el contenedor sea un flexbox */
-  overflow-y: auto; /* Agregar desplazamiento vertical */
-  margin-left: 50px; /* Desplazamiento automático a la derecha */
+  border: 1px solid #f3f3f3; /* Borde gris claro */
+  border-radius: 10px; /* Bordes redondeados */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+.card-body {
+  padding: 20px; /* Espaciado interno */
+  text-align: center; /* Centrar texto */
 }
 
 .card-title {
-  display: flex; /* Hacer que el título sea un flexbox */
-  justify-content: center; /* Centrar elementos verticalmente */
-  align-items: center; /* Centrar verticalmente el texto */
-  color: #000000; /* Naranja */
+  color: #ff7f00; /* Naranja */
+  margin-bottom: 20px; /* Espaciado inferior */
+  text-align: center; /* Centrar texto */
 }
 
-.list-group-item {
-  background-color: #f5a747;
-  color: #333; /* Negro */
-  text-align: center; /* Centrar texto horizontalmente */
+#ruta-container {
+  background-color: #ffecd9; /* Fondo naranja claro */
+  padding: 10px; /* Espaciado interno */
+  border-radius: 5px; /* Bordes redondeados */
 }
 
-.list-group-item:hover {
-  background-color: #3684d1; /* Gris claro */
+#ruta-container::-webkit-scrollbar {
+  width: 8px; /* Ancho del scrollbar */
 }
 
-.list-group-item {
-  cursor: pointer;
+#ruta-container::-webkit-scrollbar-thumb {
+  background-color: #ff7f00; /* Color del scrollbar */
+  border-radius: 4px; /* Bordes redondeados */
 }
+
+#ruta-container::-webkit-scrollbar-thumb:hover {
+  background-color: #ff9f33; /* Color del scrollbar al pasar el ratón */
+}
+
 
 .btn-logout {
   position: absolute;
