@@ -33,7 +33,7 @@
           <input type="{{ passwordVisible1 ? 'text' : 'password' }}" class="form-control"
             placeholder="Ingrese su contraseña" name="password" [(ngModel)]="password">
           <div class="input-group-append">
-            <button class="btn btn-outline-secondary" type="button" (click)="togglePasswordVisibility1()">
+            <button class="btn btn-outline-secondary" type="button-ojo" (click)="togglePasswordVisibility1()">
               <mat-icon aria-hidden="false" aria-label="Show/Hide Password">{{ passwordVisible1 ? 'visibility_off' :
                 'visibility' }}</mat-icon>
             </button>
@@ -45,7 +45,7 @@
           <input type="{{ passwordVisible2 ? 'text' : 'password' }}" class="form-control"
             placeholder="Confirme su contraseña" name="repeatpassword" [(ngModel)]="repeatpassword">
           <div class="input-group-append">
-            <button class="btn btn-outline-secondary" type="button" (click)="togglePasswordVisibility2()">
+            <button class="btn btn-outline-secondary" type="button-ojo" (click)="togglePasswordVisibility2()">
               <mat-icon aria-hidden="false" aria-label="Show/Hide Password">{{ passwordVisible2 ? 'visibility_off' :
                 'visibility' }}</mat-icon>
             </button>
