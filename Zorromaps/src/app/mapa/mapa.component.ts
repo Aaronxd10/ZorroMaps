@@ -22,7 +22,10 @@ export class MapaComponent {
 
   sugerencias: string[] = [];
   map: mapboxgl.Map | null = null;  // Inicialización de la propiedad
+  popup: mapboxgl.Popup | null = null;
+
   marcadores: {
+    visible: boolean;
     name: string,
     coordinates: [number, number],
     intermediatePoints?: [number, number][],
@@ -102,10 +105,16 @@ export class MapaComponent {
   }
 
   calcularRuta(destino: [number, number] | string, puntosIntermedios?: ([number, number])[], steps?: string[]) {
-    const origen: [number, number] = [-100.40596208412691,20.59329107227729]; // Coordenadas del punto de inicio
+    const origen: [number, number] = [-100.40596208412691, 20.59329107227729]; // Coordenadas del punto de inicio
 
     let destinoCoords: [number, number];
+    let destinoName: string = 'Destino';
     let puntosIntermediosRuta: [number, number][] = [];
+
+    // Cerrar el popup anterior si existe
+    if (this.popup) {
+        this.popup.remove();
+    }
 
     // Determinar las coordenadas del destino
     if (typeof destino === 'string') {
@@ -113,13 +122,24 @@ export class MapaComponent {
         const marcadorDestino = this.marcadores.find(m => m.name === destino);
         if (marcadorDestino) {
             destinoCoords = marcadorDestino.coordinates;
+            destinoName = marcadorDestino.name;
         } else {
             console.error('Destino no encontrado');
             return;
         }
     } else {
         destinoCoords = destino;
+        // Buscar el nombre del marcador por coordenadas
+        const marcadorDestino = this.marcadores.find(m => m.coordinates[0] === destino[0] && m.coordinates[1] === destino[1]);
+        if (marcadorDestino) {
+            destinoName = marcadorDestino.name;
+        }
     }
+    // Mostrar popup en el destino
+    this.popup = new mapboxgl.Popup()
+        .setLngLat(destinoCoords)
+        .setHTML(`<h3>${destinoName}</h3>`)
+        .addTo(this.map!);
 
     // Determinar las coordenadas de los puntos intermedios
     if (puntosIntermedios && puntosIntermedios.length > 0) {
@@ -145,7 +165,6 @@ export class MapaComponent {
     console.log('Origen:', origen);
     console.log('Destino:', destinoCoords);
     console.log('Puntos intermedios:', puntosIntermediosRuta);
-    //console.log('Pasos:', steps);
 
     // Comprueba si ya existe una fuente de ruta y elimínala
     if (this.map!.getSource('ruta')) {
@@ -166,22 +185,27 @@ export class MapaComponent {
         }
     });
     this.map!.addLayer({
-      id: 'ruta',
-      type: 'line',
-      source: 'ruta',
-      layout: {
-          'line-join': 'round',
-          'line-cap': 'round'
-      },
-      paint: {
-          'line-color': 'orange', // Azul oscuro
-          'line-width': 4
-      }
-  });
-  if (steps) {
-    this.imprimirRuta(steps);
-  }
+        id: 'ruta',
+        type: 'line',
+        source: 'ruta',
+        layout: {
+            'line-join': 'round',
+            'line-cap': 'round'
+        },
+        paint: {
+            'line-color': 'orange',
+            'line-width': 4
+        }
+    });
+    if (steps) {
+        this.imprimirRuta(steps);
+    }
+
 }
+
+
+
+
 
 imprimirRuta(steps: string[]): void {
   if (steps && steps.length > 0) {
@@ -228,7 +252,6 @@ imprimirRuta(steps: string[]): void {
       this.calcularRuta(marcadorSeleccionado.coordinates, marcadorSeleccionado.intermediatePoints, marcadorSeleccionado.steps);
     }
   }
-
   logout(){
     this.authService.logout();
     this.router.navigate(['inicio']);
