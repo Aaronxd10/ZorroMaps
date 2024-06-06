@@ -30,44 +30,47 @@
 .form-control {
   border-color: #333; /* Negro */
 }
-/* Estilos para la etiqueta "Locaciones" */
-.locaciones-label {
-  margin-right: 10px; /* Espacio entre la palabra "Locaciones" y los botones */
-  margin-top: 8px; /* Ajuste vertical */
-}
-
-/* Estilos para la etiqueta "Locaciones" */
-.locaciones-label {
-  margin-right: 10px; /* Espacio entre la palabra "Locaciones" y los botones */
-  margin-top: 8px; /* Ajuste vertical */
-}
-
-/* Estilos para el menú de locaciones */
+/* Estilos para el contenedor principal */
 .btn-group-toggle {
   display: flex;
-  overflow-x: auto; /* Hace que la barra se deslice horizontalmente */
+  overflow-x: auto; /* Permite desplazarse horizontalmente si hay muchos botones */
   margin-top: 20px;
 }
 
+/* Estilos para la etiqueta "Locaciones" */
+.locaciones-label {
+  margin-right: 10px;
+  margin-top: 8px;
+  color: #ff8c00; /* Naranja */
+}
+
+/* Estilos para los botones */
 .btn-secondary {
-  background-color: #ff8c00; /* Naranja */
-  border-color: #ff8c00; /* Naranja */
-  margin-right: 5px; /* Espaciado entre los botones */
-  font-size: 12px; /* Tamaño de fuente */
+  background-color:rgb(252, 244, 234);
+  border: 2px solid #ff8c00; /* Borde naranja */
+  color: #ff8c00; /* Texto naranja */
+  margin-right: 5px;
+  font-size: 14px;
+  transition: all 0.3s ease; /* Transición suave */
+  margin-bottom: 10px;
 }
 
-.btn-secondary:last-child {
-  margin-right: 0; /* Elimina el margen derecho del último botón */
-}
-
-.btn-secondary.active {
-  background-color: #ff8c00; /* Naranja más oscuro */
-  border-color: #ff8c00; /* Naranja más oscuro */
-}
-
-/* Estilo para el texto dentro de los botones */
+/* Estilos para el texto dentro de los botones */
 .btn-secondary input[type="radio"] {
-  margin-right: 5px; /* Espacio entre el botón y el texto */
+  margin-right: 5px;
+}
+
+/* Estilos para los botones cuando están activos */
+.btn-secondary.active {
+  background-color: #ff8c00; /* Naranja */
+  color: #fff; /* Texto blanco */
+}
+
+
+/* Estilos para los botones al pasar el ratón por encima */
+.btn-secondary:hover {
+  background-color: #ff8c00; /* Naranja */
+  color: #fff; /* Texto blanco */
 }
 
 
@@ -96,7 +99,10 @@ p {
 .container2 {
   display: flex;
   justify-content: space-between;
+  margin-top: 20px;
 }
+
+
 /* Estilos para el cuadro de direcciones */
 .card {
   border: 1px solid #f3f3f3; /* Borde gris claro */

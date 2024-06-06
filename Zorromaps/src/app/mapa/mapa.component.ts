@@ -201,13 +201,9 @@ export class MapaComponent {
         this.imprimirRuta(steps);
     }
 
-}
+  }
 
-
-
-
-
-imprimirRuta(steps: string[]): void {
+  imprimirRuta(steps: string[]): void {
   if (steps && steps.length > 0) {
     const ruta = steps.map((step, index) => `${index + 1}. ${step}`).join('<br>');
     const rutaContainer = document.getElementById('ruta-container');
@@ -215,7 +211,7 @@ imprimirRuta(steps: string[]): void {
       rutaContainer.innerHTML = ruta;
     }
   }
-}
+  }
 
   @ViewChild('busquedaInput') busquedaInput!: ElementRef<HTMLInputElement>;
 
@@ -256,6 +252,13 @@ imprimirRuta(steps: string[]): void {
     this.authService.logout();
     this.router.navigate(['inicio']);
   }
+activeButton: string | undefined;
+
+  toggleContent(button: string) {
+    if (this.activeButton === button) {
+      this.activeButton = ''; // Si el botón actual ya está activo, desactívalo
+    } else {
+      this.activeButton = button; // Activa el botón actual
+    }
+  }
 }
-
-
