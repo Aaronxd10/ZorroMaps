@@ -1,4 +1,4 @@
-import { Routes } from '@angular/router';
+import { Routes, CanActivateFn } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { CrearCuentaComponent } from './crear-cuenta/crear-cuenta.component';
 import { EventoComponent } from './evento/evento.component';
@@ -14,5 +14,5 @@ export const routes: Routes = [
   {path: 'crear-cuenta', component: CrearCuentaComponent},
   {path: 'evento', component: EventoComponent},
   {path: 'contra-olvidada', component: ContraOlvidadaComponent},
-  {path: 'mapa', component: MapaComponent},
+  {path: 'mapa', canActivate: [authGuard] ,component: MapaComponent},
   {path: '', redirectTo: '/inicio', pathMatch: 'full'}];
