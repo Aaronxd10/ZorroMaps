@@ -57,10 +57,11 @@
    <!-- Modal Forgot Password -->
 <c-modal id="modalForgot" [visible]="visible" (visibleChange)="handleLiveDemoChange($event)" class="custom-modal">
   <c-modal-header class="custom-header">
-    <h5 cModalTitle class="custom-title">Forgot Password</h5>
+    <h5 cModalTitle class="custom-title">Contraseña Olvidada</h5>
     <button (click)="toggleModal()" cButtonClose class="custom-close">X</button>
   </c-modal-header>
   <c-modal-body class="custom-body">
+
     <!-- Sección de mensajes del modal-->
     @if (messagemodal) {
       <div class="alert alert-{{typemodal}}" role="alert">
@@ -68,18 +69,18 @@
       </div>
     }
     <!---------------------->
-    <input type="email" [(ngModel)]="emailforgot" name="emailforgot" placeholder="Enter your Email Address" cFormControl autoComplete="email" class="custom-input">
+    <input type="email" [(ngModel)]="emailforgot" name="emailforgot" placeholder="Ingresa tu correo" cFormControl autoComplete="email" class="custom-input">
   </c-modal-body>
   <c-modal-footer class="custom-footer">
     <button (click)="toggleModal()" cButton  class="custom-button">
-      Close
+      Cerrar
     </button>
     <button cButton color="primary" (click)="forgotpassword()" class="custom-button">
       @if (loadingforgot) {
         <c-spinner aria-hidden="false" size="sm"></c-spinner>Loading...
       }
       @else {
-        Send Email
+        Enviar correo de recuperacion
       }
     </button>
   </c-modal-footer>

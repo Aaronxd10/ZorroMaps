@@ -31,6 +31,7 @@ export class CrearCuentaComponent {
   public passwordVisible2: boolean = false;
    // Variable para controlar la habilitación del botón de registro
    public termsAccepted: boolean = false;
+   public terminosAceptados: boolean = false;
 //fin de nuevo
 
  // Función para validar la contraseña
@@ -51,6 +52,7 @@ validarEmail(email: string): boolean {
   mostrarTerminos(event: MouseEvent): void {
     event.preventDefault(); // Detener la navegación por defecto
     this.mostrarTerminosCondiciones = true;
+    this.terminosAceptados = true;
   }
   ocultarTerminos(): void {
     this.mostrarTerminosCondiciones = false;
@@ -103,5 +105,6 @@ validarEmail(email: string): boolean {
   }
   
 
+  
 
 }
