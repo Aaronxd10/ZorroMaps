@@ -82,14 +82,14 @@ export class MapaComponent {
 
   agregarMarcadores() {
     // Marcador de inicio
-    new mapboxgl.Marker({ color: 'green' })
-      .setLngLat([-100.405979, 20.593216])
+    new mapboxgl.Marker({ color: 'orange' })
+      .setLngLat([-100.40596208412691,20.593291072277296])
       .setPopup(new mapboxgl.Popup().setHTML("<h3>Inicio</h3>"))
       .addTo(this.map!);
 
     // Agregar puntos intermedios como marcadores
     this.marcadores.forEach(marcador => {
-      const marker = new mapboxgl.Marker()
+      const marker = new mapboxgl.Marker({color: 'blue'})
         .setLngLat(marcador.coordinates)
         .setPopup(new mapboxgl.Popup().setHTML(`<h3>${marcador.name}</h3>`))
         .addTo(this.map!);
@@ -102,7 +102,7 @@ export class MapaComponent {
   }
 
   calcularRuta(destino: [number, number] | string, puntosIntermedios?: ([number, number])[], steps?: string[]) {
-    const origen: [number, number] = [-100.405979, 20.593216]; // Coordenadas del punto de inicio
+    const origen: [number, number] = [-100.40596208412691,20.59329107227729]; // Coordenadas del punto de inicio
 
     let destinoCoords: [number, number];
     let puntosIntermediosRuta: [number, number][] = [];
@@ -174,7 +174,7 @@ export class MapaComponent {
           'line-cap': 'round'
       },
       paint: {
-          'line-color': '#00008b', // Azul oscuro
+          'line-color': 'orange', // Azul oscuro
           'line-width': 4
       }
   });
