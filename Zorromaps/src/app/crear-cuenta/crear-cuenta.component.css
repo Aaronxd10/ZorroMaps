@@ -109,9 +109,10 @@ path {
   stroke-dasharray: 240 1386;
 }
 .form {
-  margin: 40px;
+  margin: 30px;
   position: absolute;
   text-align: center; /* Centra el contenido horizontalmente */
+  
 }
 
 .button-container {
@@ -189,7 +190,7 @@ input {
   border: 0;
   color: #f2f2f2;
   font-size: 20px;
-  height: 30px;
+  height: 50px;
   line-height: 30px;
   outline: none !important;
   width: 100%;
