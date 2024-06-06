@@ -93,12 +93,17 @@ p {
   margin-top: 20px;
   color: #333; /* Negro */
 }
-
+.container2 {
+  display: flex;
+  justify-content: space-between;
+}
 /* Estilos para el cuadro de direcciones */
 .card {
   border: 1px solid #f3f3f3; /* Borde gris claro */
   border-radius: 10px; /* Bordes redondeados */
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  width: calc(20% - 20px); /* El 50% del ancho menos el espacio entre los elementos */
+
 }
 
 .card-body {
@@ -132,14 +137,11 @@ p {
 }
 
 
+#map {
+  width: calc(80% - 20px); /* El 50% del ancho menos el espacio entre los elementos */
+}
+
 .btn-logout {
   position: absolute;
   right: 0;
 }
-
-#map {
-  margin-top: 10px;
-  height: 500px;
-  width: 100%;
-}
-

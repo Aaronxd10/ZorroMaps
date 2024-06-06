@@ -34,7 +34,7 @@ export class MapaComponent {
     this.map = new mapboxgl.Map({
       container: 'map', // ID del contenedor en tu HTML
       style: 'mapbox://styles/19141218/clwile9wp01gk01qo11vu2y9f', // Estilo del mapa
-      center: [-100.405556, 20.594555], // Ajusta el centro del mapa
+      center: [-100.405071, 20.593574], // Ajusta el centro del mapa
       zoom: 17,
       pitch: 50,
       accessToken: MAPBOX_ACCESS_TOKEN // Configura el token de acceso aquí
