@@ -204,14 +204,15 @@ export class MapaComponent {
   }
 
   imprimirRuta(steps: string[]): void {
-  if (steps && steps.length > 0) {
-    const ruta = steps.map((step, index) => `${index + 1}. ${step}`).join('<br>');
-    const rutaContainer = document.getElementById('ruta-container');
-    if (rutaContainer) {
-      rutaContainer.innerHTML = ruta;
+    if (steps && steps.length > 0) {
+      const ruta = steps.map((step, index) =>`${index + 1}. ${step}`).join('\n\n');
+      const rutaContainer = document.getElementById('ruta-container');
+      if (rutaContainer) {
+        rutaContainer.innerText = ruta; // Usamos innerText en lugar de innerHTML para mantener los saltos de línea
+      }
     }
   }
-  }
+
 
   @ViewChild('busquedaInput') busquedaInput!: ElementRef<HTMLInputElement>;
 
@@ -252,7 +253,7 @@ export class MapaComponent {
     this.authService.logout();
     this.router.navigate(['inicio']);
   }
-activeButton: string | undefined;
+  activeButton: string | undefined;
 
   toggleContent(button: string) {
     if (this.activeButton === button) {

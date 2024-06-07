@@ -9,32 +9,64 @@
   text-transform: uppercase; /* Convertir texto a mayúsculas */
   letter-spacing: 2px; /* Espaciado entre letras */
   margin-bottom: 20px; /* Margen inferior */
-  margin-top: 150px;
+  margin-top: 120px;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Agrega una sombra al texto */
+  margin-bottom: 30px;
 }
 
 /* Estilos para la barra de búsqueda */
 .input-group {
-  margin-top: 20px;
-  background-color: #ffa500; /* Naranja */
-  padding: 10px; /* Espaciado interno */
-  border-radius: 10px; /* Borde redondeado */
-}
-
-.input-group-text {
-  background-color: #333; /* Negro */
-  color: #fff; /* Blanco */
-  border: none;
+  width: 500px;
+  margin: 0 auto; /* Centrar horizontalmente */
 }
 
 .form-control {
-  border-color: #333; /* Negro */
+  border-color: #ff8c00; /* Borde naranja */
+  color: #333; /* Color del texto */
 }
+
+.btn-primary {
+  background-color: #ff8c00; /* Fondo naranja */
+  border-color: #ff8c00; /* Borde naranja */
+  color: #fff; /* Color del texto */
+}
+
+.btn-primary:hover {
+  background-color: #226ae6; /* Color naranja oscuro al pasar el ratón */
+  border-color: #e67e22; /* Borde naranja oscuro al pasar el ratón */
+}
+
+/* Estilos para las sugerencias */
+.sugerencias {
+  position: absolute;
+  border: 1px solid #0e47e2; /* Borde gris */
+  border-radius: 5px; /* Bordes redondeados */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  z-index: 1000; /* Asegura que esté por encima de otros elementos */
+  width: 430px; /* Ancho ajustado al contenido */
+  left: 47.5%; /* Posición en el centro */
+  transform: translateX(-50%); /* Centrado horizontal */
+
+}
+
+
+.list-group-item {
+  cursor: pointer; /* Cursor de puntero al pasar por encima */
+  padding: 8px 12px; /* Relleno interno ajustado */
+  transition: background-color 0.3s ease; /* Transición suave */
+}
+
+.list-group-item:hover {
+  background-color: #b2c9ec; /* Cambia el color de fondo al pasar el ratón */
+}
+
+
+
 /* Estilos para el contenedor principal */
 .btn-group-toggle {
   display: flex;
   overflow-x: auto; /* Permite desplazarse horizontalmente si hay muchos botones */
-  margin-top: 20px;
+  margin-top: 50px;
 }
 
 /* Estilos para la etiqueta "Locaciones" */
@@ -105,7 +137,7 @@ p {
 
 /* Estilos para el cuadro de direcciones */
 .card {
-  border: 1px solid #f3f3f3; /* Borde gris claro */
+  border: 2px solid #d95b5b; /* Borde gris claro */
   border-radius: 10px; /* Bordes redondeados */
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
   width: calc(20% - 20px); /* El 50% del ancho menos el espacio entre los elementos */
@@ -127,8 +159,12 @@ p {
   background-color: #ffecd9; /* Fondo naranja claro */
   padding: 10px; /* Espaciado interno */
   border-radius: 5px; /* Bordes redondeados */
-}
+  line-height: 1.5; /* Espaciado entre líneas aumentado */
+  font-size: 15px; /* Tamaño de fuente aumentado */
+  text-align: left;
+  font-family: "Comic Sans MS", cursive, sans-serif; /* Tipo de letra Comic Sans MS si está disponible, cursive como respaldo, y sans-serif como última opción */
 
+}
 #ruta-container::-webkit-scrollbar {
   width: 8px; /* Ancho del scrollbar */
 }
@@ -146,8 +182,23 @@ p {
 #map {
   width: calc(80% - 20px); /* El 50% del ancho menos el espacio entre los elementos */
 }
-
-.btn-logout {
+/*Estilo para boton logout*/
+.btn-logout button{
   position: absolute;
   right: 0;
+  background-color: #cc1d1a; /* Fondo del botón rojo */
+  color: #fff; /* Color del texto blanco */
+  border: none; /* Sin borde */
+  padding: 10px 20px; /* Espaciado interno */
+  border-radius: 5px; /* Bordes redondeados */
+  font-size: 16px; /* Tamaño de fuente */
+  cursor: pointer; /* Cursor de puntero */
+  transition: background-color 0.3s ease; /* Transición suave */
+}
+.btn-logout button:hover {
+  background-color: #d9534f; /* Cambia el color de fondo al pasar el ratón */
+}
+
+.btn-logout button i {
+  margin-right: 5px; /* Espacio entre el icono y el texto */
 }
