@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild, AfterViewInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { SharedModule } from '../shared/shared.module';
 import { AuthenticateService } from '../services/authenticate.service';
@@ -13,6 +13,7 @@ import { AngularFireDatabase } from '@angular/fire/compat/database'; // Importa 
   styleUrl: './evento.component.css'
 })
 export class EventoComponent {
+  @ViewChild('busquedaInput') busquedaInput!: ElementRef<HTMLInputElement>;
     //nuevo
 //variables para login
 public email: string ='';
@@ -21,6 +22,8 @@ public message: string ='';
 public type: string ='';
 public loadinglogin: boolean = false;
 public passwordVisible1: boolean = false;
+
+Eventos: any[] = [];
 
 //fin de nuevo
 
@@ -71,4 +74,34 @@ public passwordVisible1: boolean = false;
     this.passwordVisible1 = !this.passwordVisible1;
   }
 
+  ngAfterViewInit() {
+    this.buscar()
+  }
+
+  buscar() {
+    const termino = this.busquedaInput.nativeElement.value;
+    if (termino) {
+      const evento = this.Eventos.find(e => e.name.toLowerCase() === termino.toLowerCase());
+      if (evento) {
+        // Aquí puedes hacer lo que necesites con el evento encontrado
+        this.message = "Evento encontrado:" + evento;
+        this.iniciarSesion;
+      } else {
+        this.message ="Evento no encontrado";
+      }
+    } else {
+      this.message = "Por favor, introduzca un término de búsqueda";
+    }
+  }
+
+  buscarEventos(event: any) {
+    const termino = (event.target as HTMLInputElement).value;
+    if (termino) {
+      this.db.list('/Evento').valueChanges().subscribe((data: any[]) => {
+        this.Eventos = data;
+      });
+    } else {
+      this.Eventos = [];
+    }
+  }
 }
