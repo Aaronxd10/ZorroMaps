@@ -18,6 +18,7 @@ public password: string ='';
 public message: string ='';
 public type: string ='';
 public loadinglogin: boolean = false;
+public passwordVisible1: boolean = false;
 
 //Para forgot
   public visible = false;
@@ -25,7 +26,7 @@ public loadinglogin: boolean = false;
   public messagemodal: string = '';
   public typemodal: string = '';
   public loadingforgot: boolean = false;
-  public passwordVisible1: boolean = false;
+  
 //fin de nuevo
 
 
