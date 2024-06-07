@@ -8,11 +8,43 @@
   text-align: center; /* Centrado horizontal */
   text-transform: uppercase; /* Convertir texto a mayúsculas */
   letter-spacing: 2px; /* Espaciado entre letras */
-  margin-bottom: 20px; /* Margen inferior */
-  margin-top: 120px;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Agrega una sombra al texto */
-  margin-bottom: 30px;
+  display: inline-block; /* Necesario para el contenedor de animación */
 }
+
+/* Contenedor para la animación de escritura */
+.typing-container {
+  display: inline-block; /* Necesario para el efecto de escritura */
+  overflow: hidden; /* Oculta el texto no mostrado */
+  white-space: nowrap; /* Evita que el texto se envuelva */
+  border-right: 4px solid #007bff; /* Cursor parpadeante */
+  animation: typing 4s steps(50, end), blink-caret 0.75s step-end infinite;
+  text-align: center; /* Centrado horizontal del texto */
+  margin: 0 auto; /* Centrado del contenedor */
+  height: 40px;
+}
+
+/* Animación de escritura */
+@keyframes typing {
+  from { width: 0; }
+  to { width: 18%; }
+}
+
+/* Animación del cursor parpadeante */
+@keyframes blink-caret {
+  from, to { border-color: transparent; }
+  50% { border-color: #007bff; }
+}
+.title-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-top: 180px;
+  margin-bottom: 50px;
+  height: 60px;
+}
+
 
 /* Estilos para la barra de búsqueda */
 .input-group {
