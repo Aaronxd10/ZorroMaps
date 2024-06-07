@@ -1,17 +1,39 @@
 <div class="page">
   <div class="container">
     <div class="left">
-      <div class="login">Evento</div>
+      <div class="login">
+        <a (click)="irARegister()"><mat-icon aria-hidden="false" aria-label="Login Back"
+          fontIcon="arrow_back"></mat-icon></a>
+        Evento
+      </div>
       <div class="eula">Registra el evento por el cual nos visitas hoy</div>
     </div>
     <div class="right">
       <div class="form">
-        <label for="email">Email</label>
-        <input type="email" class="form-control" id="email" placeholder="Correo">
+        <!--Correo electronico-->
+        <label for="mail">Correo Electronico</label>
+        <input type="email" class="form-control" placeholder="Ingrese su correo electrónico" cFormControL name="email"
+          [(ngModel)]="email">
         <hr class="gradient-line">
-        <label for="numContol">Numero de Control</label>
-        <input type="numContol" class="form-control" id="numContol" placeholder="Número de control">
+
+        <!--Contraseña-->
+        <label for="password">Contraseña</label>
+        <div class="input-group">
+            <input type="{{ passwordVisible1 ? 'text' : 'password' }}" class="form-control" placeholder="Ingrese su contraseña" name="password" [(ngModel)]="password">
+            <div class="input-group-append">
+                <button class="btn btn-outline-secondary" type="button" (click)="togglePasswordVisibility1()">
+                    <mat-icon aria-hidden="false" aria-label="Show/Hide Password">{{ passwordVisible1 ? 'visibility_off' : 'visibility' }}</mat-icon>
+                </button>
+            </div>
+        </div>
         <hr class="gradient-line">
+        <!------Seccion de mensages------>
+        @if (message) {
+        <div class="alert alert-{{type}}" role="alert">
+          {{message}}
+        </div>
+        }
+
         <label for="codigo">Codigo del Evento</label>
         <input type="codigo" class="form-control" id="codigo" placeholder="Evento">
         <hr class="gradient-line">
