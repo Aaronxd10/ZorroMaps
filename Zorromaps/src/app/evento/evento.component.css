@@ -81,7 +81,7 @@ body {
   color: #F1F1F2;
   position: relative;
   width: 50%;
-  height: 400px;
+  height: 450px;
 }
 @media (max-width: 767px) {
   .right {
