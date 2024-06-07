@@ -14,5 +14,5 @@ export const routes: Routes = [
   {path: 'crear-cuenta', component: CrearCuentaComponent},
   {path: 'evento', component: EventoComponent},
   {path: 'contra-olvidada', component: ContraOlvidadaComponent},
-  {path: 'mapa' ,component: MapaComponent},
+  {path: 'mapa' ,canActivate: [authGuard],component: MapaComponent},
   {path: '', redirectTo: '/inicio', pathMatch: 'full'}];
