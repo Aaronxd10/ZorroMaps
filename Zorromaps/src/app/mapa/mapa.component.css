@@ -89,7 +89,12 @@
 
 /* Estilos para el texto dentro de los botones */
 .btn-secondary input[type="radio"] {
-  margin-right: 5px;
+  appearance: none; /* Elimina el estilo por defecto */
+  -webkit-appearance: none; /* Para compatibilidad con Safari */
+  border-radius: 50%; /* Hace que sea circular */
+  outline: none; /* Elimina el contorno cuando se hace clic */
+  cursor: pointer; /* Cambia el cursor al pasar por encima */
+  transition: background-color 0.2s, border-color 0.2s; /* Transiciones suaves */
 }
 
 /* Estilos para los botones cuando están activos */
