@@ -95,15 +95,10 @@
 
 /* Estilos para las sugerencias */
 .sugerencias {
-  position: absolute;
   border: 1px solid #0e47e2; /* Borde gris */
   border-radius: 5px; /* Bordes redondeados */
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra suave */
   z-index: 1000; /* Asegura que esté por encima de otros elementos */
-  width: 430px; /* Ancho ajustado al contenido */
-  left: 47.5%; /* Posición en el centro */
-  transform: translateX(-50%); /* Centrado horizontal */
-
 }
 
 
