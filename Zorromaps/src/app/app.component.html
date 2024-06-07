@@ -2,14 +2,23 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
   <div class="header" id="header"
-    style="display: flex; align-items: center; justify-content: space-between; background-color: #f0784c; padding: 10px 10px;">
-    <div style="text-align: left;">
-      <p style="font-size: 24px; color: rgb(255, 250, 250);">
-        <img src="../assets/img/Logo_Zorro_2.0.jpg" alt="Icono de ZORROMAPS"
-          style="height: 50px; width: auto;margin-top: 5px;  margin-left: 5px;">
-        Bienvenido a ZorroMaps
-      </p>
+    style="display: flex;  justify-content: space-between; background-color: #f0784c;">
+    <div>
+        <img src="../assets/img/LogoZorro_inicio.png" alt="Icono de ZORROMAPS"
+        style="height: 70px; width: auto; margin-left: 40px;">
     </div>
+    <div class="animated-text-container">
+      <div class="animated-text">¡  Bienvenido a ZorroMaps  !  </div>
+    </div>
+
+
+
+
+
+
+
+
+
     <div class="button-group">
       <button (click)="navegarInicio()" class="btn btn-primary">
         <i class="bi bi-house"></i> Inicio
@@ -33,5 +42,5 @@
     </div>-->
   </div>
 </header>
-<div style="margin-top: 87px;"> <!-- Ajusta la altura del margen superior según sea necesario -->
+<div style="margin-top: 110px;"> <!-- Ajusta la altura del margen superior según sea necesario -->
   <router-outlet></router-outlet>
