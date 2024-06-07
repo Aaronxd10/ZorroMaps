@@ -147,7 +147,7 @@ path {
   text-align: center; /* Centra el contenido horizontalmente */
 }
 label {
-  color:  #c2c2c5;
+  color:  #ffffff;
   display: block;
   font-size: 14px;
   height: 16px;
@@ -164,8 +164,8 @@ input {
   outline: none !important;
   width: 100%;
 }
-input::-moz-focus-inner { 
-  border: 0; 
+input::-moz-focus-inner {
+  border: 0;
 }
 
 #submit:focus {
@@ -182,6 +182,7 @@ input::-moz-focus-inner {
 }
 .form-control::placeholder {
   font-size: 12px; /* Tamaño de fuente más pequeño para el placeholder */
+  color: #c3ccc3;
 }
 input::placeholder {
   color: #ffffff; /* Cambiar el color del placeholder a blanco */

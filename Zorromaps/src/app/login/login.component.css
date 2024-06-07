@@ -130,7 +130,7 @@ path {
 
 .btn-primary {
   border-color: #007bff; /* Color del borde naranja */
-  background-color: #144efd;
+  background-color: #007bff;
 }
 
 .btn-secondary {
@@ -141,10 +141,11 @@ path {
 /*nuevo*/
 .btn-contra {
   border-color: #c96310;
-  background-color: #c96310;
-  color: #f2f2f2;
+  background-color: #f7883e;
+  color: #f4e0cd;
   text-decoration: underline;
   cursor: pointer;
+  margin-left: -20px;
 }
 
 .btn:hover {
@@ -162,7 +163,7 @@ path {
 /*nuevo*/
 .btn-contra:hover {
   border-color: #007bff;
-  background-color: #0360f7;
+  background-color: #f78903;
   color: #f4f4f4;
   text-decoration: underline;
   cursor: pointer;
