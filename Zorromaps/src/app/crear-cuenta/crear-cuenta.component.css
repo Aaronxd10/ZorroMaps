@@ -52,6 +52,7 @@ color: black;
   margin-top: 80px; /* Margen superior de 80px */
   color: white;
   text-align: center;
+  line-height: 1.5;;
 }
 
 .left {
@@ -88,7 +89,7 @@ color: black;
   color: #F1F1F2;
   position: relative;
   width: 50%;
-  height: 750px;
+  height: 600px;
 }
 @media (max-width: 767px) {
   .right {
@@ -112,7 +113,7 @@ path {
   margin: 30px;
   position: absolute;
   text-align: center; /* Centra el contenido horizontalmente */
-  
+
 }
 
 .button-container {
@@ -121,11 +122,9 @@ path {
 
 /* Estilos para los botones */
 .btn {
-  flex: 1;
-  display: inherit; /* Cambiado a bloque para que estén uno encima del otro */
+
   margin: 3px auto; /* Margen vertical reducido a 3px y centrado horizontalmente */
-  font-size: 14px;
-  padding: 5px 10px;
+  font-size: 16px;
   height: 50px;
   color: white;
   background-color: transparent;
@@ -136,6 +135,8 @@ path {
 .btn-primary {
   border-color: #007bff; /* Color del borde naranja */
   background-color: #fd7e14;
+  margin-left: -20px; /* Ajusta este valor según sea necesario */
+  width: 110%; /* Ajusta el ancho del botón según sea necesario */
 }
 
 .btn-secondary {
@@ -184,6 +185,8 @@ label {
 }
 .form-control::placeholder {
   font-size: 12px; /* Tamaño de fuente más pequeño para el placeholder */
+  color:#e0dad6
+
 }
 input {
   background: transparent;
@@ -231,7 +234,6 @@ p {
   width: 50%;
   max-height: 50%;
   overflow-y: auto;
-  margin-bottom: 50px;
   background-color: rgba(0,0,0,0.4); /* Fondo oscuro semitransparente */
   z-index: 2;
 }
@@ -281,3 +283,22 @@ p {
 .button-ojo {
   z-index: 1;
 }
+
+
+.form-check-label {
+  margin-left: -20px; /* Ajusta este valor según sea necesario */
+
+  font-family: Arial, sans-serif; /* Cambia la fuente del texto */
+  text-align: center;
+  font-size: 16px; /* Tamaño de fuente más pequeño */
+}
+
+.form-check-label a {
+  color: #003296; /* Cambia el color del enlace */
+  transition: color 0.3s ease; /* Agrega una transición suave al color del enlace */
+}
+
+.form-check-label a:hover {
+  color: #ffffff; /* Cambia el color del enlace al pasar el ratón por encima */
+}
+
