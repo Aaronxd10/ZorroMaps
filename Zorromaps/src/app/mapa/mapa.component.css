@@ -78,9 +78,9 @@
 
 /* Estilos para los botones */
 .btn-secondary {
-  background-color:rgb(252, 244, 234);
+  background-color:rgb(248, 205, 152);
   border: 2px solid #ff8c00; /* Borde naranja */
-  color: #ff8c00; /* Texto naranja */
+  color: #884604; /* Texto naranja */
   margin-right: 5px;
   font-size: 14px;
   transition: all 0.3s ease; /* Transición suave */
