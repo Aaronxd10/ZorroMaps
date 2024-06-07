@@ -46,17 +46,23 @@
 }
 
 
-/* Estilos para la barra de búsqueda */
-.input-group {
-  width: 500px;
-  margin: 0 auto; /* Centrar horizontalmente */
+/* Estilos generales para la barra de búsqueda */
+.search-bar {
+  max-width: 100%;
+  display: flex;
+  justify-content: center;
+  margin: 20px auto; /* Centrado horizontal y margen vertical */
 }
 
+/* Estilos para el input de la barra de búsqueda */
 .form-control {
   border-color: #ff8c00; /* Borde naranja */
   color: #333; /* Color del texto */
+  flex-grow: 1; /* Ocupa el espacio disponible */
+  min-width: 0; /* Permite que el input se encoja */
 }
 
+/* Estilos para el botón de la barra de búsqueda */
 .btn-primary {
   background-color: #ff8c00; /* Fondo naranja */
   border-color: #ff8c00; /* Borde naranja */
@@ -64,9 +70,28 @@
 }
 
 .btn-primary:hover {
-  background-color: #226ae6; /* Color naranja oscuro al pasar el ratón */
+  background-color: #226ae6; /* Fondo azul al pasar el ratón */
   border-color: #e67e22; /* Borde naranja oscuro al pasar el ratón */
 }
+
+/* Media queries para pantallas más grandes */
+@media (min-width: 768px) {
+  .search-bar {
+    max-width: 500px; /* Ancho máximo en pantallas medianas */
+  }
+}
+
+/* Media queries para pantallas pequeñas */
+@media (max-width: 767px) {
+  .search-bar {
+    flex-direction: column; /* Apilar elementos verticalmente */
+    width: 90%; /* Ocupa el 90% del ancho del contenedor */
+  }
+  .form-control {
+    margin-bottom: 10px; /* Margen inferior para separar del botón */
+  }
+}
+
 
 /* Estilos para las sugerencias */
 .sugerencias {
@@ -177,8 +202,10 @@ p {
   border: 2px solid #d95b5b; /* Borde gris claro */
   border-radius: 10px; /* Bordes redondeados */
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
-  width: calc(20% - 20px); /* El 50% del ancho menos el espacio entre los elementos */
-
+  width: 90%; /* El ancho ocupa casi todo el contenedor */
+  max-width: 400px; /* Ancho máximo */
+  margin: 20px auto; /* Centrado y espaciado alrededor */
+  margin-left: 15px;
 }
 
 .card-body {
@@ -198,10 +225,11 @@ p {
   border-radius: 5px; /* Bordes redondeados */
   line-height: 1.5; /* Espaciado entre líneas aumentado */
   font-size: 15px; /* Tamaño de fuente aumentado */
-  text-align: left;
-  font-family: "Comic Sans MS", cursive, sans-serif; /* Tipo de letra Comic Sans MS si está disponible, cursive como respaldo, y sans-serif como última opción */
-
+  text-align: left; /* Alineación del texto a la izquierda */
+  font-family: "Comic Sans MS", cursive, sans-serif; /* Fuente */
+  height: 100%; /* Altura del contenedor */
 }
+
 #ruta-container::-webkit-scrollbar {
   width: 8px; /* Ancho del scrollbar */
 }
@@ -215,6 +243,36 @@ p {
   background-color: #ff9f33; /* Color del scrollbar al pasar el ratón */
 }
 
+/* Estilos para pantallas más grandes */
+@media (min-width: 768px) {
+  .card {
+    width: 60%; /* Ajuste del ancho para pantallas más grandes */
+  }
+}
+
+/* Estilos para pantallas muy grandes */
+@media (min-width: 1024px) {
+  .card {
+    width: 50%; /* Ajuste del ancho para pantallas muy grandes */
+  }
+}
+
+/* Estilos para pantallas muy pequeñas */
+@media (max-width: 480px) {
+  .card {
+    width: 95%; /* Ancho casi completo para pantallas pequeñas */
+    max-width: 100%; /* Ancho máximo al 100% */
+  }
+  .card-body {
+    padding: 15px; /* Reducción del espaciado interno */
+  }
+  .card-title {
+    font-size: 1.2rem; /* Reducción del tamaño de la fuente */
+  }
+  #ruta-container {
+    font-size: 14px; /* Ajuste del tamaño de la fuente */
+  }
+}
 
 #map {
   width: calc(80% - 20px); /* El 50% del ancho menos el espacio entre los elementos */
